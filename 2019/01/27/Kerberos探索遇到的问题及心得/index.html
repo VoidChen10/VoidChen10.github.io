@@ -93,20 +93,20 @@
 
 
 
-<meta name="description" content="Kerberos在集群开启时做了什么kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。  注意，这些用户将只存在于创建这些用户的机器上 关于Hive执行HQL时count(*)会出错  Hive跟HDFS一样，在集群开启Kerberos后不需要特别的设置即可使用，然而在试图执行">
+<meta name="description" content="Kerberos在集群开启时做了什么kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。  注意，这些用户将只存在于创建这些用户的机器上">
 <meta name="keywords" content="Keeberos,集群安全">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kerberos探索遇到的问题及心得">
 <meta property="og:url" content="https://voidchen10.github.io/2019/01/27/Kerberos探索遇到的问题及心得/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="Kerberos在集群开启时做了什么kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。  注意，这些用户将只存在于创建这些用户的机器上 关于Hive执行HQL时count(*)会出错  Hive跟HDFS一样，在集群开启Kerberos后不需要特别的设置即可使用，然而在试图执行">
+<meta property="og:description" content="Kerberos在集群开启时做了什么kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。  注意，这些用户将只存在于创建这些用户的机器上">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.showdoc.cc/server/api/common/visitfile/sign/1e0e5300663c407a1a3f75ec815857a8?showdoc=.jpg">
 <meta property="og:image" content="https://www.showdoc.cc/server/api/common/visitfile/sign/948a9c1d34e2d8a6cf842ec96d463218?showdoc=.jpg">
-<meta property="og:updated_time" content="2019-01-30T06:45:00.879Z">
+<meta property="og:updated_time" content="2019-02-14T14:26:11.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Kerberos探索遇到的问题及心得">
-<meta name="twitter:description" content="Kerberos在集群开启时做了什么kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。  注意，这些用户将只存在于创建这些用户的机器上 关于Hive执行HQL时count(*)会出错  Hive跟HDFS一样，在集群开启Kerberos后不需要特别的设置即可使用，然而在试图执行">
+<meta name="twitter:description" content="Kerberos在集群开启时做了什么kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。  注意，这些用户将只存在于创建这些用户的机器上">
 <meta name="twitter:image" content="https://www.showdoc.cc/server/api/common/visitfile/sign/1e0e5300663c407a1a3f75ec815857a8?showdoc=.jpg">
 
 
@@ -408,7 +408,7 @@
       
 
       
-        <h2 id="Kerberos在集群开启时做了什么"><a href="#Kerberos在集群开启时做了什么" class="headerlink" title="Kerberos在集群开启时做了什么"></a>Kerberos在集群开启时做了什么</h2><p>kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。<br>  <strong>注意，这些用户将只存在于创建这些用户的机器上</strong></p>
+        <h2 id="Kerberos在集群开启时做了什么"><a href="#Kerberos在集群开启时做了什么" class="headerlink" title="Kerberos在集群开启时做了什么"></a>Kerberos在集群开启时做了什么</h2><p>kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。<br>  <strong>注意，这些用户将只存在于创建这些用户的机器上</strong><br><a id="more"></a></p>
 <h2 id="关于Hive执行HQL时count-会出错"><a href="#关于Hive执行HQL时count-会出错" class="headerlink" title="关于Hive执行HQL时count(*)会出错"></a>关于Hive执行HQL时count(*)会出错</h2><p>  Hive跟HDFS一样，在集群开启Kerberos后不需要特别的设置即可使用，然而在试图执行<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count( * ) from test</span><br></pre></td></tr></table></figure></p>
 <p>  时，会出现以下报错:</p>
 <p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/1e0e5300663c407a1a3f75ec815857a8?showdoc=.jpg" alt=""><br>  原因便是上面提到的，创建的用户只在创建的机器上有，而Hive这个<code>count</code>其实是启动了一个MapReduce在集群上跑，集群上其他的机器没有nassoft_m这个账号，所以报错说找不到用户名。</p>
