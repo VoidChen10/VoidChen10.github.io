@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1ac9bd;
+  background: #ff7ac2;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3002,10 +3002,35 @@ pre .javascript .function {
   }
 }
 .site-meta {
-  background: #6c9;
+  background: rgba(102,204,153,0.9);
 }
 .site-title {
   font-size: 22px;
   font-family: "Amaranth", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bold;
+}
+body {
+  background: url("/images/background.jpg");
+}
+.content-wrap {
+  background: rgba(255,255,255,0.85); /* 透明度为50%的白色 */
+}
+.header-inner {
+  background: rgba(255,255,255,0.85); /* 透明度为50%的白色 */
+}
+.sidebar {
+  background: rgba(255,255,255,0); /* 透明度为50%的白色 */
+}
+.sidebar-inner {
+  background: rgba(255,255,255,0.85); /* 透明度为50%的白色 */
+}
+.menu-item-active a {
+  background: rgba(221,221,221,0.75);
+}
+.menu-item-active a:after {
+  background-color: rgba(78,185,91,0.73);
+}
+.menu .menu-item a:hover,
+.menu-item-active a {
+  background: rgba(221,221,221,0.75);
 }
