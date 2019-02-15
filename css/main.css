@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0ff654;
+  background: #00fff7;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3033,4 +3033,10 @@ body {
 .menu .menu-item a:hover,
 .menu-item-active a {
   background: rgba(221,221,221,0.75);
+}
+.links-of-author-item {
+  width: 33%;
+}
+.site-overview {
+  text-align: center;
 }
