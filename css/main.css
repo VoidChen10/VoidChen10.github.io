@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #00fff7;
+  background: #c89830;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3039,4 +3039,7 @@ body {
 }
 .site-overview {
   text-align: center;
+}
+.headband {
+  background: rgba(255,255,255,0.85); /* 透明度为50%的白色 */
 }
