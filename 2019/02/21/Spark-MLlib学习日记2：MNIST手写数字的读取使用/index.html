@@ -82,7 +82,7 @@
 
 
 
-  <meta name="keywords" content="spark,MachineLeaning,MNIST手写数字,">
+  <meta name="keywords" content="spark,MachineLeaning,数据集,">
 
 
 
@@ -93,19 +93,19 @@
 
 
 
-<meta name="description" content="前言近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=重申一遍，我是沿着spark官网中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计，">
-<meta name="keywords" content="spark,MachineLeaning,MNIST手写数字">
+<meta name="description" content="前言&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;重申一遍，我是沿着spark官网中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，">
+<meta name="keywords" content="spark,MachineLeaning,数据集">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记2:MNIST手写数字的读取使用">
 <meta property="og:url" content="https://voidchen10.github.io/2019/02/21/Spark-MLlib学习日记2：MNIST手写数字的读取使用/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="前言近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=重申一遍，我是沿着spark官网中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计，">
+<meta property="og:description" content="前言&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;重申一遍，我是沿着spark官网中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0f1ocvq24j20hm082djf.jpg">
-<meta property="og:updated_time" content="2019-02-22T08:56:54.203Z">
+<meta property="og:updated_time" content="2019-02-25T03:43:25.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-MLlib学习日记2:MNIST手写数字的读取使用">
-<meta name="twitter:description" content="前言近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=重申一遍，我是沿着spark官网中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计，">
+<meta name="twitter:description" content="前言&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;重申一遍，我是沿着spark官网中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0f1ocvq24j20hm082djf.jpg">
 
 
@@ -409,10 +409,8 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=<br>重申一遍，我是沿着<a href="http://spark.apache.org/docs/latest/mllib-guide.html" target="_blank" rel="noopener">spark官网</a>中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计，没了解的可以先去看一下文档，后续会有用到。<br>好了，言归正传，今天要讲的是被称为机器学习界的“Hello world”，几乎每个入门系列都会用到的一个知名数据集——MNIST手写数字图像数据集，该系列的后续文章中也经常会用到，所以今天独立出来讲一下好了。<br><a id="more"></a></p>
-<h1 id="MNIST手写数字数据集"><a href="#MNIST手写数字数据集" class="headerlink" title="MNIST手写数字数据集"></a>MNIST手写数字数据集</h1><p>首先给出官网：<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">THE MNIST DATABASE of handwritten digits</a></p>
-<p>MNIST是一个经典的手写数字数据集，来自<strong>美国国家标准与技术研究所</strong>，由不同人手写的0至9的数字构成，由60000个训练样本集和10000个测试样本集构成，每个样本的尺寸为28x28，以二进制格式存储，如下图所示：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0f1ocvq24j20hm082djf.jpg" alt=""><br>这里有个比较坑的细节，就是数据采集都是外国人，他们的手写数字风格跟我们亚洲人的略有不同，这也导致识别我们自己手写的数字时候准确率下降了不少=。=</p>
-<p>下载下来之后是4个gz压缩包：</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&ensp;&ensp;&ensp;&ensp;近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=<br>&ensp;&ensp;&ensp;&ensp;重申一遍，我是沿着<a href="http://spark.apache.org/docs/latest/mllib-guide.html" target="_blank" rel="noopener">spark官网</a>中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计，没了解的可以先去看一下文档，后续会有用到。<br>&ensp;&ensp;&ensp;&ensp;好了，言归正传，今天要讲的是被称为机器学习界的“Hello world”，几乎每个入门系列都会用到的一个知名数据集——MNIST手写数字图像数据集，该系列的后续文章中也经常会用到，所以今天独立出来讲一下好了。<br><a id="more"></a></p>
+<h1 id="MNIST手写数字数据集"><a href="#MNIST手写数字数据集" class="headerlink" title="MNIST手写数字数据集"></a>MNIST手写数字数据集</h1><p>首先给出官网：<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">THE MNIST DATABASE of handwritten digits</a><br>MNIST是一个经典的手写数字数据集，来自<strong>美国国家标准与技术研究所</strong>，由不同人手写的0至9的数字构成，由60000个训练样本集和10000个测试样本集构成，每个样本的尺寸为28x28，以二进制格式存储，如下图所示：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0f1ocvq24j20hm082djf.jpg" alt=""><br>&ensp;&ensp;&ensp;&ensp;这里有个比较坑的细节，就是数据采集都是外国人，他们的手写数字风格跟我们亚洲人的略有不同，这也导致识别我们自己手写的数字时候准确率下降了不少=。=<br>下载下来之后是4个gz压缩包：</p>
 <ul>
 <li><a href="http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz" target="_blank" rel="noopener">train-images-idx3-ubyte.gz</a>:  training set images (9912422 bytes) </li>
 <li><a href="http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz" target="_blank" rel="noopener">train-labels-idx1-ubyte.gz</a>:  training set labels (28881 bytes) </li>
@@ -521,11 +519,17 @@
 </table>
 <p><strong>Pixels are organized row-wise. Pixel values are 0 to 255. 0 means background (white), 255 means foreground (black).</strong></p>
 </blockquote>
-<p>训练集和测试集的结构都是一样的。<br>其实一开始看到二进制文件我也是有点懵，因为以前工作也没接触过。不过看多两眼就明白了，以images数据集来说吧，这个<code>train-images-idx3-ubyte</code>文件，第<code>0000</code>字节到第<code>0003</code>字节，是一个<strong>32位int类型</strong>数字，值为2051的<a href="https://baike.baidu.com/item/%E9%AD%94%E6%95%B0" target="_blank" rel="noopener">魔数</a>。第<code>0004</code>字节到第<code>0007</code>字节也是一个32位int类型数字，转换过来值为60000，表示一共有60000个训练样本。第<code>0008</code>字节到第<code>00011</code>字节和第<code>0012</code>字节到第<code>0015</code>字节同理，代表着有<strong>28行</strong>和<strong>28列</strong>。<br>这里的行和列，其实就是一张图片的像素矩阵，也就是每个图片都有<code>28×28=784</code>个像素。所以说，<strong>从第16个字节开始，就是图片的每一个像素点</strong>了。说到这里可能会有些朋友担心，会不会每一张图片都是这么排下来呢？为此我去算了下这个二进制文件的长度，刚好就是<code>16+28*28*60000</code>,所以文件描述信息呢就之在文件开头出现了，后面的就是每张图片的像素连在一起了，图片的规格统一被处理成28*28的图片了。<br>因此，读取图片信息有了如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * 读取图像文件</span><br><span class="line">  * @param imagesPath</span><br><span class="line">  * @return</span><br><span class="line">  */</span><br><span class="line">def loadImages(imagesPath: String):  Array[Array[Byte]] =&#123;</span><br><span class="line"></span><br><span class="line">  val file = new File(imagesPath)</span><br><span class="line">  val in = new FileInputStream(file)</span><br><span class="line">  var trainingDS = new Array[Byte](file.length.toInt)</span><br><span class="line">  using(new FileInputStream(file)) &#123; source =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">      in.read(trainingDS)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //32 bit integer  0x00000803(2051) magic number</span><br><span class="line">  val magicNum = ByteBuffer.wrap(trainingDS.take(4)).getInt</span><br><span class="line">  println(s&quot;magicNum=$magicNum&quot;)</span><br><span class="line">  //32 bit integer  60000            number of items</span><br><span class="line">  val numOfItems = ByteBuffer.wrap(trainingDS.slice(4, 8)).getInt</span><br><span class="line">  println(s&quot;numOfItems=$numOfItems&quot;)</span><br><span class="line">  //32 bit integer  28               number of rows</span><br><span class="line">  val numOfRows = ByteBuffer.wrap(trainingDS.slice(8, 12)).getInt</span><br><span class="line">  println(s&quot;numOfRows=$numOfRows&quot;)</span><br><span class="line">  //32 bit integer  28               number of columns</span><br><span class="line">  val numOfCols = ByteBuffer.wrap(trainingDS.slice(12, 16)).getInt</span><br><span class="line">  println(s&quot;numOfCols=$numOfCols&quot;)</span><br><span class="line"></span><br><span class="line">  trainingDS = trainingDS.drop(16)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  val itemsBuffer = new ArrayBuffer[Array[Byte]]</span><br><span class="line">  for(i &lt;- 0 until numOfItems)&#123;</span><br><span class="line">    itemsBuffer += trainingDS.slice( i * numOfCols * numOfRows , (i+1) * numOfCols * numOfRows)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  itemsBuffer.toArray</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>代码里面提取了文件描述信息，并返回有每一张图片像素数据组成的数组。完整代码我放在github上了： <a href="https://github.com/VoidChen10/MachineLearning/blob/master/src/main/scala/SparkMLlib/Classification/NaiveBayesExample.scala" target="_blank" rel="noopener">完整代码</a><br>读取标签数据也是同理，在下一篇文章中，我将会详细讲述如何用标签和图片数据去做训练，敬请期待=。=</p>
-<p>其实数据集到这里已经是完成读取了，后续只要转换成spark MLlib的数据格式就能用了，<strong>但是！我在把像素值由二进制byte类型转换成double类型的时候，居然出现了负数</strong>。这是怎么回事呢，看官网说的，值应该是在0到255之间才对啊。再仔细看了一遍文件架构，发现标明的像素类型为<code>unsigned byte</code>，即无符号byte类型，在我学习java的时候，隐约记得有学过说java类型都是有符号的，第一位即是正负号。<br>于是去搜索了一下，找到了这篇文章：<a href="https://www.jianshu.com/p/db85f033e75c" target="_blank" rel="noopener">《Java中对于unsigned byte类型的转换处理》</a></p>
-<h1 id="把二进制像素值转换为Double类型数字"><a href="#把二进制像素值转换为Double类型数字" class="headerlink" title="把二进制像素值转换为Double类型数字"></a>把二进制像素值转换为Double类型数字</h1><p>由于Java中没有unsigned byte类型，所以一个字节只能表示（-128，127），而想要表示（0，255），也很简单，只要跟<code>0xFF</code>取<code>&amp;</code>操作即可。<br>原理其实就是正数的反码和补码都是其本身，负数的反码是对原码除了符号位之外作取反运算，补码则为反码+1。<br>更多细节可以参考：<a href="http://www.cnblogs.com/think-in-java/p/5527389.html" target="_blank" rel="noopener">《byte为什么要与上0xff？》</a>、<a href="https://www.jianshu.com/p/db85f033e75c" target="_blank" rel="noopener">《Java中对于unsigned byte类型的转换处理》</a><br>下面贴出我处理逻辑的部分代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val data = trainLabe.zip(trainImages).map( d =&gt;</span><br><span class="line">     LabeledPoint(d._1.toInt, Vectors.dense(d._2.map(p =&gt; (p &amp; 0xFF).toDouble)))</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-<h1 id="下期预告"><a href="#下期预告" class="headerlink" title="下期预告"></a>下期预告</h1><p>下一期我将会记录我用spark MLlib中提供的<strong>朴树叶贝斯</strong>算法，对该数据集进行训练，并用测试集测试。关于该数据集呢，其实还有一点要补充的，比如把自己的手写图片转换成MNIST标准格式，还有替代MNIST手写数字集的图像数据集<strong>Fashion MNIST</strong>，这些后续都会补充进该文章。持续更新ing…</p>
+<p>训练集和测试集的结构都是一样的，这里我就只贴出训练集的结构，标签是0到9的数字，图像则是0到255的像素值。</p>
+<p>其实一开始看到二进制文件我也是有点懵，因为以前工作也没接触过。不过看多两眼就明白了。<br>以images数据集来说吧，这个<code>train-images-idx3-ubyte</code>文件：</p>
+<ul>
+<li>第<code>0000</code>字节到第<code>0003</code>字节，是一个<strong>32位int类型</strong>数字，值为2051的<a href="https://baike.baidu.com/item/%E9%AD%94%E6%95%B0" target="_blank" rel="noopener">魔数</a>。</li>
+<li>第<code>0004</code>字节到第<code>0007</code>字节也是一个32位int类型数字，转换过来值为60000，表示一共有60000个训练样本。</li>
+<li>第<code>0008</code>字节到第<code>00011</code>字节和第<code>0012</code>字节到第<code>0015</code>字节同理，代表着有<strong>28行</strong>和<strong>28列</strong>。</li>
+</ul>
+<p>&ensp;&ensp;&ensp;&ensp;这里的行和列，其实就是一张图片的像素矩阵，也就是每个图片都有<code>28×28=784</code>个像素。所以说，<strong>从第16个字节开始，就是图片的每一个像素点的值</strong>了。<br>&ensp;&ensp;&ensp;&ensp;说到这里可能会有些朋友担心，会不会每一张图片都是这么排下来呢？为此我去算了下这个二进制文件的长度，刚好就是<code>16+28*28*60000</code>,所以文件描述信息呢就之在文件开头出现了，后面的就是每张图片的像素连在一起了，图片的规格统一被处理成28*28的图片了。<br>因此，读取图片信息有了如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * 读取图像文件</span><br><span class="line">  * @param imagesPath</span><br><span class="line">  * @return</span><br><span class="line">  */</span><br><span class="line">def loadImages(imagesPath: String):  Array[Array[Byte]] =&#123;</span><br><span class="line"></span><br><span class="line">  val file = new File(imagesPath)</span><br><span class="line">  val in = new FileInputStream(file)</span><br><span class="line">  var trainingDS = new Array[Byte](file.length.toInt)</span><br><span class="line">  using(new FileInputStream(file)) &#123; source =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">      in.read(trainingDS)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //32 bit integer  0x00000803(2051) magic number</span><br><span class="line">  val magicNum = ByteBuffer.wrap(trainingDS.take(4)).getInt</span><br><span class="line">  println(s&quot;magicNum=$magicNum&quot;)</span><br><span class="line">  //32 bit integer  60000            number of items</span><br><span class="line">  val numOfItems = ByteBuffer.wrap(trainingDS.slice(4, 8)).getInt</span><br><span class="line">  println(s&quot;numOfItems=$numOfItems&quot;)</span><br><span class="line">  //32 bit integer  28               number of rows</span><br><span class="line">  val numOfRows = ByteBuffer.wrap(trainingDS.slice(8, 12)).getInt</span><br><span class="line">  println(s&quot;numOfRows=$numOfRows&quot;)</span><br><span class="line">  //32 bit integer  28               number of columns</span><br><span class="line">  val numOfCols = ByteBuffer.wrap(trainingDS.slice(12, 16)).getInt</span><br><span class="line">  println(s&quot;numOfCols=$numOfCols&quot;)</span><br><span class="line"></span><br><span class="line">  trainingDS = trainingDS.drop(16)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  val itemsBuffer = new ArrayBuffer[Array[Byte]]</span><br><span class="line">  for(i &lt;- 0 until numOfItems)&#123;</span><br><span class="line">    itemsBuffer += trainingDS.slice( i * numOfCols * numOfRows , (i+1) * numOfCols * numOfRows)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  itemsBuffer.toArray</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>&ensp;&ensp;&ensp;&ensp;代码里面提取了文件描述信息，并返回有每一张图片像素数据组成的数组。完整代码我放在github上了： <a href="https://github.com/VoidChen10/MachineLearning/blob/master/src/main/scala/SparkMLlib/Classification/NaiveBayesExample.scala" target="_blank" rel="noopener">完整代码</a><br>&ensp;&ensp;&ensp;&ensp;读取标签数据也是同理，在下一篇文章中，我将会详细讲述如何用标签和图片数据去做训练，敬请期待=。=<br>&ensp;&ensp;&ensp;&ensp;其实数据集到这里已经是完成读取了，后续只要转换成spark MLlib的数据格式就能用了，<strong>但是！我在把像素值由二进制byte类型转换成double类型的时候，居然出现了负数</strong>。这是怎么回事呢，看官网说的，值应该是在0到255之间才对啊。再仔细看了一遍文件架构，发现标明的像素类型为<code>unsigned byte</code>，即无符号byte类型，在我学习java的时候，隐约记得有学过说java类型都是有符号的，第一位即是正负号。<br>于是去搜索了一下，找到了这篇文章：<a href="https://www.jianshu.com/p/db85f033e75c" target="_blank" rel="noopener">《Java中对于unsigned byte类型的转换处理》</a></p>
+<h1 id="把二进制像素值转换为Double类型数字"><a href="#把二进制像素值转换为Double类型数字" class="headerlink" title="把二进制像素值转换为Double类型数字"></a>把二进制像素值转换为Double类型数字</h1><p>&ensp;&ensp;&ensp;&ensp;由于Java中没有unsigned byte类型，所以一个字节只能表示（-128，127），而想要表示（0，255），也很简单，只要跟<code>0xFF</code>取<code>&amp;</code>操作即可。<br>原理其实就是正数的反码和补码都是其本身，负数的反码是对原码除了符号位之外作取反运算，补码则为反码+1。<br>&ensp;&ensp;&ensp;&ensp;更多细节可以参考：<a href="http://www.cnblogs.com/think-in-java/p/5527389.html" target="_blank" rel="noopener">《byte为什么要与上0xff？》</a>、<a href="https://www.jianshu.com/p/db85f033e75c" target="_blank" rel="noopener">《Java中对于unsigned byte类型的转换处理》</a><br>下面贴出我处理逻辑的部分代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val data = trainLabe.zip(trainImages).map( d =&gt;</span><br><span class="line">     LabeledPoint(d._1.toInt, Vectors.dense(d._2.map(p =&gt; (p &amp; 0xFF).toDouble)))</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<h1 id="下期预告"><a href="#下期预告" class="headerlink" title="下期预告"></a>下期预告</h1><p>&ensp;&ensp;&ensp;&ensp;下一期我将会记录我用spark MLlib中提供的<strong>朴树贝叶斯</strong>算法，对该数据集进行训练，并用测试集测试。关于该数据集呢，其实还有一点要补充的，比如把自己的手写图片转换成MNIST标准格式，还有替代MNIST手写数字集的图像数据集<strong>Fashion MNIST</strong>，这些后续都会补充进该文章。持续更新ing…</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">《THE MNIST DATABASE of handwritten digits》</a></li>
 <li><a href="https://blog.csdn.net/YF_Li123/article/details/76710028" target="_blank" rel="noopener">《（超详细）读取mnist数据集并保存成图片》</a></li>
@@ -571,7 +575,7 @@
           
             <a href="/tags/MachineLeaning/" rel="tag"># MachineLeaning</a>
           
-            <a href="/tags/MNIST手写数字/" rel="tag"># MNIST手写数字</a>
+            <a href="/tags/数据集/" rel="tag"># 数据集</a>
           
         </div>
       
@@ -593,6 +597,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/" rel="prev" title="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片">
+                Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -676,7 +684,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -698,7 +706,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

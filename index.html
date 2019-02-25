@@ -310,6 +310,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://voidchen10.github.io/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="VoidChen10">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="「旅の途中」">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/" itemprop="url">Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片</a></h2>
+        
+
+        <div class="post-meta">
+		  
+            <i class="fa fa-thumb-tack"></i>
+            <font color="FF4500">置顶</font>
+            <span class="post-meta-divider">|</span>
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T18:37:19+08:00">
+                2019-02-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spark-MLlib学习日记/" itemprop="url" rel="index">
+                    <span itemprop="name">Spark-MLlib学习日记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&ensp;&ensp;&ensp;&ensp;上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——<strong>朴素贝叶斯</strong>算法(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </p></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://voidchen10.github.io/2019/02/21/Spark-MLlib学习日记2：MNIST手写数字的读取使用/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -404,7 +556,7 @@
 
       
         
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=<br>重申一遍，我是沿着<a href="http://spark.apache.org/docs/latest/mllib-guide.html" target="_blank" rel="noopener">spark官网</a>中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计，没了解的可以先去看一下文档，后续会有用到。<br>好了，言归正传，今天要讲的是被称为机器学习界的“Hello world”，几乎每个入门系列都会用到的一个知名数据集——MNIST手写数字图像数据集，该系列的后续文章中也经常会用到，所以今天独立出来讲一下好了。<br>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&ensp;&ensp;&ensp;&ensp;近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=<br>&ensp;&ensp;&ensp;&ensp;重申一遍，我是沿着<a href="http://spark.apache.org/docs/latest/mllib-guide.html" target="_blank" rel="noopener">spark官网</a>中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计，没了解的可以先去看一下文档，后续会有用到。<br>&ensp;&ensp;&ensp;&ensp;好了，言归正传，今天要讲的是被称为机器学习界的“Hello world”，几乎每个入门系列都会用到的一个知名数据集——MNIST手写数字图像数据集，该系列的后续文章中也经常会用到，所以今天独立出来讲一下好了。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/21/Spark-MLlib学习日记2：MNIST手写数字的读取使用/#more" rel="contents">
@@ -552,7 +704,7 @@
 
       
         
-          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>前两天听了赵方婧小姐姐翻唱的《知否》，惊为天人，就点了颗心收藏了。结果今天在点开一看。居然没有版权了！！！<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g05thx8mfcj20s90blwfm.jpg" alt=""><br>这也不是一次两次了，充了两个会员跟没充一样，说下架就下架，喜欢的歌听不到，这怎么能忍！<br>
+          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>&ensp;&ensp;&ensp;&ensp;前两天听了赵方婧小姐姐翻唱的《知否》，惊为天人，就点了颗心收藏了。结果今天在点开一看。居然没有版权了！！！<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g05thx8mfcj20s90blwfm.jpg" alt=""><br>&ensp;&ensp;&ensp;&ensp;这也不是一次两次了，充了两个会员跟没充一样，说下架就下架，喜欢的歌听不到，这怎么能忍！<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/14/小技巧！从网易云音乐缓存中获取版权失效的音乐/#more" rel="contents">
@@ -700,7 +852,7 @@
 
       
         
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。<br>由于公司用的是Spark，所以从<strong>Spark MLlib</strong>开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望看到这篇文章地小伙伴也能下定决心，一起攻克机器学习。<br>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&ensp;&ensp;&ensp;&ensp;作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。<br>由于公司用的是Spark，所以从<strong>Spark MLlib</strong>开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望看到这篇文章地小伙伴也能下定决心，一起攻克机器学习。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/01/30/Spark-MLlib学习日记1：K-means聚类分析/#more" rel="contents">
@@ -937,7 +1089,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -959,7 +1111,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
