@@ -101,20 +101,16 @@
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="前言&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——朴素贝叶斯算法(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij417ue9g204100j0eh.gif">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7kw5h9g204000j0fk.gif">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7rrxbsg206100j0pu.gif">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7y9za2g209u00ja9t.gif">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij8481rvg201d00e078.gif">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0j2dixeetj20m8066aab.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij9nmg98g20l800jgle.gif">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ijac3bdag20520170sh.gif">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ijax57x1g20et01ha9u.gif">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ip8sx2fpj20jj04wweu.jpg">
-<meta property="og:updated_time" content="2019-02-25T14:53:02.770Z">
+<meta property="og:updated_time" content="2019-02-25T15:01:19.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片">
 <meta name="twitter:description" content="前言&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——朴素贝叶斯算法(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij417ue9g204100j0eh.gif">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0j2dixeetj20m8066aab.jpg">
 
 
 
@@ -425,17 +421,10 @@
 <h1 id="朴素贝叶斯算法原理"><a href="#朴素贝叶斯算法原理" class="headerlink" title="朴素贝叶斯算法原理"></a>朴素贝叶斯算法原理</h1><p>&ensp;&ensp;&ensp;&ensp;不得不说，这个名字起得太贴切了，在我了解完这个算法之后，才知道他真的很“朴素”。。。</p>
 <h3 id="关于分类问题"><a href="#关于分类问题" class="headerlink" title="关于分类问题"></a>关于分类问题</h3><p>&ensp;&ensp;&ensp;&ensp;先来感性认识一下这个算法，朴素贝叶斯算法是一个分类算法，对于分类，其实我们并不陌生，在生活中我们也常常会下意思地对事物进行“分类”： 例如走在街上，看到一个路人，我们会下意思地去判断是男是女；别人请你吃水果，看一眼就分辨出是苹果还是橘子；在奶茶店买一杯茶，看茶汤颜色会判断是红茶还是绿茶或者是乌龙茶。这里例子都说明了一件事，我们生活中无时无刻都在对事物进行着分类。<br>&ensp;&ensp;&ensp;&ensp;但是分类的前提，是我们得<strong>对这个事物有基本的认知</strong>，比如，舍友给了我一个牛油果，但是我没吃过牛油果，所以我不能准确地把它分类到“牛油果”这个类别去，虽然我不能明确他的分类，但是我能确定它不是“衣服”，因为它的<strong>特征</strong>跟衣服完全不一致，根据已知的事物中，它的特征跟“水果”最像，所以它是水果的<strong>概率</strong>最高，所以我们会把他分类到“水果”去。<br>&ensp;&ensp;&ensp;&ensp;看到是不是觉得有点“朴素”。。。对的，朴素贝叶斯算法，听起来好像很厉害，实际上就是这么一个“朴素”的思想，在已知的条件下，选出概率最高的一个类别作为该项的分类，“朴素”到我这种数学渣渣都露出了会心的微笑2333333</p>
 <h3 id="朴素贝叶斯分类的数学原理与流程"><a href="#朴素贝叶斯分类的数学原理与流程" class="headerlink" title="朴素贝叶斯分类的数学原理与流程"></a>朴素贝叶斯分类的数学原理与流程</h3><blockquote>
-<p>朴素贝叶斯分类的正式定义如下：</p>
-<ol>
-<li>设<img style="margin: auto;display:inline;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij417ue9g204100j0eh.gif">为一个待分类项，而每个a为x的一个特征属性。</li>
-<li>有类别集合<img style="margin: auto;display:inline;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7kw5h9g204000j0fk.gif">。</li>
-<li>计算<img style="margin: auto;display:inline;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7rrxbsg206100j0pu.gif">。</li>
-<li>如果<img style="margin: auto;display:inline;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7y9za2g209u00ja9t.gif">，则<img style="margin: auto;display:inline;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij8481rvg201d00e078.gif">。</li>
-</ol>
-<p>那么现在的关键就是如何计算第3步中的各个条件概率。我们可以这么做：</p>
+<p>朴素贝叶斯分类的正式定义如下：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0j2dixeetj20m8066aab.jpg" alt=""><br>那么现在的关键就是如何计算第3步中的各个条件概率。我们可以这么做：</p>
 <ol>
 <li>找到一个已知分类的待分类项集合，这个集合叫做训练样本集。</li>
-<li>统计得到在各类别下各个特征属性的条件概率估计,即：<img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij9nmg98g20l800jgle.gif" alt="">。</li>
+<li>统计得到在各类别下各个特征属性的条件概率估计,即：<img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij9nmg98g20l800jgle.gif" alt=""></li>
 <li>如果各个特征属性是条件独立的，则根据贝叶斯定理有如下推导：<img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ijac3bdag20520170sh.gif" alt=""> </li>
 </ol>
 <p>因为分母对于所有类别为常数，因为我们只要将分子最大化皆可。又因为各特征属性是条件独立的，所以有：<img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ijax57x1g20et01ha9u.gif" alt=""><br>对于朴素贝叶斯在机器学习上解决分类问题，主要是分为三个阶段：<br>&ensp;&ensp;&ensp;&ensp;第一阶段——准备工作阶段，这个阶段的任务是为朴素贝叶斯分类做必要的准备，主要工作是根据具体情况确定特征属性，并对每个特征属性进行适当划分，然后由人工对一部分待分类项进行分类，形成训练样本集合。这一阶段的输入是所有待分类数据，输出是特征属性和训练样本。这一阶段是整个朴素贝叶斯分类中唯一需要人工完成的阶段，其质量对整个过程将有重要影响，分类器的质量很大程度上由特征属性、特征属性划分及训练样本质量决定。<br>&ensp;&ensp;&ensp;&ensp;第二阶段——分类器训练阶段，这个阶段的任务就是生成分类器，主要工作是计算每个类别在训练样本中的出现频率及每个特征属性划分对每个类别的条件概率估计，并将结果记录。其输入是特征属性和训练样本，输出是分类器。这一阶段是机械性阶段，根据前面讨论的公式可以由程序自动计算完成。<br>&ensp;&ensp;&ensp;&ensp;第三阶段——应用阶段。这个阶段的任务是使用分类器对待分类项进行分类，其输入是分类器和待分类项，输出是待分类项与类别的映射关系。这一阶段也是机械性阶段，由程序完成。</p>
