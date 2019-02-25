@@ -110,7 +110,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ijac3bdag20520170sh.gif">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ijax57x1g20et01ha9u.gif">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ip8sx2fpj20jj04wweu.jpg">
-<meta property="og:updated_time" content="2019-02-25T07:53:22.794Z">
+<meta property="og:updated_time" content="2019-02-25T14:53:02.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片">
 <meta name="twitter:description" content="前言&amp;ensp;&amp;ensp;&amp;ensp;&amp;ensp;上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——朴素贝叶斯算法(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。">
@@ -427,10 +427,10 @@
 <h3 id="朴素贝叶斯分类的数学原理与流程"><a href="#朴素贝叶斯分类的数学原理与流程" class="headerlink" title="朴素贝叶斯分类的数学原理与流程"></a>朴素贝叶斯分类的数学原理与流程</h3><blockquote>
 <p>朴素贝叶斯分类的正式定义如下：</p>
 <ol>
-<li>设<img style="margin: auto;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij417ue9g204100j0eh.gif">为一个待分类项，而每个a为x的一个特征属性。</li>
-<li>有类别集合<img style="margin: auto;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7kw5h9g204000j0fk.gif">。</li>
-<li>计算<img style="margin: auto;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7rrxbsg206100j0pu.gif">。</li>
-<li>如果<img style="margin: auto;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7y9za2g209u00ja9t.gif">，则<img style="margin: auto;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij8481rvg201d00e078.gif">。</li>
+<li>设<img style="margin: auto;display:inline;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij417ue9g204100j0eh.gif">为一个待分类项，而每个a为x的一个特征属性。</li>
+<li>有类别集合<img style="margin: auto;display:inline;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7kw5h9g204000j0fk.gif">。</li>
+<li>计算<img style="margin: auto;display:inline;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7rrxbsg206100j0pu.gif">。</li>
+<li>如果<img style="margin: auto;display:inline;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij7y9za2g209u00ja9t.gif">，则<img style="margin: auto;display:inline;" src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ij8481rvg201d00e078.gif">。</li>
 </ol>
 <p>那么现在的关键就是如何计算第3步中的各个条件概率。我们可以这么做：</p>
 <ol>
@@ -441,15 +441,18 @@
 <p>因为分母对于所有类别为常数，因为我们只要将分子最大化皆可。又因为各特征属性是条件独立的，所以有：<img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ijax57x1g20et01ha9u.gif" alt=""><br>对于朴素贝叶斯在机器学习上解决分类问题，主要是分为三个阶段：<br>&ensp;&ensp;&ensp;&ensp;第一阶段——准备工作阶段，这个阶段的任务是为朴素贝叶斯分类做必要的准备，主要工作是根据具体情况确定特征属性，并对每个特征属性进行适当划分，然后由人工对一部分待分类项进行分类，形成训练样本集合。这一阶段的输入是所有待分类数据，输出是特征属性和训练样本。这一阶段是整个朴素贝叶斯分类中唯一需要人工完成的阶段，其质量对整个过程将有重要影响，分类器的质量很大程度上由特征属性、特征属性划分及训练样本质量决定。<br>&ensp;&ensp;&ensp;&ensp;第二阶段——分类器训练阶段，这个阶段的任务就是生成分类器，主要工作是计算每个类别在训练样本中的出现频率及每个特征属性划分对每个类别的条件概率估计，并将结果记录。其输入是特征属性和训练样本，输出是分类器。这一阶段是机械性阶段，根据前面讨论的公式可以由程序自动计算完成。<br>&ensp;&ensp;&ensp;&ensp;第三阶段——应用阶段。这个阶段的任务是使用分类器对待分类项进行分类，其输入是分类器和待分类项，输出是待分类项与类别的映射关系。这一阶段也是机械性阶段，由程序完成。</p>
 </blockquote>
 <p><em>以上引用自： <a href="http://www.cnblogs.com/leoo2sk/archive/2010/09/17/naive-bayesian-classifier.html" target="_blank" rel="noopener">《算法杂货铺——分类算法之朴素贝叶斯分类(Naive Bayesian classification)》</a></em></p>
-<h1 id="朴素贝叶斯的应用场景和局限"><a href="#朴素贝叶斯的应用场景和局限" class="headerlink" title="朴素贝叶斯的应用场景和局限"></a>朴素贝叶斯的应用场景和局限</h1><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
+<h1 id="朴素贝叶斯的应用场景和局限"><a href="#朴素贝叶斯的应用场景和局限" class="headerlink" title="朴素贝叶斯的应用场景和局限"></a>朴素贝叶斯的应用场景和局限</h1><p><strong>优点：</strong></p>
+<ul>
 <li>算法简单容易理解，对分类结果的可解释性较强</li>
 <li>对小规模的数据表现很好，能个处理多分类任务，适合增量式训练。</li>
 </ul>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
+<p><strong>缺点：</strong></p>
+<ul>
 <li>需要明确有哪些分类，如果给定没有出现过的类和特征，则该类别的条件概率估计将出现0，该问题被称为“零条件概率问题”。</li>
 <li>特征之间独立的假设非常强。 在现实生活中几乎很难找到这样的数据集。在属性个数比较多或者属性之间相关性较大时，朴素贝叶斯分类模型的分类效率低。而在属性相关性较小时，朴素贝叶斯分类模型的性能最为良好。</li>
 </ul>
-<h4 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h4><ul>
+<p><strong>应用场景：</strong></p>
+<ul>
 <li>欺诈检测中使用较多</li>
 <li>垃圾邮件过滤</li>
 <li>文本分类</li>
@@ -684,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯算法原理"><span class="nav-number">2.</span> <span class="nav-text">朴素贝叶斯算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于分类问题"><span class="nav-number">2.0.1.</span> <span class="nav-text">关于分类问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#朴素贝叶斯分类的数学原理与流程"><span class="nav-number">2.0.2.</span> <span class="nav-text">朴素贝叶斯分类的数学原理与流程</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯的应用场景和局限"><span class="nav-number">3.</span> <span class="nav-text">朴素贝叶斯的应用场景和局限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#优点"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缺点"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用场景"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯在Spark-MLlib中的使用"><span class="nav-number">4.</span> <span class="nav-text">朴素贝叶斯在Spark MLlib中的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯算法原理"><span class="nav-number">2.</span> <span class="nav-text">朴素贝叶斯算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于分类问题"><span class="nav-number">2.0.1.</span> <span class="nav-text">关于分类问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#朴素贝叶斯分类的数学原理与流程"><span class="nav-number">2.0.2.</span> <span class="nav-text">朴素贝叶斯分类的数学原理与流程</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯的应用场景和局限"><span class="nav-number">3.</span> <span class="nav-text">朴素贝叶斯的应用场景和局限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯在Spark-MLlib中的使用"><span class="nav-number">4.</span> <span class="nav-text">朴素贝叶斯在Spark MLlib中的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></div>
             
 
           </div>
