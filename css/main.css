@@ -1833,7 +1833,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #456a08;
+  background: #0fff69;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3002,7 +3002,7 @@ pre .javascript .function {
   }
 }
 .site-meta {
-  background: rgba(102,204,153,0.9);
+  background: rgba(255,206,123,0.9); /* rgba(102,204,153,0.9); */
 }
 .site-title {
   font-size: 22px;
@@ -3032,7 +3032,7 @@ body {
 }
 .menu .menu-item a:hover,
 .menu-item-active a {
-  background: rgba(221,221,221,0.75);
+  background: rgba(254,250,219,0.659); /* background: rgba(221, 221, 221, 0.75); */
 }
 .links-of-author-item {
   width: 33%;
@@ -3044,7 +3044,7 @@ body {
   background: rgba(255,255,255,0.85); /* 透明度为50%的白色 */
 }
 a {
-  color: rgba(0,113,178,0.82); /* 超链接颜色 */
+  color: rgba(250,167,85,0.9); /* #0071b2d1;   超链接颜色 */
   border-bottom: 1px solid #ccc; /* 下划线颜色 */
 }
 a:hover {
