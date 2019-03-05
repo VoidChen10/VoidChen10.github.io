@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://voidchen10.github.io/2019/02/28/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B04%EF%BC%9A%E5%B0%86%E8%87%AA%E5%B7%B1%E6%89%8B%E5%86%99%E7%9A%84%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%88%90MNIST%E6%A0%BC%E5%BC%8F/</loc>
+    <loc>https://voidchen.cn/2019/02/21/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B02%EF%BC%9AMNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E7%9A%84%E8%AF%BB%E5%8F%96%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2019-03-05</lastmod>
+  </url>  <url>
+    <loc>https://voidchen.cn/2019/02/28/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B04%EF%BC%9A%E5%B0%86%E8%87%AA%E5%B7%B1%E6%89%8B%E5%86%99%E7%9A%84%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%88%90MNIST%E6%A0%BC%E5%BC%8F/</loc>
     <lastmod>2019-03-04</lastmod>
   </url>  <url>
-    <loc>https://voidchen10.github.io/2019/02/14/%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%81%E4%BB%8E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%BC%93%E5%AD%98%E4%B8%AD%E8%8E%B7%E5%8F%96%E7%89%88%E6%9D%83%E5%A4%B1%E6%95%88%E7%9A%84%E9%9F%B3%E4%B9%90/</loc>
+    <loc>https://voidchen.cn/2019/02/14/%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%81%E4%BB%8E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%BC%93%E5%AD%98%E4%B8%AD%E8%8E%B7%E5%8F%96%E7%89%88%E6%9D%83%E5%A4%B1%E6%95%88%E7%9A%84%E9%9F%B3%E4%B9%90/</loc>
     <lastmod>2019-02-28</lastmod>
   </url>  <url>
-    <loc>https://voidchen10.github.io/2019/02/21/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B02%EF%BC%9AMNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E7%9A%84%E8%AF%BB%E5%8F%96%E4%BD%BF%E7%94%A8/</loc>
+    <loc>https://voidchen.cn/2019/01/30/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B01%EF%BC%9AK-means%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/</loc>
     <lastmod>2019-02-28</lastmod>
   </url>  <url>
-    <loc>https://voidchen10.github.io/2019/01/30/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B01%EF%BC%9AK-means%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/</loc>
+    <loc>https://voidchen.cn/2019/02/24/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B03%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E5%9B%BE%E7%89%87/</loc>
     <lastmod>2019-02-28</lastmod>
   </url>  <url>
-    <loc>https://voidchen10.github.io/2019/02/24/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B03%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E5%9B%BE%E7%89%87/</loc>
-    <lastmod>2019-02-28</lastmod>
-  </url>  <url>
-    <loc>https://voidchen10.github.io/2019/01/27/Kerberos%E6%8E%A2%E7%B4%A2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%BF%83%E5%BE%97/</loc>
+    <loc>https://voidchen.cn/2019/01/27/Kerberos%E6%8E%A2%E7%B4%A2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-02-14</lastmod>
   </url>
 </urlset>
