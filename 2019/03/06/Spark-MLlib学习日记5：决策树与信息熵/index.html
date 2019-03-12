@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="Machine Learning,spark,chen10">
+  <meta name="keywords" content="算法,MachineLeaning,分类,">
 
 
 
@@ -94,16 +94,21 @@
 
 
 
-<meta name="description" content="spark,ML">
-<meta property="og:type" content="website">
-<meta property="og:title" content="「旅の途中」">
-<meta property="og:url" content="https://voidchen.cn/tags/spark/index.html">
+<meta name="description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，信息熵还概率是相对的，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。">
+<meta name="keywords" content="算法,MachineLeaning,分类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark-MLlib学习日记5：决策树与信息熵">
+<meta property="og:url" content="https://voidchen.cn/2019/03/06/Spark-MLlib学习日记5：决策树与信息熵/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="spark,ML">
+<meta property="og:description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，信息熵还概率是相对的，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v8prnt4xj20js0czgn4.jpg">
+<meta property="og:updated_time" content="2019-03-10T17:09:13.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="「旅の途中」">
-<meta name="twitter:description" content="spark,ML">
+<meta name="twitter:title" content="Spark-MLlib学习日记5：决策树与信息熵">
+<meta name="twitter:description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，信息熵还概率是相对的，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg">
 
 
 
@@ -133,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/tags/spark/">
+  <link rel="canonical" href="https://voidchen.cn/2019/03/06/Spark-MLlib学习日记5：决策树与信息熵/">
 
 
 
@@ -142,7 +147,7 @@
 
 
 
-  <title>标签: spark | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Spark-MLlib学习日记5：决策树与信息熵 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -161,7 +166,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -297,78 +302,300 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>spark<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/2019/03/06/Spark-MLlib学习日记5：决策树与信息熵/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="VoidChen10">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="「旅の途中」">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/" itemprop="url">
-              
-                <span itemprop="name">Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Spark-MLlib学习日记5：决策树与信息熵</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-02-24T18:37:19+08:00" content="2019-02-24">
-          02-24
-        </time>
-      </div>
+        <div class="post-meta">
+		  
 
-    </header>
-  </article>
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-06T16:08:15+08:00">
+                2019-03-06
+              </time>
+            
 
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spark-MLlib学习日记/" itemprop="url" rel="index">
+                    <span itemprop="name">Spark-MLlib学习日记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，信息熵还概率是相对的，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。</p>
+<a id="more"></a>
+<h2 id="什么是决策树"><a href="#什么是决策树" class="headerlink" title="什么是决策树"></a>什么是决策树</h2><p>其实按照字面的理解，就是一棵帮助你做决策的树，二叉树又或者是非二叉树，树的节点就是if … else … 的判断，期望每一次的判断都是最好的决定，一直到最后获得预期最好的结果。这种策略也被称为<strong>贪心算法</strong>。</p>
+<p>当然，这只是我的个人看法，处于一个初学者的见解而已，下面给出决策树的定义：</p>
+<blockquote>
+<p><strong>决策树（decision tree）是一个树结构（可以是二叉树或非二叉树）。其每个非叶节点表示一个特征属性上的测试，每个分支代表这个特征属性在某个值域上的输出，而每个叶节点存放一个类别。使用决策树进行决策的过程就是从根节点开始，测试待分类项中相应的特征属性，并按照其值选择输出分支，直到到达叶子节点，将叶子节点存放的类别作为决策结果。</strong></p>
+</blockquote>
+<p>生硬的定义也不太好理解，我们举个具体的例子。（来自《Spark MLlib机器学习实践》——黄晓华）</p>
+<p>小明喜欢出去玩，大多数情况他会选择天气好的条件出去，但是偶尔也会选择天气差的时候出去，而天气的标准又有如下4个属性：</p>
+<ul>
+<li>温度</li>
+<li>起风</li>
+<li>下雨</li>
+<li>湿度</li>
+</ul>
+<p>为了简便起见，这里的每个属性均二值化为0和1，例如温度高用1表示，温度低用0表示，有如下具体记录表格：</p>
+<table>
+<thead>
+<tr>
+<th>温度</th>
+<th>起风</th>
+<th>下雨</th>
+<th>湿度</th>
+<th>出去玩</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>根据这个表格，我们来尝试构造一颗决策树，例如将是否起风作为根节点，能得出以下半成品树：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg" alt=""></p>
+<p>根据表格的数据，在得知是否会起风的情况下，再根据剩余的属性来判断小明是否会出去玩，比如说起风了之后，得到左子树的数据表格，明显可以看到，高温的时候就会出去玩，而低温这不会出去玩。像这样，确定了一个属性之后不断往下构造决策树，最终得到完整决策树如下：</p>
+<p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v8prnt4xj20js0czgn4.jpg" alt=""><br>就这样，我们一步一步就构建了一个决策树出来了，从图上看起来，就是不断地if … else …作出决定嘛，好像也没什么嘛。事实上真的是这样的吗？为什么要吧 <code>起风</code> 放在根节点呢？为什么不能放 <code>温度</code> 呢？ 我们如何去判断把哪个属性作为根节点往下分裂呢？这就要提到了决策树的基础理论——信息熵</p>
+<h2 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h2><iframe src="//player.bilibili.com/player.html?aid=41387095&cid=72688781&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/30/Spark-MLlib学习日记1：K-means聚类分析/" itemprop="url">
-              
-                <span itemprop="name">Spark-MLlib学习日记1：K-means聚类分析</span>
-              
-            </a>
-        
-      </h3>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-30T14:40:31+08:00" content="2019-01-30">
-          01-30
-        </time>
-      </div>
 
-    </header>
-  </article>
-
+<p>未完待续</p>
+<h2 id="相关术语与名词"><a href="#相关术语与名词" class="headerlink" title="相关术语与名词"></a>相关术语与名词</h2><h3 id="节点杂质（node-impurity）："><a href="#节点杂质（node-impurity）：" class="headerlink" title="节点杂质（node impurity）："></a>节点杂质（<em>node impurity</em>）：</h3><p><strong>节点杂质</strong>是节点处标签的均匀度的量度。<br>一开始不太理解，国内基本都是直接翻译过来并没有很好的解释什么叫节点杂质。然后看到一个国外前辈给出的一个例子，直接搬来：</p>
+<blockquote>
+<p>In simple terms, let’s say you are trying to predict whether you will go out or not based on weather parameters.</p>
+<p>If it is raining you will definitely not go. So all observations at this point are ‘No’ i.e. pure node</p>
+<p>While if is is not raining you will check weather temperature is below 20 C then “yes” else “no”. This node is impure node.</p>
+<p>You can measure this impurity based on metric of your choice. Thus deciding how you split the variables (concept from decision trees <a href="https://www.youtube.com/watch?v=Zze7SKuz9QQ" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Zze7SKuz9QQ</a>)</p>
+<p>You can choose your impurity measure based on requirement as Peter has suggested.</p>
+</blockquote>
+<p>就是说这个节点不纯度，其实是衡量这个节点能够直接给出结论，能给出多少程度的结论，这个多少程度就是节点不纯度，它应该是一个可以衡量的单位，例如基尼不纯度，信息熵，方差之类的。</p>
+<p>再直观点去看，看我上面给出的那颗树，温度高低这个节点能直接决定出不出去玩，那么这个节点就是<strong>“纯洁的节点”</strong>，可以说节点不纯度为0%，因为它给出的<strong>“信息”</strong>足以帮我们确定一个<strong>事实</strong>。而是否下雨这个节点不能完全帮我们下定论，如果不下雨的话还要看湿度这个节点，那么可以说下雨这个节点是<strong>“有杂质的节点”</strong>，节点不纯度为50%（当然具体计算肯定不是这样，下面有公式）。</p>
+<p>以上皆属于个人理解，如有偏差欢迎留言指正。</p>
+<h3 id="基尼不纯度（Gini-Impurity）："><a href="#基尼不纯度（Gini-Impurity）：" class="headerlink" title="基尼不纯度（Gini Impurity）："></a>基尼不纯度（<em>Gini Impurity</em>）：</h3><p><strong>基尼不纯度：</strong>将来自集合的某种结果随机应用于某一数据项的预期误差率。大概意思是 一个随机事件变成它的对立事件的概率。<br>$$I_G(f)=\sum_{i=1}^mf_i(1-f_i)=\sum_{i=1}^mf_i-\sum_{i=1}^mf_i^2=1-\sum_{i=1}^mf_i^2$$</p>
+<ol>
+<li>显然基尼不纯度越小，纯度越高，集合的有序程度越高，分类的效果越好；</li>
+<li>基尼不纯度为 0 时，表示集合类别一致；</li>
+<li>基尼不纯度最高（纯度最低）时,$f_1=f_2=\ldots =f_m=\frac1m$,$I_G(f)=1-(\frac1m)^2\times m=1-\frac1m$</li>
+</ol>
+<p>例，如果集合中的每个数据项都属于同一分类，此时误差率为 0。如果有四种可能的结果均匀地分布在集合中，此时的误差率为 1−0.25=0.75；</p>
+<h3 id="过拟合（Over-fitting）："><a href="#过拟合（Over-fitting）：" class="headerlink" title="过拟合（Over-fitting）："></a>过拟合（<em>Over-fitting</em>）：</h3><p>在统计学中，过拟合现象是指在拟合一个统计模型时，使用过多参数。 对比于可获取的数据总量来说，一个荒谬的模型只要足够复杂，是可以完美地适应数据。</p>
+<p>在决策树算法中，可能会过于针对训练数据，其熵值与真实情况相比可能会有所降低。<strong>剪枝</strong>的过程就是对具有相同父节点的一组节点进行检查，判断如果将其合并，熵的增加量是否会小于某个指定的阈值。如果确实如此，则这些叶节点会被合并成一个单一的节点，合并后的新节点包含了所有可能的结果值。这种做法有助于过度避免过度拟合的情况，使得决策树做出的预测结果，不至于比从数据集中得到的实际结论还要特殊</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    VoidChen10
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://voidchen.cn/2019/03/06/Spark-MLlib学习日记5：决策树与信息熵/" title="Spark-MLlib学习日记5：决策树与信息熵">https://voidchen.cn/2019/03/06/Spark-MLlib学习日记5：决策树与信息熵/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://voidchen10.github.io/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/MachineLeaning/" rel="tag"># MachineLeaning</a>
+          
+            <a href="/tags/分类/" rel="tag"># 分类</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/28/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/" rel="next" title="Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式">
+                <i class="fa fa-chevron-left"></i> Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/11/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/" rel="prev" title="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">
+                Spark-MLlib学习日记6：使用随机森林算法识别手写数字 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -376,6 +603,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM3OS8xODkyNg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -396,8 +632,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -414,7 +659,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -480,6 +725,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">2.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息熵"><span class="nav-number">3.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关术语与名词"><span class="nav-number">4.</span> <span class="nav-text">相关术语与名词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#节点杂质（node-impurity）："><span class="nav-number">4.1.</span> <span class="nav-text">节点杂质（node impurity）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基尼不纯度（Gini-Impurity）："><span class="nav-number">4.2.</span> <span class="nav-text">基尼不纯度（Gini Impurity）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过拟合（Over-fitting）："><span class="nav-number">4.3.</span> <span class="nav-text">过拟合（Over-fitting）：</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -636,6 +897,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -664,6 +929,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
