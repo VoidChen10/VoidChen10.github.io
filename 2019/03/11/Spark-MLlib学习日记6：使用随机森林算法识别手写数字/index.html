@@ -103,11 +103,11 @@
 <meta property="og:description" content="前言上一篇文章中我们讲到了一种常用的分类算法——决策树，今天我们要用到的随机森林算法，正是基于决策树的变种算法。随机森林算法(Random Forest) 和 梯度提升决策树(GradientBoosted Trees) 都是一种 集成学习（Ensemble Learning) 算法，核心的思想就是 “三个臭皮匠顶得过一个诸葛亮” 哈哈哈，就是假如一棵决策树他的分类预测可能是错的话，那么多颗树组成">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g11fqx68kkj20ku0bqwgz.jpg">
-<meta property="og:image" content="https://img-blog.csdn.net/20170624120758210?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2hlbnl1a3VhaTY2MjU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g11fsfwjgsj20k60b3t8x.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0zvcin5haj21oe0tz0y7.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0zwk44zl2j21mf0wx7af.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0zy9bzv16j21k60zy101.jpg">
-<meta property="og:updated_time" content="2019-03-13T12:23:45.114Z">
+<meta property="og:updated_time" content="2019-03-13T12:25:07.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">
 <meta name="twitter:description" content="前言上一篇文章中我们讲到了一种常用的分类算法——决策树，今天我们要用到的随机森林算法，正是基于决策树的变种算法。随机森林算法(Random Forest) 和 梯度提升决策树(GradientBoosted Trees) 都是一种 集成学习（Ensemble Learning) 算法，核心的思想就是 “三个臭皮匠顶得过一个诸葛亮” 哈哈哈，就是假如一棵决策树他的分类预测可能是错的话，那么多颗树组成">
@@ -449,7 +449,7 @@
 <h1 id="随机森林算法-Random-Forest"><a href="#随机森林算法-Random-Forest" class="headerlink" title="随机森林算法(Random Forest)"></a>随机森林算法(<em>Random Forest</em>)</h1><h2 id="随机森林算法的基本思想"><a href="#随机森林算法的基本思想" class="headerlink" title="随机森林算法的基本思想"></a>随机森林算法的基本思想</h2><p>随机森林是决策树的集合，可以说随机森林是用于分类和回归的最成功的机器学习模型之一。它们<strong>组合了许多相互独立没有关联的决策树</strong>，以降低过度拟合的风险。随机森林的出现也正是为了解单一决策树可能出现的很大误差和<strong>过拟合(<em>over-fitting</em>)</strong>的问题。</p>
 <h2 id="随机森林的“随机“选取"><a href="#随机森林的“随机“选取" class="headerlink" title="随机森林的“随机“选取"></a>随机森林的“随机“选取</h2><h3 id="数据的随机选取"><a href="#数据的随机选取" class="headerlink" title="数据的随机选取"></a>数据的随机选取</h3><p>关于数据的随机选取，用的就是上面提到的抽样算法——<a href="#Bootstrapping">自助法</a>，首先，从原始的数据集中采取有放回的抽样，构造子数据集，子数据集的数据量是和原始数据集相同的。不同子数据集的元素可以重复，同一个子数据集中的元素也可以重复。第二，利用子数据集来构建子决策树，将这个数据放到每个子决策树中，每个子决策树输出一个结果。最后，如果有了新的数据需要通过随机森林得到分类结果，就可以通过对子决策树的判断结果的投票，得到随机森林的输出结果了。</p>
 <h3 id="待选特征的随机选取"><a href="#待选特征的随机选取" class="headerlink" title="待选特征的随机选取"></a>待选特征的随机选取</h3><p>与数据集的随机选取类似，随机森林中的子树的每一个分裂过程并未用到所有的待选特征，而是从所有的待选特征中随机选取一定的特征，之后再在随机选取的特征中<strong>选取最优的特征</strong>（<em>通过上一篇文章提到的信息熵来选取</em> ）。这样能够使得随机森林中的决策树都能够彼此不同，提升系统的多样性，从而提升分类性能。以下图为例来说明随机选取待选特征的方法。</p>
-<p><img src="https://img-blog.csdn.net/20170624120758210?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2hlbnl1a3VhaTY2MjU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g11fsfwjgsj20k60b3t8x.jpg" alt=""></p>
 <h2 id="随机森林算法的优缺点"><a href="#随机森林算法的优缺点" class="headerlink" title="随机森林算法的优缺点"></a>随机森林算法的优缺点</h2><p><strong>随机森林的优点：</strong></p>
 <ul>
 <li>具有极高的准确率</li>
