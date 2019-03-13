@@ -94,20 +94,20 @@
 
 
 
-<meta name="description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，信息熵还概率是相对的，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。">
+<meta name="description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于信息熵的。概率是某件事情（宏观态）某个可能情况（微观态）的确定性，而熵是某件事情（宏观态）到底是哪个情况（微观态）的不确定性。两者正好相反，决策树通过不断消减分">
 <meta name="keywords" content="算法,MachineLeaning,分类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记5：决策树与信息熵">
 <meta property="og:url" content="https://voidchen.cn/2019/03/06/Spark-MLlib学习日记5：决策树与信息熵/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，信息熵还概率是相对的，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。">
+<meta property="og:description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于信息熵的。概率是某件事情（宏观态）某个可能情况（微观态）的确定性，而熵是某件事情（宏观态）到底是哪个情况（微观态）的不确定性。两者正好相反，决策树通过不断消减分">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v8prnt4xj20js0czgn4.jpg">
-<meta property="og:updated_time" content="2019-03-10T17:09:13.098Z">
+<meta property="og:updated_time" content="2019-03-13T11:00:53.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-MLlib学习日记5：决策树与信息熵">
-<meta name="twitter:description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，信息熵还概率是相对的，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。">
+<meta name="twitter:description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于信息熵的。概率是某件事情（宏观态）某个可能情况（微观态）的确定性，而熵是某件事情（宏观态）到底是哪个情况（微观态）的不确定性。两者正好相反，决策树通过不断消减分">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg">
 
 
@@ -412,9 +412,9 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，信息熵还概率是相对的，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——<strong>决策树</strong>。有点意思的是，朴素贝叶斯的基础理论是<strong>概率</strong>论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于<strong>信息熵</strong>的。概率是某件事情（宏观态）某个可能情况（微观态）的<strong>确定性</strong>，而熵是某件事情（宏观态）到底是哪个情况（微观态）的<strong>不确定性</strong>。两者正好相反，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。</p>
 <a id="more"></a>
-<h2 id="什么是决策树"><a href="#什么是决策树" class="headerlink" title="什么是决策树"></a>什么是决策树</h2><p>其实按照字面的理解，就是一棵帮助你做决策的树，二叉树又或者是非二叉树，树的节点就是if … else … 的判断，期望每一次的判断都是最好的决定，一直到最后获得预期最好的结果。这种策略也被称为<strong>贪心算法</strong>。</p>
+<h1 id="什么是决策树"><a href="#什么是决策树" class="headerlink" title="什么是决策树"></a>什么是决策树</h1><p>其实按照字面的理解，就是一棵帮助你做决策的树，二叉树又或者是非二叉树，树的节点就是if … else … 的判断，期望每一次的判断都是最好的决定，一直到最后获得预期最好的结果。这种策略也被称为<strong>贪心算法</strong>。</p>
 <p>当然，这只是我的个人看法，处于一个初学者的见解而已，下面给出决策树的定义：</p>
 <blockquote>
 <p><strong>决策树（decision tree）是一个树结构（可以是二叉树或非二叉树）。其每个非叶节点表示一个特征属性上的测试，每个分支代表这个特征属性在某个值域上的输出，而每个叶节点存放一个类别。使用决策树进行决策的过程就是从根节点开始，测试待分类项中相应的特征属性，并按照其值选择输出分支，直到到达叶子节点，将叶子节点存放的类别作为决策结果。</strong></p>
@@ -484,14 +484,30 @@
 </tbody>
 </table>
 <p>根据这个表格，我们来尝试构造一颗决策树，例如将是否起风作为根节点，能得出以下半成品树：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg" alt=""></p>
-<p>根据表格的数据，在得知是否会起风的情况下，再根据剩余的属性来判断小明是否会出去玩，比如说起风了之后，得到左子树的数据表格，明显可以看到，高温的时候就会出去玩，而低温这不会出去玩。像这样，确定了一个属性之后不断往下构造决策树，最终得到完整决策树如下：</p>
-<p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v8prnt4xj20js0czgn4.jpg" alt=""><br>就这样，我们一步一步就构建了一个决策树出来了，从图上看起来，就是不断地if … else …作出决定嘛，好像也没什么嘛。事实上真的是这样的吗？为什么要吧 <code>起风</code> 放在根节点呢？为什么不能放 <code>温度</code> 呢？ 我们如何去判断把哪个属性作为根节点往下分裂呢？这就要提到了决策树的基础理论——信息熵</p>
-<h2 id="信息熵"><a href="#信息熵" class="headerlink" title="信息熵"></a>信息熵</h2><iframe src="//player.bilibili.com/player.html?aid=41387095&cid=72688781&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<p>根据表格的数据，在得知是否会起风的情况下，再根据剩余的属性来判断小明是否会出去玩，比如说起风了之后，得到左子树的数据表格，明显可以看到，高温的时候就会出去玩，而低温这不会出去玩。像这样，确定了一个属性之后不断往下构造决策树，最终得到完整决策树如下：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v8prnt4xj20js0czgn4.jpg" alt=""></p>
+<p>就这样，我们一步一步就构建了一个决策树出来了，从图上看起来，就是不断地if … else …作出决定嘛，好像也没什么嘛。事实上真的是这样的吗？为什么要吧 <code>起风</code> 放在根节点呢？为什么不能放 <code>温度</code> 呢？ 我们如何去判断把哪个属性作为根节点往下分裂呢？</p>
+<p>举例的这棵决策树的构建过程，其实就是广为应用的<strong>ID3算法</strong>的算法流程。基本的ID3算法是通过<strong>自顶向下</strong>构造决策树进行学习的。首先考虑的问题是哪一个属性将在树的根节点测试。为解决这一问题，使用统计测试来确定每一个实例属性单独分类训练样本的能力。<strong>将分类能力最好的属性作为树的跟节点</strong>，之后根节点属性的每一个可能值会产生一个分支，然后把训练样例排列到适当的分支下，重复整个过程，用每个分支结点关联的训练样本来选择最佳属性。这是对合格决策树的贪婪搜索，也就是说算法从不回溯重新考虑以前的选择。</p>
+<p>至于怎么去判断哪个<strong>属性</strong>的分类能力最好，这就要提到了决策树的基础理论——<strong>信息熵</strong></p>
+<h1 id="信息熵与决策树的构造"><a href="#信息熵与决策树的构造" class="headerlink" title="信息熵与决策树的构造"></a>信息熵与决策树的构造</h1><p>信息熵可以说是决策树算法里面的理论基础了，通过计算各个属性的信息熵，求出信息增益才能最好地去确定接下来用哪个属性去做分裂，有效的减小了树的深度，最快地降低不确定性，得出预测分类。可以说理解了信息熵，基本上就能理解决策树了，接下来我们来看看信息熵的定义以及如何计算信息熵。</p>
+<h2 id="信息熵的含义"><a href="#信息熵的含义" class="headerlink" title="信息熵的含义"></a>信息熵的含义</h2><p><strong>定义：</strong> 当一件事情有多种可能情况时，这件事情对某人而言具体是哪种情况的<strong>不确定性</strong>叫做<strong>熵</strong>，而能够消除该人对这件事情不确定性的事物叫做<strong>信息</strong></p>
+<p>为了区分开热力学上的熵，所以才会有<strong>信息熵</strong>这个概念，准确来说应该叫做信息的熵，是一个衡量一个事件的状态的<strong>单位</strong>，跟千克，米类似的，他是一个实实在在的客观物理量，而不是虚无缥缈的抽象概念。<strong>获取信息等于消除熵</strong>，这是什么意思呢，就拿上面的例子来说，得知外面的天气是“起风了”，那对于判断小明会不会出去玩就更有“把握”了，这里获知的“起风了”，就是获取了“信息“，更有”把握“则表明进一步确定小明会不会出去玩，就是消除了对”小明会不会出去玩“这件事的”不确定性“，也就是消除了熵。 </p>
+<p>是不是稍微有一点能理解了呢。一个事件或者属性中，其信息熵越大，所包含的不确定信息越大，对数据分析的计算就越有价值，因为得到了其中包含的信息，就消除了事件的不确定性，因此决策树总是优先选择拥有最高信息熵的属性作为待测属性，并以此分裂子树。</p>
+<h2 id="信息熵的计算公式"><a href="#信息熵的计算公式" class="headerlink" title="信息熵的计算公式"></a>信息熵的计算公式</h2><p>假设事件一共有n种属性，其各自对应的概率为：$P_1,P_2,…,P_n$ ，且各属性之间出现时彼此互相独立无相关性。此时可以将信息熵定义为单个属性的对数的平均值。即：<br>$$E(P) = E(-log P_i)  = -\sum_{i=1}^{n} P_i logP_i$$<br>更详细的推导过程可以看下我下面推荐的第二个视频，包括那个负号是哪来的。。。这里我们结合上面表格的数据举一个例子，来套套公式，看下信息熵的计算流程。</p>
+<p>以 <code>出去玩</code> 为例，首先根据公式计算出去玩的概率，从表格可知，一共6个样本数据，0出现了2次，1出现了4次，分别求两者的概率：<br>$P_1 = \frac{4}{2 + 4} = \frac{4}{6}$<br>$P_2 = \frac{2}{2 + 4} = \frac{2}{6}$<br>$E(o)  = -\sum_{i=1}^{n} P_i logP_i = -(\frac{4}{6} log_2 \frac{4}{6}) -(\frac{2}{6} log_2 \frac{2}{6}) ≈ 0.918$<br>即出去玩（out）的信息熵为0.918。同样用公式套进去，可得：<br>温度的信息熵为：$E(t) ≈ 0.809 $<br>起风的信息熵为：$E(w) ≈ 0.459 $<br>下雨的信息熵为：$E(r) ≈ 0.602 $<br>湿度的信息熵为：$E(h) ≈ 0.874 $</p>
+<h2 id="利用信息熵构造决策树"><a href="#利用信息熵构造决策树" class="headerlink" title="利用信息熵构造决策树"></a>利用信息熵构造决策树</h2><p>通过上面的公式，我们求出了各个属性的信息熵，那决策树是怎么去利用这些熵的呢？这里我就简单介绍其中的一种经典决策树构造算法——<strong>ID3算法</strong>。</p>
+<p>ID3算法是一种贪心算法，以信息熵的下降速度作为选取测试属性的标准，即在每个节点选取还尚未被用来划分的，具有最高信息增益的属性作为划分标准，然后递归这个过程，直到生成的决策树能完美分类训练样例。可以说，<strong>ID3算法的核心其实就是信息增益的计算</strong>。</p>
+<p>所谓的<strong>信息增益(<em>Information Gain</em>)</strong>，其实指的就是一个事件中，事件发生前后的信息量之间的差值，即：熵A - 属性熵B，也就是说，一开始是Ａ，属性划分之后变成了Ｂ，则属性引起的信息量变化是A - B，即信息增益（它描述的是变化Delta）。用公式来表示即是：<br>$$Gain(P_1,P_2) = E(P_1) - E(P_2)$$<br>好的属性就是信息增益越大越好，即变化完后熵越小越好（熵代表混乱程度，最大程度地减小了混乱）。因此我们在树分叉的时候，应优先使用信息增益最大的属性，这样降低了复杂度，也简化了后边的逻辑。例如我们在上面的那个例子里面，我们把是否出去玩的信息熵作为最后的数值，而每个不同的划分属性与其相减则可获得各个属性的信息增益：<br>$Gain(o,t) = 0.918 - 0.809 = 0.109​$<br>$Gain(o,w) = 0.918 - 0.459 = 0.459​$<br>$Gain(o,r) = 0.918 - 0.602 = 0.316​$<br>$Gain(o,h) = 0.918 - 0.874 = 0.044​$</p>
+<p>从上面就可以看出，信息增益最大的是<code>”起风“</code>这个属性，所以它首先被选中作为决策树的跟节点，下往下划分子树，以此类推得出最终完整的决策树。</p>
+<p>就这样通过信息熵计算出每个属性的信息增益，以此来决定决策树划分属性，不断循环这个过程，最终得到一棵”最优“的决策树。</p>
+<h2 id="关于信息论需要进一步了解的东西"><a href="#关于信息论需要进一步了解的东西" class="headerlink" title="关于信息论需要进一步了解的东西"></a>关于信息论需要进一步了解的东西</h2><p>那些不能够消除某人对某件事情不确定性的事物被称为<strong>数据</strong>或<strong>噪音</strong>。</p>
+<p>噪音是干扰某人获得信息的事物。</p>
+<p>而数据是噪音与信息的混合，需要用<strong>知识</strong>将其分离。</p>
+<p>这里给出两个视频，up主讲得非常清楚，对于像我这种从未接触过信息论的人来说，简直是醍醐灌顶，所以在这里也分享给大家。<br><strong>什么是信息，什么是信息熵？：</strong></p>
+<iframe height="480" width="620" src="//player.bilibili.com/player.html?aid=41463132&cid=72821652&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><br><strong>如何计算信息熵</strong><br><iframe height="480" width="620" src="//player.bilibili.com/player.html?aid=41539594&cid=72965146&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
 
-<p>未完待续</p>
-<h2 id="相关术语与名词"><a href="#相关术语与名词" class="headerlink" title="相关术语与名词"></a>相关术语与名词</h2><h3 id="节点杂质（node-impurity）："><a href="#节点杂质（node-impurity）：" class="headerlink" title="节点杂质（node impurity）："></a>节点杂质（<em>node impurity</em>）：</h3><p><strong>节点杂质</strong>是节点处标签的均匀度的量度。<br>一开始不太理解，国内基本都是直接翻译过来并没有很好的解释什么叫节点杂质。然后看到一个国外前辈给出的一个例子，直接搬来：</p>
+<h1 id="相关术语与名词"><a href="#相关术语与名词" class="headerlink" title="相关术语与名词"></a>相关术语与名词</h1><h2 id="节点杂质（node-impurity）"><a href="#节点杂质（node-impurity）" class="headerlink" title="节点杂质（node impurity）"></a>节点杂质（<em>node impurity</em>）</h2><p><strong>节点杂质</strong>是节点处标签的均匀度的量度。<br>一开始不太理解，国内基本都是直接翻译过来并没有很好的解释什么叫节点杂质。然后看到一个国外前辈给出的一个例子，直接搬来：</p>
 <blockquote>
 <p>In simple terms, let’s say you are trying to predict whether you will go out or not based on weather parameters.</p>
 <p>If it is raining you will definitely not go. So all observations at this point are ‘No’ i.e. pure node</p>
@@ -502,15 +518,18 @@
 <p>就是说这个节点不纯度，其实是衡量这个节点能够直接给出结论，能给出多少程度的结论，这个多少程度就是节点不纯度，它应该是一个可以衡量的单位，例如基尼不纯度，信息熵，方差之类的。</p>
 <p>再直观点去看，看我上面给出的那颗树，温度高低这个节点能直接决定出不出去玩，那么这个节点就是<strong>“纯洁的节点”</strong>，可以说节点不纯度为0%，因为它给出的<strong>“信息”</strong>足以帮我们确定一个<strong>事实</strong>。而是否下雨这个节点不能完全帮我们下定论，如果不下雨的话还要看湿度这个节点，那么可以说下雨这个节点是<strong>“有杂质的节点”</strong>，节点不纯度为50%（当然具体计算肯定不是这样，下面有公式）。</p>
 <p>以上皆属于个人理解，如有偏差欢迎留言指正。</p>
-<h3 id="基尼不纯度（Gini-Impurity）："><a href="#基尼不纯度（Gini-Impurity）：" class="headerlink" title="基尼不纯度（Gini Impurity）："></a>基尼不纯度（<em>Gini Impurity</em>）：</h3><p><strong>基尼不纯度：</strong>将来自集合的某种结果随机应用于某一数据项的预期误差率。大概意思是 一个随机事件变成它的对立事件的概率。<br>$$I_G(f)=\sum_{i=1}^mf_i(1-f_i)=\sum_{i=1}^mf_i-\sum_{i=1}^mf_i^2=1-\sum_{i=1}^mf_i^2$$</p>
+<h2 id="基尼不纯度（Gini-Impurity）"><a href="#基尼不纯度（Gini-Impurity）" class="headerlink" title="基尼不纯度（Gini Impurity）"></a>基尼不纯度（<em>Gini Impurity</em>）</h2><p><strong>基尼不纯度：</strong>将来自集合的某种结果随机应用于某一数据项的预期误差率。大概意思是 一个随机事件变成它的对立事件的概率。<br>$$I_G(f)=\sum_{i=1}^mf_i(1-f_i)=\sum_{i=1}^mf_i-\sum_{i=1}^mf_i^2=1-\sum_{i=1}^mf_i^2​$$</p>
 <ol>
 <li>显然基尼不纯度越小，纯度越高，集合的有序程度越高，分类的效果越好；</li>
 <li>基尼不纯度为 0 时，表示集合类别一致；</li>
 <li>基尼不纯度最高（纯度最低）时,$f_1=f_2=\ldots =f_m=\frac1m$,$I_G(f)=1-(\frac1m)^2\times m=1-\frac1m$</li>
 </ol>
 <p>例，如果集合中的每个数据项都属于同一分类，此时误差率为 0。如果有四种可能的结果均匀地分布在集合中，此时的误差率为 1−0.25=0.75；</p>
-<h3 id="过拟合（Over-fitting）："><a href="#过拟合（Over-fitting）：" class="headerlink" title="过拟合（Over-fitting）："></a>过拟合（<em>Over-fitting</em>）：</h3><p>在统计学中，过拟合现象是指在拟合一个统计模型时，使用过多参数。 对比于可获取的数据总量来说，一个荒谬的模型只要足够复杂，是可以完美地适应数据。</p>
+<h2 id="过拟合（Over-fitting）"><a href="#过拟合（Over-fitting）" class="headerlink" title="过拟合（Over-fitting）"></a>过拟合（<em>Over-fitting</em>）</h2><p>在统计学中，过拟合现象是指在拟合一个统计模型时，使用过多参数。 对比于可获取的数据总量来说，一个荒谬的模型只要足够复杂，是可以完美地适应数据。一个出名的谈及过拟合的案例，就是某个科学家说，只要给我4个点，我就能画出一头大象，要是再加1个点，鼻子还能甩。。。。。。</p>
 <p>在决策树算法中，可能会过于针对训练数据，其熵值与真实情况相比可能会有所降低。<strong>剪枝</strong>的过程就是对具有相同父节点的一组节点进行检查，判断如果将其合并，熵的增加量是否会小于某个指定的阈值。如果确实如此，则这些叶节点会被合并成一个单一的节点，合并后的新节点包含了所有可能的结果值。这种做法有助于过度避免过度拟合的情况，使得决策树做出的预测结果，不至于比从数据集中得到的实际结论还要特殊</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>信息论不止作用在决策树中，还有很多分类算法都能用到这个思想，在机器学习领域中举足轻重。在这次的学习过程中，不断的查询资料和学习，让我对数学有了重新的认识，感觉还是学到了不少东西的。</p>
+<p>另外信息熵并不是决策树唯一的划分标准，Spark MLlib 中提供的API还可以选<strong>”基尼不纯度“</strong>来作为选择属性的依据，只不过思想都是大同小异的。构造算法也不是只有ID3一种，只是扩展讲下去怕是越讲越多。。。</p>
+<p>该篇算法介绍暂时不配代码来做了，代码留到下一期<strong>随机森林</strong>里面做，因为随机森林也就是多颗决策树组合起来的而已嘛。</p>
 
       
     </div>
@@ -735,7 +754,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是决策树"><span class="nav-number">2.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息熵"><span class="nav-number">3.</span> <span class="nav-text">信息熵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关术语与名词"><span class="nav-number">4.</span> <span class="nav-text">相关术语与名词</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#节点杂质（node-impurity）："><span class="nav-number">4.1.</span> <span class="nav-text">节点杂质（node impurity）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基尼不纯度（Gini-Impurity）："><span class="nav-number">4.2.</span> <span class="nav-text">基尼不纯度（Gini Impurity）：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过拟合（Over-fitting）："><span class="nav-number">4.3.</span> <span class="nav-text">过拟合（Over-fitting）：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是决策树"><span class="nav-number">2.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信息熵与决策树的构造"><span class="nav-number">3.</span> <span class="nav-text">信息熵与决策树的构造</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息熵的含义"><span class="nav-number">3.1.</span> <span class="nav-text">信息熵的含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息熵的计算公式"><span class="nav-number">3.2.</span> <span class="nav-text">信息熵的计算公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用信息熵构造决策树"><span class="nav-number">3.3.</span> <span class="nav-text">利用信息熵构造决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于信息论需要进一步了解的东西"><span class="nav-number">3.4.</span> <span class="nav-text">关于信息论需要进一步了解的东西</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关术语与名词"><span class="nav-number">4.</span> <span class="nav-text">相关术语与名词</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点杂质（node-impurity）"><span class="nav-number">4.1.</span> <span class="nav-text">节点杂质（node impurity）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基尼不纯度（Gini-Impurity）"><span class="nav-number">4.2.</span> <span class="nav-text">基尼不纯度（Gini Impurity）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过拟合（Over-fitting）"><span class="nav-number">4.3.</span> <span class="nav-text">过拟合（Over-fitting）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">5.</span> <span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>

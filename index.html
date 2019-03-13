@@ -410,8 +410,8 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇文章中我们讲到了一种常用的分类算法——决策树，今天我们要用到的随机森林算法，正是基于决策树的变种算法。<strong>随机森林算法(<em>Random Forest</em>) </strong>和 <strong>梯度提升决策树(<em>GradientBoosted Trees</em>)</strong> 都是一种 <strong>集成学习（<em>Ensemble Learning</em>)</strong> 算法，核心的思想就是 “三个臭皮匠顶得过一个诸葛亮” 哈哈哈，就是假如一棵决策树他的分类预测可能是错的话，那么多颗树组成的森林，各自预测后通过投票得到一致的分类预测，那应该就不会错了吧，毕竟一棵错不可能棵棵都是错的嘛，这背后其实体现了一种群体的智慧。</p>
-<p>讲到的知识点稍多，所以篇幅有点长，将就下。。。</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇文章中我们讲到了一种常用的分类算法——决策树，今天我们要用到的随机森林算法，正是基于决策树的变种算法。<strong>随机森林算法(<em>Random Forest</em>) </strong>和 <strong>梯度提升决策树(<em>GradientBoosted Trees</em>)</strong> 都是一种 <strong>集成学习（<em>Ensemble Learning</em>)</strong> 算法，核心的思想就是 “三个臭皮匠顶得过一个诸葛亮” 哈哈哈，就是假如一棵决策树他的分类预测可能是错的话，那么多颗树组成的森林，各自预测后通过投票得到一致的分类预测，那应该就不会错了吧，毕竟一棵错不可能棵棵都是错的嘛，这背后其实体现了一种群体的智慧。</p>
+<p>讲到的知识点稍多，所以篇幅有点长，将就下。。。
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/11/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/#more" rel="contents">
@@ -421,7 +421,7 @@
           <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -559,7 +559,7 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，信息熵还概率是相对的，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——<strong>决策树</strong>。有点意思的是，朴素贝叶斯的基础理论是<strong>概率</strong>论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于<strong>信息熵</strong>的。概率是某件事情（宏观态）某个可能情况（微观态）的<strong>确定性</strong>，而熵是某件事情（宏观态）到底是哪个情况（微观态）的<strong>不确定性</strong>。两者正好相反，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/03/06/Spark-MLlib学习日记5：决策树与信息熵/#more" rel="contents">
@@ -707,7 +707,9 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&ensp;&ensp;&ensp;&ensp;今天要讲的呢，是自己制作手写图片，并处理成MNIST的标准格式，输入到我们训练好的模型来做识别，看看效果怎样，一直用别人提供的东西，调调api什么的总感觉参与感少了点哈哈。<br>&ensp;&ensp;&ensp;&ensp;本来这一部分我是打算给加到MNIST数据集介绍和朴素贝叶斯那两期后面作为扩展阅读的，因为觉得应该是蛮简单的一件事，没想到实际做下来又花了我2天的时间。遇到了不少难点和细节处理，所以最后决定独立一篇文章算了。<br>&ensp;&ensp;&ensp;&ensp;今天这篇呢，会涉及到图像处理的一些相关概念，比如RGB转灰度，还有图像在计算机里面的存储方式；也会涉及到一些计算机二进制的处理，蛮多知识盲点的，网上资料也不齐全，所以接下来会整理一下，结合自己的理解把这个学习过程记录下来。特别注意的是，网上相关代码基本都是python的，都是调用封装好的工具类，我这会用scala来全部手动实现一遍，希望下次跟我一样的小菜鸟遇到这些问题的时候不会像我那样束手无策了哈哈哈哈哈哈哈哈<br>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天要讲的呢，是自己制作手写图片，并处理成MNIST的标准格式，输入到我们训练好的模型来做识别，看看效果怎样，一直用别人提供的东西，调调api什么的总感觉参与感少了点哈哈。</p>
+<p>本来这一部分我是打算给加到MNIST数据集介绍和朴素贝叶斯那两期后面作为扩展阅读的，因为觉得应该是蛮简单的一件事，没想到实际做下来又花了我2天的时间。遇到了不少难点和细节处理，所以最后决定独立一篇文章算了。</p>
+<p>今天这篇呢，会涉及到图像处理的一些相关概念，比如RGB转灰度，还有图像在计算机里面的存储方式；也会涉及到一些计算机二进制的处理，蛮多知识盲点的，网上资料也不齐全，所以接下来会整理一下，结合自己的理解把这个学习过程记录下来。特别注意的是，网上相关代码基本都是python的，都是调用封装好的工具类，我这会用scala来全部手动实现一遍，希望下次跟我一样的小菜鸟遇到这些问题的时候不会像我那样束手无策了哈哈哈哈哈哈哈哈<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/28/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/#more" rel="contents">
@@ -855,7 +857,7 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&ensp;&ensp;&ensp;&ensp;上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——<strong>朴素贝叶斯算法</strong>(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。<br>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——<strong>朴素贝叶斯算法</strong>(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/#more" rel="contents">
@@ -1003,7 +1005,9 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&ensp;&ensp;&ensp;&ensp;近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=<br>&ensp;&ensp;&ensp;&ensp;重申一遍，我是沿着<a href="http://spark.apache.org/docs/latest/mllib-guide.html" target="_blank" rel="noopener">spark官网</a>中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计，没了解的可以先去看一下文档，后续会有用到。<br>&ensp;&ensp;&ensp;&ensp;好了，言归正传，今天要讲的是被称为机器学习界的“Hello world”，几乎每个入门系列都会用到的一个知名数据集——MNIST手写数字图像数据集，该系列的后续文章中也经常会用到，所以今天独立出来讲一下好了。<br>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=</p>
+<p>重申一遍，我是沿着<a href="http://spark.apache.org/docs/latest/mllib-guide.html" target="_blank" rel="noopener">spark官网</a>中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计，没了解的可以先去看一下文档，后续会有用到。</p>
+<p>好了，言归正传，今天要讲的是被称为机器学习界的“Hello world”，几乎每个入门系列都会用到的一个知名数据集——MNIST手写数字图像数据集，该系列的后续文章中也经常会用到，所以今天独立出来讲一下好了。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/21/Spark-MLlib学习日记2：MNIST手写数字的读取使用/#more" rel="contents">
@@ -1151,7 +1155,7 @@
 
       
         
-          <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>&ensp;&ensp;&ensp;&ensp;前两天听了赵方婧小姐姐翻唱的《知否》，惊为天人，就点了颗心收藏了。结果今天在点开一看。居然没有版权了！！！<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g05thx8mfcj20s90blwfm.jpg" alt=""><br>&ensp;&ensp;&ensp;&ensp;这也不是一次两次了，充了两个会员跟没充一样，说下架就下架，喜欢的歌听不到，这怎么能忍！<br>
+          <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>前两天听了赵方婧小姐姐翻唱的《知否》，惊为天人，就点了颗心收藏了。结果今天在点开一看。居然没有版权了！！！<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g05thx8mfcj20s90blwfm.jpg" alt=""><br>这也不是一次两次了，充了两个会员跟没充一样，说下架就下架，喜欢的歌听不到，这怎么能忍！<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/02/14/小技巧！从网易云音乐缓存中获取版权失效的音乐/#more" rel="contents">
@@ -1299,7 +1303,8 @@
 
       
         
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&ensp;&ensp;&ensp;&ensp;作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。<br>由于公司用的是Spark，所以从<strong>Spark MLlib</strong>开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望看到这篇文章地小伙伴也能下定决心，一起攻克机器学习。<br>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。</p>
+<p>由于公司用的是Spark，所以从<strong>Spark MLlib</strong>开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望看到这篇文章地小伙伴也能下定决心，一起攻克机器学习。<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/01/30/Spark-MLlib学习日记1：K-means聚类分析/#more" rel="contents">
@@ -1447,7 +1452,7 @@
 
       
         
-          <h2 id="Kerberos在集群开启时做了什么"><a href="#Kerberos在集群开启时做了什么" class="headerlink" title="Kerberos在集群开启时做了什么"></a>Kerberos在集群开启时做了什么</h2><p>kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。<br>  <strong>注意，这些用户将只存在于创建这些用户的机器上</strong><br>
+          <h1 id="Kerberos在集群开启时做了什么"><a href="#Kerberos在集群开启时做了什么" class="headerlink" title="Kerberos在集群开启时做了什么"></a>Kerberos在集群开启时做了什么</h1><p>kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。<br>  <strong>注意，这些用户将只存在于创建这些用户的机器上</strong><br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/01/27/Kerberos探索遇到的问题及心得/#more" rel="contents">
