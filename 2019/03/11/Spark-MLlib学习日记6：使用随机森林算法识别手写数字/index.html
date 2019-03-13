@@ -102,16 +102,16 @@
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="前言上一篇文章中我们讲到了一种常用的分类算法——决策树，今天我们要用到的随机森林算法，正是基于决策树的变种算法。随机森林算法(Random Forest) 和 梯度提升决策树(GradientBoosted Trees) 都是一种 集成学习（Ensemble Learning) 算法，核心的思想就是 “三个臭皮匠顶得过一个诸葛亮” 哈哈哈，就是假如一棵决策树他的分类预测可能是错的话，那么多颗树组成">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdn.net/20170624120700360?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2hlbnl1a3VhaTY2MjU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g11fqx68kkj20ku0bqwgz.jpg">
 <meta property="og:image" content="https://img-blog.csdn.net/20170624120758210?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2hlbnl1a3VhaTY2MjU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0zvcin5haj21oe0tz0y7.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0zwk44zl2j21mf0wx7af.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0zy9bzv16j21k60zy101.jpg">
-<meta property="og:updated_time" content="2019-03-13T12:17:18.027Z">
+<meta property="og:updated_time" content="2019-03-13T12:23:45.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">
 <meta name="twitter:description" content="前言上一篇文章中我们讲到了一种常用的分类算法——决策树，今天我们要用到的随机森林算法，正是基于决策树的变种算法。随机森林算法(Random Forest) 和 梯度提升决策树(GradientBoosted Trees) 都是一种 集成学习（Ensemble Learning) 算法，核心的思想就是 “三个臭皮匠顶得过一个诸葛亮” 哈哈哈，就是假如一棵决策树他的分类预测可能是错的话，那么多颗树组成">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20170624120700360?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2hlbnl1a3VhaTY2MjU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g11fqx68kkj20ku0bqwgz.jpg">
 
 
 
@@ -434,7 +434,7 @@
 <li>对于k个训练集，我们训练k个模型（这k个模型可以根据具体问题而定，比如决策树，knn等）</li>
 <li>对于分类问题：由投票表决产生分类结果；对于回归问题：由k个模型预测结果的均值作为最后预测结果。（所有模型的重要性相同）</li>
 </ol>
-<p>这里的抽样算法  —— <span id="Bootstrapping"> </span> <strong>自助法(<em>Bootstrapping</em>)</strong>，在统计学中，是一种从给定训练集中有放回的均匀抽样，也就是说，每当选中一个样本，它等可能地被再次选中并被再次添加到训练集中。这里给出一张抽样后生成决策树的图，应该比较容易地去理解了，值得注意的是，样本放回是在每一次抽取样本的时候，所以看下图会发现同一个样本被多次抽了回去。<br><img src="https://img-blog.csdn.net/20170624120700360?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2hlbnl1a3VhaTY2MjU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="img"></p>
+<p>这里的抽样算法  —— <span id="Bootstrapping"> </span> <strong>自助法(<em>Bootstrapping</em>)</strong>，在统计学中，是一种从给定训练集中有放回的均匀抽样，也就是说，每当选中一个样本，它等可能地被再次选中并被再次添加到训练集中。这里给出一张抽样后生成决策树的图，应该比较容易地去理解了，值得注意的是，样本放回是在每一次抽取样本的时候，所以看下图会发现同一个样本被多次抽了回去。<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g11fqx68kkj20ku0bqwgz.jpg" alt=""></p>
 <h2 id="提升法-Boosting"><a href="#提升法-Boosting" class="headerlink" title="提升法(Boosting)"></a>提升法(<em>Boosting</em>)</h2><p>Boosting的算法过程如下：</p>
 <ol>
 <li>对于训练集中的每个样本建立权值wi，表示对每个样本的关注度。当某个样本被误分类的概率很高时，需要加大对该样本的权值。</li>
