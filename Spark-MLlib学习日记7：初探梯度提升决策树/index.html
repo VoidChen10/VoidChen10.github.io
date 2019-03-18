@@ -94,20 +94,20 @@
 
 
 
-<meta name="description" content="基于梯度提升决策树识别手写数字">
+<meta name="description" content="前言嗯。。怎么说呢，本来见识到随机森林的强大之后，觉得分类算法里面，另一个集成算法——梯度提升决策树(GBDT)看不看都那样了，看各类书和spark官网对他的介绍也是一笔带过，所以抱着轻视的态度，顺手训练了下模型，结果识别率居然高达99.763593%！！！用的还是官方给的默认参数。。。而且训练速度贼快。我随机森林要跑15分钟，这个几分钟就好了。所以决定单独写一篇日记，来深入地去学习一下这个算法。">
 <meta name="keywords" content="梯度提升决策树,手写数字,MNIST,spark,mllib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记7：初探梯度提升决策树">
 <meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="基于梯度提升决策树识别手写数字">
+<meta property="og:description" content="前言嗯。。怎么说呢，本来见识到随机森林的强大之后，觉得分类算法里面，另一个集成算法——梯度提升决策树(GBDT)看不看都那样了，看各类书和spark官网对他的介绍也是一笔带过，所以抱着轻视的态度，顺手训练了下模型，结果识别率居然高达99.763593%！！！用的还是官方给的默认参数。。。而且训练速度贼快。我随机森林要跑15分钟，这个几分钟就好了。所以决定单独写一篇日记，来深入地去学习一下这个算法。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g1719jze6aj20i90ei761.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g1627e3uv7j21pc11y10a.jpg">
-<meta property="og:updated_time" content="2019-03-18T08:38:56.327Z">
+<meta property="og:updated_time" content="2019-03-18T08:41:04.470Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-MLlib学习日记7：初探梯度提升决策树">
-<meta name="twitter:description" content="基于梯度提升决策树识别手写数字">
+<meta name="twitter:description" content="前言嗯。。怎么说呢，本来见识到随机森林的强大之后，觉得分类算法里面，另一个集成算法——梯度提升决策树(GBDT)看不看都那样了，看各类书和spark官网对他的介绍也是一笔带过，所以抱着轻视的态度，顺手训练了下模型，结果识别率居然高达99.763593%！！！用的还是官方给的默认参数。。。而且训练速度贼快。我随机森林要跑15分钟，这个几分钟就好了。所以决定单独写一篇日记，来深入地去学习一下这个算法。">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g1719jze6aj20i90ei761.jpg">
 
 
@@ -401,10 +401,6 @@
 
           
 
-          
-              <div class="post-description">
-                  基于梯度提升决策树识别手写数字
-              </div>
           
 
         </div>

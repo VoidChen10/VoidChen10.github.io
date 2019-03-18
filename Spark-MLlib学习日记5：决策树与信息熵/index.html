@@ -94,20 +94,20 @@
 
 
 
-<meta name="description" content="决策树与信息熵">
+<meta name="description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于信息熵的。概率是某件事情（宏观态）某个可能情况（微观态）的确定性，而熵是某件事情（宏观态）到底是哪个情况（微观态）的不确定性。两者正好相反，决策树通过不断消减分">
 <meta name="keywords" content="决策树,信息熵,信息增益,spark,mllib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记5：决策树与信息熵">
 <meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记5：决策树与信息熵/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="决策树与信息熵">
+<meta property="og:description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于信息熵的。概率是某件事情（宏观态）某个可能情况（微观态）的确定性，而熵是某件事情（宏观态）到底是哪个情况（微观态）的不确定性。两者正好相反，决策树通过不断消减分">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v8prnt4xj20js0czgn4.jpg">
-<meta property="og:updated_time" content="2019-03-14T06:47:30.039Z">
+<meta property="og:updated_time" content="2019-03-18T08:41:43.987Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-MLlib学习日记5：决策树与信息熵">
-<meta name="twitter:description" content="决策树与信息熵">
+<meta name="twitter:description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于信息熵的。概率是某件事情（宏观态）某个可能情况（微观态）的确定性，而熵是某件事情（宏观态）到底是哪个情况（微观态）的不确定性。两者正好相反，决策树通过不断消减分">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg">
 
 
@@ -397,10 +397,6 @@
 
           
 
-          
-              <div class="post-description">
-                  决策树与信息熵
-              </div>
           
 
         </div>
