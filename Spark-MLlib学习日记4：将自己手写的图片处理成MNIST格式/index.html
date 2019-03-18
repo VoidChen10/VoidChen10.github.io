@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="MachineLeaning,数据集,">
+  <meta name="keywords" content="手写的图片处理,MNIST,手写数字,spark,mllib">
 
 
 
@@ -94,13 +94,13 @@
 
 
 
-<meta name="description" content="前言今天要讲的呢，是自己制作手写图片，并处理成MNIST的标准格式，输入到我们训练好的模型来做识别，看看效果怎样，一直用别人提供的东西，调调api什么的总感觉参与感少了点哈哈。 本来这一部分我是打算给加到MNIST数据集介绍和朴素贝叶斯那两期后面作为扩展阅读的，因为觉得应该是蛮简单的一件事，没想到实际做下来又花了我2天的时间。遇到了不少难点和细节处理，所以最后决定独立一篇文章算了。 今天这篇呢，会">
-<meta name="keywords" content="MachineLeaning,数据集">
+<meta name="description" content="将自己手写的图片处理成MNIST格式">
+<meta name="keywords" content="手写的图片处理,MNIST,手写数字,spark,mllib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式">
-<meta property="og:url" content="https://voidchen.cn/2019/02/28/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/index.html">
+<meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="前言今天要讲的呢，是自己制作手写图片，并处理成MNIST的标准格式，输入到我们训练好的模型来做识别，看看效果怎样，一直用别人提供的东西，调调api什么的总感觉参与感少了点哈哈。 本来这一部分我是打算给加到MNIST数据集介绍和朴素贝叶斯那两期后面作为扩展阅读的，因为觉得应该是蛮简单的一件事，没想到实际做下来又花了我2天的时间。遇到了不少难点和细节处理，所以最后决定独立一篇文章算了。 今天这篇呢，会">
+<meta property="og:description" content="将自己手写的图片处理成MNIST格式">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0nbw52d29j20ri0g3dgu.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0nby2q2qwj20is0cit8s.jpg">
@@ -109,10 +109,10 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0qjh5pvhpj20aj08wwej.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0qku2e5gjj20pq08p3z2.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0qkv3ha06j203j060gml.jpg">
-<meta property="og:updated_time" content="2019-03-13T11:03:25.421Z">
+<meta property="og:updated_time" content="2019-03-14T06:47:20.695Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式">
-<meta name="twitter:description" content="前言今天要讲的呢，是自己制作手写图片，并处理成MNIST的标准格式，输入到我们训练好的模型来做识别，看看效果怎样，一直用别人提供的东西，调调api什么的总感觉参与感少了点哈哈。 本来这一部分我是打算给加到MNIST数据集介绍和朴素贝叶斯那两期后面作为扩展阅读的，因为觉得应该是蛮简单的一件事，没想到实际做下来又花了我2天的时间。遇到了不少难点和细节处理，所以最后决定独立一篇文章算了。 今天这篇呢，会">
+<meta name="twitter:description" content="将自己手写的图片处理成MNIST格式">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0nbw52d29j20ri0g3dgu.jpg">
 
 
@@ -143,7 +143,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/2019/02/28/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/">
+  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/">
 
 
 
@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/2019/02/28/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
@@ -403,6 +403,10 @@
           
 
           
+              <div class="post-description">
+                  将自己手写的图片处理成MNIST格式
+              </div>
+          
 
         </div>
       </header>
@@ -478,7 +482,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/2019/02/28/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/" title="Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式">https://voidchen.cn/2019/02/28/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/</a>
+    <a href="https://voidchen.cn/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/" title="Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式">https://voidchen.cn/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -508,8 +512,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/" rel="next" title="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片">
-                <i class="fa fa-chevron-left"></i> Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片
+              <a href="/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/" rel="next" title="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片">
+                <i class="fa fa-chevron-left"></i> Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片
               </a>
             
           </div>
@@ -518,7 +522,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/03/06/Spark-MLlib学习日记5：决策树与信息熵/" rel="prev" title="Spark-MLlib学习日记5：决策树与信息熵">
+              <a href="/Spark-MLlib学习日记5：决策树与信息熵/" rel="prev" title="Spark-MLlib学习日记5：决策树与信息熵">
                 Spark-MLlib学习日记5：决策树与信息熵 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -604,7 +608,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

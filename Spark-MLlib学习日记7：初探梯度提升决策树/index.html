@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="算法,MachineLeaning,聚类,">
+  <meta name="keywords" content="梯度提升决策树,手写数字,MNIST,spark,mllib">
 
 
 
@@ -94,26 +94,21 @@
 
 
 
-<meta name="description" content="前言作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。 由于公司用的是Spark，所以从Spark MLlib开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望">
-<meta name="keywords" content="算法,MachineLeaning,聚类">
+<meta name="description" content="基于梯度提升决策树识别手写数字">
+<meta name="keywords" content="梯度提升决策树,手写数字,MNIST,spark,mllib">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spark-MLlib学习日记1：K-means聚类分析">
-<meta property="og:url" content="https://voidchen.cn/2019/01/30/Spark-MLlib学习日记1：K-means聚类分析/index.html">
+<meta property="og:title" content="Spark-MLlib学习日记7：初探梯度提升决策树">
+<meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="前言作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。 由于公司用的是Spark，所以从Spark MLlib开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望">
+<meta property="og:description" content="基于梯度提升决策树识别手写数字">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpts0dduej20sh0j8djd.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpw34amzwj20m808vq39.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpxk3c5rlj21at0mntc0.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzrlsz8uj2094094gm6.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzsrn0oyj20ai0aijse.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpztlhcn2j2094094aal.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzuhfmhcj20ai0aiwfh.jpg">
-<meta property="og:updated_time" content="2019-03-13T11:28:17.172Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g1719jze6aj20i90ei761.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g1627e3uv7j21pc11y10a.jpg">
+<meta property="og:updated_time" content="2019-03-18T08:38:56.327Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spark-MLlib学习日记1：K-means聚类分析">
-<meta name="twitter:description" content="前言作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。 由于公司用的是Spark，所以从Spark MLlib开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpts0dduej20sh0j8djd.jpg">
+<meta name="twitter:title" content="Spark-MLlib学习日记7：初探梯度提升决策树">
+<meta name="twitter:description" content="基于梯度提升决策树识别手写数字">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g1719jze6aj20i90ei761.jpg">
 
 
 
@@ -143,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/2019/01/30/Spark-MLlib学习日记1：K-means聚类分析/">
+  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/">
 
 
 
@@ -152,7 +147,7 @@
 
 
 
-  <title>Spark-MLlib学习日记1：K-means聚类分析 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Spark-MLlib学习日记7：初探梯度提升决策树 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -321,7 +316,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/2019/01/30/Spark-MLlib学习日记1：K-means聚类分析/">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
@@ -338,11 +333,15 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Spark-MLlib学习日记1：K-means聚类分析</h2>
+          <h2 class="post-title" itemprop="name headline">Spark-MLlib学习日记7：初探梯度提升决策树</h2>
         
 
         <div class="post-meta">
 		  
+            <i class="fa fa-thumb-tack"></i>
+            <font color="FF4500">置顶</font>
+            <span class="post-meta-divider">|</span>
+          
 
           <span class="post-time">
             
@@ -352,8 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-30T14:40:31+08:00">
-                2019-01-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-14T09:43:21+08:00">
+                2019-03-14
               </time>
             
 
@@ -403,6 +402,10 @@
           
 
           
+              <div class="post-description">
+                  基于梯度提升决策树识别手写数字
+              </div>
+          
 
         </div>
       </header>
@@ -417,51 +420,84 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。</p>
-<p>由于公司用的是Spark，所以从<strong>Spark MLlib</strong>开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望看到这篇文章地小伙伴也能下定决心，一起攻克机器学习。<br><a id="more"></a></p>
-<h1 id="K-Means-聚类算法原理"><a href="#K-Means-聚类算法原理" class="headerlink" title="K-Means 聚类算法原理"></a>K-Means 聚类算法原理</h1><h2 id="K-Means算法流程"><a href="#K-Means算法流程" class="headerlink" title="K-Means算法流程"></a>K-Means算法流程</h2><p>关于原理呢，我直接引用<a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-spark-practice4/" target="_blank" rel="noopener">《使用Spark MLlib做K-mean聚类分析》</a>里面的资料好了：</p>
-<blockquote>
-<p>聚类分析是一个无监督学习 (Unsupervised Learning) 过程, 一般是用来对数据对象按照其特征属性进行分组，经常被应用在客户分群，欺诈检测，图像分析等领域。K-means 应该是最有名并且最经常使用的聚类算法了，其原理比较容易理解，并且聚类效果良好，有着广泛的使用。<br>和诸多机器学习算法一样，K-means 算法也是一个<strong>迭代式</strong>的算法，其主要步骤如下:</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>嗯。。怎么说呢，本来见识到随机森林的强大之后，觉得分类算法里面，另一个集成算法——<strong>梯度提升决策树(<em>GBDT</em>)</strong>看不看都那样了，看各类书和spark官网对他的介绍也是一笔带过，所以抱着轻视的态度，顺手训练了下模型，结果识别率居然高达<code>99.763593%</code>！！！用的还是官方给的默认参数。。。而且训练速度贼快。我随机森林要跑15分钟，这个几分钟就好了。所以决定单独写一篇日记，来深入地去学习一下这个算法。</p>
+<p>比较可惜地是，该算法目前还不支持多分类，不过找了下资料貌似挺多大神在一点点改进这个算法了，比如陈天奇的<code>xgboost</code>。总而言之，不能以一份数据来衡量机器学习算法的好坏，应该根据数据特点，选择最适合这个数据的算法，这也是我这个系列学习希望达成的目标之一。</p>
+<a id="more"></a>
+<h1 id="什么是梯度提升决策树"><a href="#什么是梯度提升决策树" class="headerlink" title="什么是梯度提升决策树"></a>什么是梯度提升决策树</h1><p>梯度提升决策树简称 <strong>GBDT</strong> ，是 <em>Gradient Boosting Decision Tree</em> 的缩写，也有文章称之为 <strong>MART（<em>Multiple Additive Regression Tree</em>）</strong>，是一种迭代的决策树算法，该算法由多棵决策树组成，所有树的结论<strong>累加</strong>起来做最终答案。注意这里的决策树算法用的并不是随机森林提到的分类树，而是<strong>回归树</strong>，而且梯度提升树目前不支持多分类问题。</p>
+<p>梯度提升树依次迭代训练一系列的决策树。在一次迭代中，算法使用现有的集成来对每个训练实例的类别进行预测，然后将预测结果与真实的标签值进行比较。通过重新标记，来赋予预测结果不好的实例更高的<strong>权重</strong>。所以，在下次迭代中，决策树会对先前的错误进行修正。</p>
+<p>对实例标签进行重新标记的机制由损失函数来指定。每次迭代过程中，梯度迭代树在训练数据上进一步减少损失函数的值。<code>spark.ml</code>为分类问题提供一种损失函数<strong>（<em>Log Loss</em>）</strong>，为回归问题提供两种损失函数<strong>（<em>平方误差与绝对误差</em>）</strong>。</p>
+<h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p><strong>GBDT的核心就在于，每一棵树学的是之前所有树结论和的残差</strong>，这个<strong>残差就是一个加预测值后能得真实值的累加量</strong>。</p>
+<p>在GBDT的迭代中，假设我们前一轮迭代得到的强学习器是 $f_{t-1}(x)​$，损失函数是 $L(y, f_{t-1}(x))​$， 我们本轮迭代的目标是找到一个CART回归树模型的弱学习器$h_t(x)​$，让本轮的损失函数$L(y, f_{t}(x) =L(y, f_{t-1}(x)+ h_t(x))​$最小。也就是说，本轮迭代找到决策树，要让样本的损失尽量变得更小。</p>
+<p>GBDT的思想可以用一个通俗的例子解释，假如有个人30岁，我们首先用20岁去拟合，发现损失有10岁，这时我们用6岁去拟合剩下的损失，发现差距还有4岁，第三轮我们用3岁拟合剩下的差距，差距就只有一岁了。如果我们的迭代轮数还没有完，可以继续迭代下面，每一轮迭代，拟合的岁数误差都会减小。</p>
+<h2 id="构造过程"><a href="#构造过程" class="headerlink" title="构造过程"></a>构造过程</h2><p>这里只给出网上找到的算法步骤，里面很多推导以及公式我还没弄懂，实在有些惭愧，后续闲下来会针对这个再进一步学习。</p>
+<p>算法如下步骤，截图来自《The Elements of Statistical Learning》：</p>
+<p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g1719jze6aj20i90ei761.jpg" alt=""></p>
+<p>算法步骤解释：</p>
 <ul>
-<li><p>第一步，选择 K 个点作为初始聚类中心。</p>
+<li>1、初始化，估计使损失函数极小化的常数值，它是只有一个根节点的树，即ganma是一个常数值。</li>
+<li>2、<br>（a）计算损失函数的负梯度在当前模型的值，将它作为残差的估计<br>（b）估计回归树叶节点区域，以拟合残差的近似值<br>（c）利用线性搜索估计叶节点区域的值，使损失函数极小化<br>（d）更新回归树</li>
+<li>3、得到输出的最终模型 f(x)</li>
+</ul>
+<h1 id="GBDT的优缺点及应用场景"><a href="#GBDT的优缺点及应用场景" class="headerlink" title="GBDT的优缺点及应用场景"></a>GBDT的优缺点及应用场景</h1><p><strong>优点：</strong></p>
+<ul>
+<li>相对少的调参时间情况下可以得到较高的准确率。</li>
+<li>可灵活处理各种类型数据，包括连续值和离散值，使用范围广。</li>
+<li>可使用一些健壮的损失函数，对异常值的鲁棒性较强，比如Huber损失函数。</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>弱学习器之间存在依赖关系，难以并行训练数据。</li>
+</ul>
+<p><strong>应用场景：</strong><br>GBDT几乎可用于所有回归问题（线性/非线性），相对logistic regression仅能用于线性回归，GBDT的适用面非常广。亦可用于二分类问题（设定阈值，大于阈值为正例，反之为负例）。</p>
+<p>而在实际应用中呢，多是作为一种预测分析算法，用在各行各业的领域，如：</p>
+<ul>
+<li>故障预测分析</li>
+<li>欺诈预测分析</li>
+<li>搜索引擎用户体验提升</li>
+<li>视频流媒体服务体验提升</li>
+<li>个人征信</li>
+</ul>
+<h1 id="GBDT重要参数介绍"><a href="#GBDT重要参数介绍" class="headerlink" title="GBDT重要参数介绍"></a>GBDT重要参数介绍</h1><ul>
+<li><p><strong>lose：损失函数。</strong></p>
+<p> ​    spark mllib一共提供3种，注意每一种都只适合一类问题，要么是回归，要么是分类。分类只可选择<strong><em>Log Loss</em></strong>，回归问题可选择<strong>平方误差(<em>Squared Error</em>)</strong>和<strong>绝对值误差(<em>Absolute Error</em>)</strong>。分别又称为L2损失和L1损失。绝对值误差（L1损失）在处理带有离群值的数据时比L2损失更加具有鲁棒性。分别如下表格：</p>
+<p> | Loss | Task | Formula | Description |<br> | —- | —- | ——- | ———– |<br> | Log Loss| Classification| 2∑Ni=1log(1+exp(−2yiF(xi)))| Twice binomial negative log likelihood.|<br> | Squared Error| Regression| ∑Ni=1(yi−F(xi))2| 也称为L2损失。回归任务的默认损失。 |<br> | Absolute Error| Regression| ∑Ni=1|yi−F(xi)|| 也称为L1损失。对于异常值比Squared Error更强大。 |</p>
 </li>
-<li><p>第二步，计算其余所有点到聚类中心的距离，并把每个点划分到离它最近的聚类中心所在的聚类中去。在这里，衡量距离一般有多个函数可以选择，最常用的是欧几里得距离 (Euclidean Distance), 也叫欧式距离,公式如下：</p>
-<p> $$D(C,X) = \sqrt{\sum_{i=1}^n(c_i - x_i)^2}​$$</p>
-<p>  其中 C 代表中心点，X 代表任意一个非中心点。</p>
-</li>
-<li><p>第三步，重新计算每个聚类中所有点的平均值，并将其作为新的聚类中心点。</p>
-</li>
-<li><p>最后，重复 (二)，(三) 步的过程，直至聚类中心不再发生改变，或者算法达到预定的迭代次数，又或聚类中心的改变小于预先设定的阀值。</p>
+<li><p><strong>numIterations：迭代次数。</strong></p>
+<p>​    GBDT迭代次数，每一次迭代将产生一棵树，因此这个numIterations也是算法中所包含的树的数目。增加numIterations会提高训练集数据预测准确率（注意是训练集数据上的准确率哦）。但是相应的会增加训练的时间。</p>
 </li>
 </ul>
-</blockquote>
-<p>光这么看有点不是很直观，其实就是不断换聚类中心以求达到“最合理”的分类的过程，下面我贴一张数据可视化的图，更直观地描述这个过程：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpts0dduej20sh0j8djd.jpg" alt="k-means过程可视化"><br>如图，k-means算法在每一次迭代中，选择了更靠谱的红蓝中心点，试图让分类更合理，跟均匀。</p>
-<h2 id="欧式距离"><a href="#欧式距离" class="headerlink" title="欧式距离"></a>欧式距离</h2><p>欧几里得公式的含义还是比较简单的，但是一开始看还是有点懵，在这里我稍微提一下自己的理解，如果不对的话欢迎留言指正=。=首先我们先回顾一下那个公式，那个n代表的是什么呢？<br>$$D(C,X) = \sqrt{\sum_{i=1}^n(c_i - x_i)^2}​$$<br>我们先来看看欧式距离在二维和三维中的展开：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpw34amzwj20m808vq39.jpg" alt="欧式距离2维3维展开"><br>是不是觉得很熟悉咧，就是求坐标之间的距离嘛，以此类推，在4维空间5维空间或者更高维度的空间中怎么算两点坐标距离呢？那就是原版的欧式距离公式啦！n在我看来，就是代表所求的维度数嘛，对应到实际应用中，这个“维度”对应的就是我们想要聚类的对象的参数（特征）。当n个参数可以确定一个唯一（或近似）的对象，我们通过欧式距离公式计算这个对象坐标的距离，把最后n维空间坐标相近的对象聚到同一个类别里，就完成了K-Means聚类算法要做的工作了。</p>
-<h1 id="聚类测试数据"><a href="#聚类测试数据" class="headerlink" title="聚类测试数据"></a>聚类测试数据</h1><p>在本文中，我们所用到目标数据集是来自UCI Machine Learning Repository的<a href="http://archive.ics.uci.edu/ml/datasets/Wholesale+customers" target="_blank" rel="noopener">Wholesale customer Data Set</a>。UCI是一个关于机器学习测试数据的下载中心站点，里面包含了适用于做聚类，分群，回归等各种机器学习问题的数据集。</p>
-<p>Wholesale customer Data Set是引用某批发经销商的客户在各种类别产品上的年消费数。为了方便处理，本文把原始的CSV格式转化成了两个文本文件，取前面20行作为测试集，其余的数据作为训练集。如图：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpxk3c5rlj21at0mntc0.jpg" alt=""></p>
-<h1 id="代码样例"><a href="#代码样例" class="headerlink" title="代码样例"></a>代码样例</h1><p>看注释就好了，基本就是处理好数据，然后调用spark-lib包里面的kmeans方法去做训练就ok了，源码分析大概会在做完这个系列之后再考虑要不要做。。。</p>
-<p>值得注意的是：<code>val clusters:KMeansModel = KMeans.train(parsedTrainingData, numClusters, numIterations,runTimes)</code>这行代码，我来介绍一下这几个参数：</p>
 <ul>
-<li><strong>parsedTrainingData：</strong> 处理好的训练数据集</li>
-<li><strong>numClusters：</strong> 聚类的个数。这个值的选取有点学问，K的选择是K-means算法的关键，Spark MLlib在<code>KMeansModel</code>类里提供了<strong>computeCost</strong>方法，我的demo中也有该方法调用例子。该方法通过计算所有数据点到其最近的中心点的平方和来评估聚类的效果。一般来说，同样的迭代次数和算法跑的次数，这个值越小代表聚类的效果越好。但是在实际情况下，我们还要考虑到聚类结果的可解释性，不能一味的选择使computeCost结果值最小的那个K</li>
-<li><strong>numIterations：</strong> K-means算法的迭代次数</li>
-<li><strong>runTimes：</strong> K-means算法run的次数</li>
+<li><p><strong>learningRate：学习率。</strong></p>
+<p> ​    官方建议是不需要调整此参数。如果算法行为看起来不稳定，则降低此值可以提高稳定性。小的学习率（步长）肯定会增加训练的时间。</p>
+</li>
 </ul>
-<p>完整代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * @author Chenyl</span><br><span class="line">  * @date 2019/1/23 15:57</span><br><span class="line">  */</span><br><span class="line">import org.apache.spark.&#123;SparkContext, SparkConf&#125;</span><br><span class="line">import org.apache.spark.mllib.clustering.&#123;KMeans, KMeansModel&#125;</span><br><span class="line">import org.apache.spark.mllib.linalg.Vectors</span><br><span class="line">object KMeansClustering &#123;</span><br><span class="line">  def main (args: Array[String]) &#123;</span><br><span class="line"></span><br><span class="line">    val trainingPath = &quot;src/main/resources/Wholesale customers data_training.txt&quot;  //训练数据集文件路径</span><br><span class="line">    val testPath = &quot;src/main/resources/Wholesale customers data_test.txt&quot; //测试数据集文件路径</span><br><span class="line"></span><br><span class="line">    val numClusters = 8  //聚类的个数</span><br><span class="line">    val numIterations = 30  //K-means 算法的迭代次数</span><br><span class="line">    val runTimes = 3   //K-means 算法 run 的次数</span><br><span class="line"></span><br><span class="line">    val conf = new SparkConf().setAppName(&quot;Spark MLlib Exercise:K-Means Clustering&quot;)</span><br><span class="line">    conf</span><br><span class="line">      //TODO: 生成打包前，需注释掉此行</span><br><span class="line">      .setMaster(&quot;local[*]&quot;)</span><br><span class="line">      .set(&quot;spark.serializer&quot;, &quot;org.apache.spark.serializer.KryoSerializer&quot;)</span><br><span class="line"></span><br><span class="line">    val sc = new SparkContext(conf)</span><br><span class="line">    sc.setLogLevel(&quot;ERROR&quot;)  //设置日志级别，info会有很多运行日志出现，也可以打开看看</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">      *Channel Region Fresh Milk Grocery Frozen Detergents_Paper Delicassen</span><br><span class="line">      * 2 3 12669 9656 7561 214 2674 1338</span><br><span class="line">      * 2 3 7057 9810 9568 1762 3293 1776</span><br><span class="line">      * 2 3 6353 8808 7684 2405 3516 7844</span><br><span class="line">      */</span><br><span class="line">    val rawTrainingData = sc.textFile(trainingPath) //加载测试数据</span><br><span class="line"></span><br><span class="line">    //去表头处理</span><br><span class="line">    val parsedTrainingData = rawTrainingData.filter(!isColumnNameLine(_)).map(line =&gt; &#123;</span><br><span class="line">      Vectors.dense(line.split(&quot;\t&quot;).map(_.trim).filter(!&quot;&quot;.equals(_)).map(_.toDouble))</span><br><span class="line">    &#125;).cache()</span><br><span class="line"></span><br><span class="line">//    findK(parsedTrainingData)</span><br><span class="line"></span><br><span class="line">    // Cluster the data into two classes using KMeans</span><br><span class="line"></span><br><span class="line">    var clusterIndex:Int = 0</span><br><span class="line">    //使用K-Means训练</span><br><span class="line">    val clusters:KMeansModel = KMeans.train(parsedTrainingData, numClusters, numIterations,runTimes)</span><br><span class="line"></span><br><span class="line">    println(&quot;Cluster Number:&quot; + clusters.clusterCenters.length)</span><br><span class="line">    println(&quot;Cluster Centers Information Overview:&quot;)</span><br><span class="line">    clusters.clusterCenters.foreach(x =&gt; &#123;</span><br><span class="line">      println(&quot;Center Point of Cluster &quot; + clusterIndex + &quot;:&quot;)</span><br><span class="line">      println(x)</span><br><span class="line">      clusterIndex += 1</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    //begin to check which cluster each test data belongs to based on the clustering result</span><br><span class="line">    val rawTestData = sc.textFile(testPath) //加载测试数据</span><br><span class="line">    val parsedTestData = rawTestData.map(line =&gt;&#123;</span><br><span class="line">      Vectors.dense(line.split(&quot;\t&quot;).map(_.trim).filter(!&quot;&quot;.equals(_)).map(_.toDouble))</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    parsedTestData.collect().foreach(testDataLine =&gt; &#123;</span><br><span class="line">      val predictedClusterIndex: Int = clusters.predict(testDataLine) //使用训练好的模型进行分类</span><br><span class="line">      println(&quot;The data &quot; + testDataLine.toString + &quot; belongs to cluster &quot; +predictedClusterIndex)</span><br><span class="line">    &#125;)</span><br><span class="line">    println(&quot;Spark MLlib K-means clustering test finished.&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  private def isColumnNameLine(line:String):Boolean = &#123;</span><br><span class="line">    if (line != null &amp;&amp; line.contains(&quot;Channel&quot;)) true</span><br><span class="line">    else false</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">    * 查看最佳的K值</span><br><span class="line">    * @param parsedTrainingData</span><br><span class="line">    */</span><br><span class="line">  private def findK(parsedTrainingData:org.apache.spark.rdd.RDD[org.apache.spark.mllib.linalg.Vector]): Unit =&#123;</span><br><span class="line">    val ks:Array[Int] = Array(3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)</span><br><span class="line">    ks.foreach(cluster =&gt; &#123;</span><br><span class="line">      val model:KMeansModel = KMeans.train(parsedTrainingData, cluster,30,1)</span><br><span class="line">      val ssd = model.computeCost(parsedTrainingData)</span><br><span class="line">      println(&quot;sum of squared distances of points to their nearest center when k=&quot; + cluster + &quot; -&gt; &quot;+ ssd)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h1 id="K-Means应用场景"><a href="#K-Means应用场景" class="headerlink" title="K-Means应用场景"></a>K-Means应用场景</h1><h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p>常用的场景是在不清楚用户有几类时，尝试性的将用户进行分类，并根据每类用户的不同特征，决定下步动作。一个典型的应用场景是CRM管理中的数据库营销。举例，对于一个超市/电商网站/综合零售商，可以根据用户的购买行为，将其分为“年轻白领”、“一家三口”、“家有一老”、”初得子女“等等类型，然后通过邮件、短信、推送通知等，向其发起不同的优惠活动。</p>
-<blockquote>
-<p>明尼苏达州一家塔吉特门店被客户投诉，一位中年男子指控塔吉特将婴儿产品优惠券寄给他的女儿 —— 一个高中生。但没多久他却来电道歉，因为女儿经他逼问后坦承自己真的怀孕了。塔吉特百货就是靠着分析用户所有的购物数据，然后通过相关关系分析得出事情的真实状况。</p>
-</blockquote>
-<p>在这个案例中，那个高中生少女明显是被聚到了孕妇那一类，因为她的行为模式与孕妇是很相近的。</p>
-<p>总的来说，聚类算法大多用在用户画像、客户分群之类的，也可用于图像分析（色块相近聚集，后续会有一篇文章介绍kmeans在图像分析上的应用）<br>另外附上一篇<a href="http://kuaibao.qq.com/s/20180402A1W15B00?refer=spider" target="_blank" rel="noopener">《K-Means算法的10个有趣用例》</a>,有兴趣的可以详细看看</p>
-<h2 id="不适用场景"><a href="#不适用场景" class="headerlink" title="不适用场景"></a>不适用场景</h2><p>每一种算法都不是放之四海而皆准的，下面是 K-Means 算法不适用的两个场景：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzrlsz8uj2094094gm6.jpg" alt=""><br>这种情况如果由人来聚类，分分钟搞定，但是 K-Means 算法是这样做的：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzsrn0oyj20ai0aijse.jpg" alt=""><br>下面这种情况更微妙一些，各个子集的密集程度相差很大：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpztlhcn2j2094094aal.jpg" alt=""><br>看看 K-Means 算法是怎样做的：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzuhfmhcj20ai0aiwfh.jpg" alt=""><br>好吧，的确是差成渣了，但这真的不是算法的问题，而是我们人类对算法的选择问题。</p>
-<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>k-means算法无论是原理还是代码MLlib的使用都是较为简单，但是在某些领域其效果却是出奇的好，作为入门机器学习的第一步，K-means也向我们掀开了机器学习世界神秘面纱的一角，给我们这些初学者极大的信心。</p>
-<p>k-means只是机器学习中的一个算法工具，更多算法，将会在后续的日子中一一学习掌握，我也会即时把学习的一些心得写成系列文章，与君共勉。</p>
+<ul>
+<li><p><strong>algo：使用的算法。</strong></p>
+<p> ​    初始化的时候直接给出这个树的算法类型,像这样：<code>BoostingStrategy.defaultParams(&quot;Classification&quot;)</code> 。一共就两种,<strong>分类(<em>Classification</em>)</strong> 或者是 <strong>回归(<em>Regression</em>）</strong>。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>treeStrategy.numClasses：分类数量。</strong></p>
+<p> ​    由于分类只能做二分类，所以这个参数填2就可以了，多了会报错。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>treeStrategy.maxDepth：树深度。</strong></p>
+<p> ​    和随机森林的一样，树越深，训练时间越长。</p>
+</li>
+</ul>
+<p>这里面主要用到的就是这几个参数，较为有用的就是<strong>迭代次数</strong>了，为了防止过拟合，这个迭代次数也得调整下，随着迭代次数的增加，一开始在验证集上预测误差会减小，迭代次数增大到一定程度后误差反而会增加，那么通过准确度vs.迭代次数曲线可以选择最合适的numIterations。</p>
+<h1 id="在MNIST手写数字集上使用GBDT做分类"><a href="#在MNIST手写数字集上使用GBDT做分类" class="headerlink" title="在MNIST手写数字集上使用GBDT做分类"></a>在MNIST手写数字集上使用GBDT做分类</h1><p>由于这一系列暂时用的都是同一份数据集，我就不重复讲怎么处理数据了，有需要的同学可以看下前面的数据集介绍，对比上一篇随机森林的代码呢，其实差别只是换了一个训练函数，以及因为GBDT只能做二分类所以把数据过滤了下，只取了0和1的数据来做判断，下面贴出主函数，完整代码请点击这里：<a href="https://github.com/VoidChen10/MachineLearning/blob/master/src/main/scala/SparkMLlib/Classification/GBDT_Example.scala" target="_blank" rel="noopener">前往GitHub</a></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> <span class="type">SparkMLlib</span>.<span class="type">Classification</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="type">SparkMLlib</span>.<span class="type">Base</span>.<span class="type">MNIST_Util</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.linalg.<span class="type">Vectors</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.regression.<span class="type">LabeledPoint</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.tree.&#123;<span class="type">GradientBoostedTrees</span>&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.tree.configuration.<span class="type">BoostingStrategy</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">SparkConf</span>, <span class="type">SparkContext</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">GBDT_Example</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="comment">// 获取当前运行路径</span></span><br><span class="line">    <span class="keyword">val</span> userPath = <span class="type">System</span>.getProperty(<span class="string">"user.dir"</span>)</span><br><span class="line">    <span class="keyword">val</span> trainLabelFilePath = userPath + <span class="string">"/src/main/resources/data/train-labels.idx1-ubyte"</span></span><br><span class="line">    <span class="keyword">val</span> trainImageFilePath = userPath + <span class="string">"/src/main/resources/data/train-images.idx3-ubyte"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> testLabelFilePath = userPath + <span class="string">"/src/main/resources/data/t10k-labels.idx1-ubyte"</span></span><br><span class="line">    <span class="keyword">val</span> testImageFilePath = userPath + <span class="string">"/src/main/resources/data/t10k-images.idx3-ubyte"</span></span><br><span class="line"><span class="comment">//        val testLabelFilePath = "C:\\Users\\42532\\Desktop\\test-labels.idx1-ubyte"</span></span><br><span class="line"><span class="comment">//        val testImageFilePath = "C:\\Users\\42532\\Desktop\\test-images.idx3-ubyte"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setMaster(<span class="string">"local[*]"</span>).setAppName(<span class="string">"NaiveBayesExample"</span>)</span><br><span class="line">    <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> trainLabel = <span class="type">MNIST_Util</span>.loadLabel(trainLabelFilePath)</span><br><span class="line">    <span class="keyword">val</span> trainImages = <span class="type">MNIST_Util</span>.loadImages(trainImageFilePath)</span><br><span class="line">    <span class="keyword">val</span> testLabel = <span class="type">MNIST_Util</span>.loadLabel(testLabelFilePath)</span><br><span class="line">    <span class="keyword">val</span> testImages = <span class="type">MNIST_Util</span>.loadImages(testImageFilePath)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Train a GradientBoostedTrees model.</span></span><br><span class="line">    <span class="comment">// The defaultParams for Classification use LogLoss by default.</span></span><br><span class="line">    <span class="keyword">val</span> boostingStrategy = <span class="type">BoostingStrategy</span>.defaultParams(<span class="string">"Classification"</span>)</span><br><span class="line">    boostingStrategy.numIterations = <span class="number">3</span> <span class="comment">// Note: Use more iterations in practice.</span></span><br><span class="line">    boostingStrategy.treeStrategy.numClasses = <span class="number">2</span></span><br><span class="line">    boostingStrategy.treeStrategy.maxDepth = <span class="number">5</span></span><br><span class="line">    <span class="comment">// Empty categoricalFeaturesInfo indicates all features are continuous.</span></span><br><span class="line">    boostingStrategy.treeStrategy.categoricalFeaturesInfo = <span class="type">Map</span>[<span class="type">Int</span>, <span class="type">Int</span>]()</span><br><span class="line"></span><br><span class="line">    <span class="comment">//处理成mlLib能用的基本类型 LabeledPoint</span></span><br><span class="line">    <span class="keyword">if</span>(trainLabel.length == trainImages.length) &#123;</span><br><span class="line">      <span class="comment">//标签数量和图像数量能对上则合并数组  Array[(labe,images)]</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> data = trainLabel.zip(trainImages)</span><br><span class="line">        .filter(d =&gt; &#123;d._1.toInt == <span class="number">0</span> || d._1.toInt == <span class="number">1</span>&#125;) <span class="comment">//梯度树不能处理多分类问题，这里处理成判断0和1</span></span><br><span class="line">        .map( d =&gt;</span><br><span class="line">        <span class="type">LabeledPoint</span>(d._1.toInt, <span class="type">Vectors</span>.dense(d._2.map(p =&gt; (p &amp; <span class="number">0xFF</span>).toDouble)))</span><br><span class="line">      )</span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> trainRdd = sc.makeRDD(data)</span><br><span class="line"></span><br><span class="line">      println(<span class="string">"开始计算"</span>)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> model = <span class="type">GradientBoostedTrees</span>.train(trainRdd, boostingStrategy)</span><br><span class="line">      model.save(sc,userPath + <span class="string">"/src/main/resources/model/GBDT"</span>)</span><br><span class="line"></span><br><span class="line">      println(<span class="string">"检验结果"</span>)</span><br><span class="line">      <span class="keyword">val</span> testData = testLabel.zip(testImages)</span><br><span class="line">        .filter(d =&gt; &#123;d._1.toInt == <span class="number">0</span> || d._1.toInt == <span class="number">1</span>&#125;) <span class="comment">//梯度树不能处理多分类问题，这里处理成判断0和1</span></span><br><span class="line">        .map(d =&gt;( d._1.toInt,<span class="type">Vectors</span>.dense(d._2.map(p =&gt; (p &amp; <span class="number">0xFF</span>).toDouble )) ))</span><br><span class="line">      <span class="keyword">val</span> testRDD = sc.makeRDD(testData.map(_._2))</span><br><span class="line">      <span class="keyword">val</span> res = model.predict(testRDD).map(l =&gt; l.toInt).collect()</span><br><span class="line"></span><br><span class="line">      <span class="comment">//res.foreach(println(_))</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> tr = res.zip(testData.map(_._1))</span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> sum = tr.map( f =&gt;&#123;</span><br><span class="line">        <span class="keyword">if</span>(f._1 == f._2.toInt) <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">      &#125;).sum</span><br><span class="line"></span><br><span class="line">      println(<span class="string">"准确率为："</span>+ sum.toDouble /tr.length.toDouble)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们运行一下看看，用他默认的参数居然就有<code>99.76%</code> 的识别率！因为只是0和1，所以训练样本也少了五分之一，光看准确率可能并不能说明什么，不过也可以看出，对于二分类问题它是非常厉害的，而且训练时间也比随机森林快很多（可能随机森林调的参数树比较多，而且样本数据比较少）。</p>
+<p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g1627e3uv7j21pc11y10a.jpg" alt=""></p>
+<h1 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h1><p><strong>泛化能力（<em>generalization ability</em>）</strong>：<br>​    是指机器学习算法对新鲜样本的适应能力。学习的目的是学到隐含在数据对背后的规律，对具有同一规律的学习集以外的数据，经过训练的网络也能给出合适的输出，该能力称为泛化能力。</p>
+<p><strong>鲁棒性（<em>Robustness</em>）：</strong><br>​    从英文翻译而来-健壮是体质强壮健康的特性。当它被转换到系统中时，它指的是容忍可能影响系统功能体的扰动的能力。在同一行中，鲁棒性可以定义为“系统抵抗变化而不适应其初始稳定配置的能力”。</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>其实梯度提升决策树最适合的用处并不是在分类上，而是处理一些回归问题，在今后的学习中我肯定也会遇到类似的问题，到时候在拿相关的数据集来进一步学习和尝试吧，今天这篇只能算是初探梯度提升决策树，一些推导和理论我也还不是太清楚明白，这些也都是有待以后补充了。</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
-<li><a href="https://www.jianshu.com/p/32e895a940a2" target="_blank" rel="noopener">《Spark机器学习2：K-Means聚类算法》</a></li>
-<li><a href="http://kuaibao.qq.com/s/20180402A1W15B00?refer=spider" target="_blank" rel="noopener">《K-Means算法的10个有趣用例》</a></li>
-<li><a href="http://archive.ics.uci.edu/ml/datasets/Wholesale+customers" target="_blank" rel="noopener">《Wholesale customer Data Set》</a></li>
-<li><a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-spark-practice4/" target="_blank" rel="noopener">《使用Spark MLlib做K-mean聚类分析》</a></li>
+<li><a href="https://blog.csdn.net/qq_34531825/article/details/52366265" target="_blank" rel="noopener">《Spark2.0机器学习系列之5：GBDT（梯度提升决策树）、GBDT与随机森林差异、参数调试及Scikit代码分析》</a></li>
+<li><a href="https://www.cnblogs.com/pinard/p/6140514.html" target="_blank" rel="noopener">《[梯度提升树(GBDT)原理小结]》</a></li>
+<li><a href="https://www.zybuluo.com/evilking/note/946535" target="_blank" rel="noopener">《GBDT（梯度提升决策树）》</a></li>
 </ul>
 
       
@@ -483,7 +519,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/2019/01/30/Spark-MLlib学习日记1：K-means聚类分析/" title="Spark-MLlib学习日记1：K-means聚类分析">https://voidchen.cn/2019/01/30/Spark-MLlib学习日记1：K-means聚类分析/</a>
+    <a href="https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/" title="Spark-MLlib学习日记7：初探梯度提升决策树">https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -502,7 +538,7 @@
           
             <a href="/tags/MachineLeaning/" rel="tag"># MachineLeaning</a>
           
-            <a href="/tags/聚类/" rel="tag"># 聚类</a>
+            <a href="/tags/分类/" rel="tag"># 分类</a>
           
         </div>
       
@@ -515,8 +551,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/27/Kerberos探索遇到的问题及心得/" rel="next" title="Kerberos探索遇到的问题及心得">
-                <i class="fa fa-chevron-left"></i> Kerberos探索遇到的问题及心得
+              <a href="/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/" rel="next" title="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">
+                <i class="fa fa-chevron-left"></i> Spark-MLlib学习日记6：使用随机森林算法识别手写数字
               </a>
             
           </div>
@@ -524,10 +560,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/14/小技巧！从网易云音乐缓存中获取版权失效的音乐/" rel="prev" title="小技巧！从网易云音乐缓存中获取版权失效的音乐">
-                小技巧！从网易云音乐缓存中获取版权失效的音乐 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -611,7 +643,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -687,7 +719,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K-Means-聚类算法原理"><span class="nav-number">2.</span> <span class="nav-text">K-Means 聚类算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#K-Means算法流程"><span class="nav-number">2.1.</span> <span class="nav-text">K-Means算法流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#欧式距离"><span class="nav-number">2.2.</span> <span class="nav-text">欧式距离</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#聚类测试数据"><span class="nav-number">3.</span> <span class="nav-text">聚类测试数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码样例"><span class="nav-number">4.</span> <span class="nav-text">代码样例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K-Means应用场景"><span class="nav-number">5.</span> <span class="nav-text">K-Means应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#适用场景"><span class="nav-number">5.1.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不适用场景"><span class="nav-number">5.2.</span> <span class="nav-text">不适用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束语"><span class="nav-number">6.</span> <span class="nav-text">结束语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">7.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是梯度提升决策树"><span class="nav-number">2.</span> <span class="nav-text">什么是梯度提升决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法原理"><span class="nav-number">2.1.</span> <span class="nav-text">算法原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造过程"><span class="nav-number">2.2.</span> <span class="nav-text">构造过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GBDT的优缺点及应用场景"><span class="nav-number">3.</span> <span class="nav-text">GBDT的优缺点及应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GBDT重要参数介绍"><span class="nav-number">4.</span> <span class="nav-text">GBDT重要参数介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在MNIST手写数字集上使用GBDT做分类"><span class="nav-number">5.</span> <span class="nav-text">在MNIST手写数字集上使用GBDT做分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关术语"><span class="nav-number">6.</span> <span class="nav-text">相关术语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">7.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">8.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>

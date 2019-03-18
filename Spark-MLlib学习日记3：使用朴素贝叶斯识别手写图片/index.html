@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="算法,MachineLeaning,分类,">
+  <meta name="keywords" content="朴素贝叶斯,手写图片,手写数字,MNIST,spark,mllib">
 
 
 
@@ -94,19 +94,19 @@
 
 
 
-<meta name="description" content="前言上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——朴素贝叶斯算法(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。">
-<meta name="keywords" content="算法,MachineLeaning,分类">
+<meta name="description" content="使用朴素贝叶斯识别手写数字图片">
+<meta name="keywords" content="朴素贝叶斯,手写图片,手写数字,MNIST,spark,mllib">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片">
-<meta property="og:url" content="https://voidchen.cn/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/index.html">
+<meta property="og:title" content="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片">
+<meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="前言上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——朴素贝叶斯算法(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。">
+<meta property="og:description" content="使用朴素贝叶斯识别手写数字图片">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ip8sx2fpj20jj04wweu.jpg">
-<meta property="og:updated_time" content="2019-03-13T12:13:05.958Z">
+<meta property="og:updated_time" content="2019-03-14T06:49:03.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片">
-<meta name="twitter:description" content="前言上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——朴素贝叶斯算法(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。">
+<meta name="twitter:title" content="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片">
+<meta name="twitter:description" content="使用朴素贝叶斯识别手写数字图片">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ip8sx2fpj20jj04wweu.jpg">
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/">
+  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/">
 
 
 
@@ -146,7 +146,7 @@
 
 
 
-  <title>Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -315,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
@@ -332,7 +332,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片</h2>
+          <h2 class="post-title" itemprop="name headline">Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片</h2>
         
 
         <div class="post-meta">
@@ -396,6 +396,10 @@
 
           
 
+          
+              <div class="post-description">
+                  使用朴素贝叶斯识别手写数字图片
+              </div>
           
 
         </div>
@@ -481,7 +485,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/" title="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片">https://voidchen.cn/2019/02/24/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/</a>
+    <a href="https://voidchen.cn/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/" title="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片">https://voidchen.cn/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -513,7 +517,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/21/Spark-MLlib学习日记2：MNIST手写数字的读取使用/" rel="next" title="Spark-MLlib学习日记2：MNIST手写数字的读取使用">
+              <a href="/Spark-MLlib学习日记2：MNIST手写数字的读取使用/" rel="next" title="Spark-MLlib学习日记2：MNIST手写数字的读取使用">
                 <i class="fa fa-chevron-left"></i> Spark-MLlib学习日记2：MNIST手写数字的读取使用
               </a>
             
@@ -523,7 +527,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/28/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/" rel="prev" title="Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式">
+              <a href="/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/" rel="prev" title="Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式">
                 Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -609,7 +613,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

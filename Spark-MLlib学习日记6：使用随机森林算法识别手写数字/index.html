@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="算法,MachineLeaning,分类,">
+  <meta name="keywords" content="随机森林,手写数字,MNIST,,spark,mllib">
 
 
 
@@ -94,23 +94,24 @@
 
 
 
-<meta name="description" content="前言上一篇文章中我们讲到了一种常用的分类算法——决策树，今天我们要用到的随机森林算法，正是基于决策树的变种算法。随机森林算法(Random Forest) 和 梯度提升决策树(GradientBoosted Trees) 都是一种 集成学习（Ensemble Learning) 算法，核心的思想就是 “三个臭皮匠顶得过一个诸葛亮” 哈哈哈，就是假如一棵决策树他的分类预测可能是错的话，那么多颗树组成">
-<meta name="keywords" content="算法,MachineLeaning,分类">
+<meta name="description" content="随机森林算法识别手写数字">
+<meta name="keywords" content="随机森林,手写数字,MNIST,,spark,mllib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">
-<meta property="og:url" content="https://voidchen.cn/2019/03/11/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/index.html">
+<meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="前言上一篇文章中我们讲到了一种常用的分类算法——决策树，今天我们要用到的随机森林算法，正是基于决策树的变种算法。随机森林算法(Random Forest) 和 梯度提升决策树(GradientBoosted Trees) 都是一种 集成学习（Ensemble Learning) 算法，核心的思想就是 “三个臭皮匠顶得过一个诸葛亮” 哈哈哈，就是假如一棵决策树他的分类预测可能是错的话，那么多颗树组成">
+<meta property="og:description" content="随机森林算法识别手写数字">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g11fqx68kkj20ku0bqwgz.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g11fsfwjgsj20k60b3t8x.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0zvcin5haj21oe0tz0y7.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0zwk44zl2j21mf0wx7af.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0zy9bzv16j21k60zy101.jpg">
-<meta property="og:updated_time" content="2019-03-13T12:25:07.138Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g126ga09ocj21pn13c467.jpg">
+<meta property="og:updated_time" content="2019-03-14T06:47:37.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">
-<meta name="twitter:description" content="前言上一篇文章中我们讲到了一种常用的分类算法——决策树，今天我们要用到的随机森林算法，正是基于决策树的变种算法。随机森林算法(Random Forest) 和 梯度提升决策树(GradientBoosted Trees) 都是一种 集成学习（Ensemble Learning) 算法，核心的思想就是 “三个臭皮匠顶得过一个诸葛亮” 哈哈哈，就是假如一棵决策树他的分类预测可能是错的话，那么多颗树组成">
+<meta name="twitter:description" content="随机森林算法识别手写数字">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g11fqx68kkj20ku0bqwgz.jpg">
 
 
@@ -141,7 +142,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/2019/03/11/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/">
+  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/">
 
 
 
@@ -319,7 +320,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/2019/03/11/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
@@ -341,10 +342,6 @@
 
         <div class="post-meta">
 		  
-            <i class="fa fa-thumb-tack"></i>
-            <font color="FF4500">置顶</font>
-            <span class="post-meta-divider">|</span>
-          
 
           <span class="post-time">
             
@@ -404,6 +401,10 @@
 
           
 
+          
+              <div class="post-description">
+                  随机森林算法识别手写数字
+              </div>
           
 
         </div>
@@ -509,9 +510,11 @@
 <p>改了森林中树的数量及深度，把信息增益计算的标准换成了上一篇文章着重讲的<a href="https://voidchen.cn/2019/03/06/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/">信息熵</a>，准确率立马飙升到了<strong><code>95.36%</code></strong> 啊！对比朴素贝叶斯训练出来的模型，准确率只有<strong><code>85.65%</code></strong>，看来随机森林不愧是最强的分类算法啊。</p>
 <p>时间允许的话，应该多尝试不同的参数看看识别率的，理论上来讲应该会在某个概率区间收敛，但是我笔记本真的不行啊。。跑一次要十几分钟说，温度爆表cpu也占满了，最后在网上找资料看别人的设置，针对这个MNIST数据集的话，树的数量大约是29，深度大约是30，就能得到一个不错的识别率了。下面贴出我跑的结果,识别率为<strong><code>96.47%</code></strong>，有兴趣的小伙伴可以尝试更多的参数组合，并在评论区留言给大家参考下。（PS：有随机因素的影响下，同样参数跑出来的模型也有所偏差，想要得到最完美的模型，只能多试几次随机种子）</p>
 <p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0zy9bzv16j21k60zy101.jpg" alt=""></p>
+<p><strong>更新！！！</strong>多试了几次之后（跑一次要20分钟QAQ），得到一个最高的识别率为<code>96.59%</code><br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g126ga09ocj21pn13c467.jpg" alt=""></p>
 <h1 id="一些有待解决的问题"><a href="#一些有待解决的问题" class="headerlink" title="一些有待解决的问题"></a>一些有待解决的问题</h1><p>训练随机森林还是挺吃资源的，至少我的笔记本跑起来并不是很快。。而且第一次跑的时候还内存溢出了，只是13棵树而已，在运行参数里改大了内存分配才解决，添加运行参数<code>-Xmn16m -Xms64m -Xmx8000m</code> 就ok了，不过我的电脑是16G内存的，所以才分配8G左右过去，没有多尝试，不过8G至少能跑到29棵树，深度为30。</p>
 <p>机器资源好解决，有机会放上spark集群的话应该会好很多，这方面的暂时还没条件去尝试，毕竟随机森林的这种设计，真的很适合放到分布式集群上去啊。</p>
 <p>还有一个需要尝试的就是如何利用显卡的GPU去做运算，有机会查查资料出一期window上怎么利用GPU跑机器学习算法，TensorFlow我倒是知道怎么做，Spark应该也可以才对。</p>
+<p>另外还有一些疑问就是，随机森林的两个随机中，样本数据的随机抽样，是不是抽出来的每一个样本都和原始数据样本是一样的，这个可以调整吗？ 特征值的随机呢?每次随机抽出n个备选特诊，然后从备选特征中用几个?是否放回或重复? 或许以后的学习中会有新的知识解决我这些疑惑（大概是统计学里抽样的科学）。</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><a href="https://zhuanlan.zhihu.com/p/27689464" target="_blank" rel="noopener">《知乎——集成学习（Ensemble Learning)》</a></li>
 <li><a href="https://blog.csdn.net/qq547276542/article/details/78304454" target="_blank" rel="noopener">《随机森林算法学习(RandomForest)》</a></li>
@@ -538,7 +541,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/2019/03/11/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/" title="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">https://voidchen.cn/2019/03/11/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/</a>
+    <a href="https://voidchen.cn/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/" title="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">https://voidchen.cn/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -570,7 +573,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/06/Spark-MLlib学习日记5：决策树与信息熵/" rel="next" title="Spark-MLlib学习日记5：决策树与信息熵">
+              <a href="/Spark-MLlib学习日记5：决策树与信息熵/" rel="next" title="Spark-MLlib学习日记5：决策树与信息熵">
                 <i class="fa fa-chevron-left"></i> Spark-MLlib学习日记5：决策树与信息熵
               </a>
             
@@ -579,6 +582,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Spark-MLlib学习日记7：初探梯度提升决策树/" rel="prev" title="Spark-MLlib学习日记7：初探梯度提升决策树">
+                Spark-MLlib学习日记7：初探梯度提升决策树 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -662,7 +669,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
