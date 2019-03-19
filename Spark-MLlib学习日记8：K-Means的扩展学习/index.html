@@ -102,12 +102,12 @@
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="前言关于聚类的经典算法K-Means 算法在第一期就已经讲过了，现在顺着spark的api继续看下去，又看到聚类这一块，就着重讲一下基于流数据的K-Menas算法使用，因为最近比较忙的，所以感觉又一些东西都还没很完整的看完，比如回归的算法，还有聚类的一些统计学方法，这些都会在今后慢慢补上，给自己一个小目标，今年6月底把spark的api全部都过一遍，然后开始又针对地去做人脸识别相关的学习，还有神经">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdn.net/20180528172226261?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3plb19t/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2019-03-19T07:10:48.972Z">
+<meta property="og:image" content="https://img-blog.csdn.net/20170624120700360?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2hlbnl1a3VhaTY2MjU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2019-03-19T07:13:39.792Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spark-MLlib学习日记8：K-Means的扩展学习">
 <meta name="twitter:description" content="前言关于聚类的经典算法K-Means 算法在第一期就已经讲过了，现在顺着spark的api继续看下去，又看到聚类这一块，就着重讲一下基于流数据的K-Menas算法使用，因为最近比较忙的，所以感觉又一些东西都还没很完整的看完，比如回归的算法，还有聚类的一些统计学方法，这些都会在今后慢慢补上，给自己一个小目标，今年6月底把spark的api全部都过一遍，然后开始又针对地去做人脸识别相关的学习，还有神经">
-<meta name="twitter:image" content="https://img-blog.csdn.net/20180528172226261?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3plb19t/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
+<meta name="twitter:image" content="https://img-blog.csdn.net/20170624120700360?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2hlbnl1a3VhaTY2MjU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -417,7 +417,7 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>关于聚类的经典算法<strong>K-Means</strong> 算法在第一期就已经讲过了，现在顺着spark的api继续看下去，又看到聚类这一块，就着重讲一下基于流数据的K-Menas算法使用，因为最近比较忙的，所以感觉又一些东西都还没很完整的看完，比如回归的算法，还有聚类的一些统计学方法，这些都会在今后慢慢补上，给自己一个小目标，今年6月底把spark的api全部都过一遍，然后开始又针对地去做人脸识别相关的学习，还有神经网络和深度学习，在此之前希望我能打下较好的基础。</p>
 <p>有点扯远了，看回今天的主题，<strong><em>Streaming k-means</em></strong>——基于流的k-means算法，其实就是在原有的k-means算法里面引入流的概念，并放在分布式的集群上去做</p>
-<p><img src="https://img-blog.csdn.net/20180528172226261?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3plb19t/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt=""></p>
+<p><img src="https://img-blog.csdn.net/20170624120700360?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQ2hlbnl1a3VhaTY2MjU=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 
       
     </div>
