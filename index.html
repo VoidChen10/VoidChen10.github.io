@@ -410,8 +410,8 @@
 
       
         
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>关于聚类的经典算法<strong>K-Means</strong> 算法在第一期就已经讲过了，现在顺着spark的api继续看下去，又看到聚类这一块，就着重讲一下基于流数据的K-Menas算法使用，因为最近比较忙的，所以感觉又一些东西都还没很完整的看完，比如回归的算法，还有聚类的一些统计学方法，这些都会在今后慢慢补上，给自己一个小目标，今年6月底把spark的api全部都过一遍，然后开始又针对地去做人脸识别相关的学习，还有神经网络和深度学习，在此之前希望我能打下较好的基础。</p>
-<p>有点扯远了，看回今天的主题，<strong><em>Streaming k-means</em></strong>——基于流的k-means算法，其实就是在原有的k-means算法里面引入流的概念，并放在分布式的集群上去做</p>
+          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>关于聚类的经典算法<strong>K-Means</strong> 算法在第一期就已经讲过了，需要回顾的同学<a href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B01%EF%BC%9AK-means%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/">点这里</a>，现在顺着spark的api继续看下去，又看到聚类这一块，就着重讲一下基于流数据的K-Menas算法使用，因为最近比较忙的，所以感觉又一些东西都还没很完整的看完，比如回归的算法，还有聚类的一些统计学方法，这些都会在今后慢慢补上，给自己一个小目标，今年6月底把spark的api全部都过一遍，然后开始又针对地去做人脸识别相关的学习，还有神经网络和深度学习，在此之前希望我能打下较好的基础。</p>
+<p>有点扯远了，看回今天的主题，<strong><em>Streaming k-means</em></strong>——基于流的k-means算法，其实就是在原有的k-means算法里面引入流的概念，并放在分布式的集群上去做，下面我们就来简单了解一下。</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/Spark-MLlib学习日记8：K-Means的扩展学习/#more" rel="contents">
