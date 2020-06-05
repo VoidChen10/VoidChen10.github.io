@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="1、起因某天java组的同事跟我说，es查询报错了，报错信息如下：  查询的json： 1234567891011121314151617181920212223242526272829303132333435363738394041get &#x2F;es_ic_mobile_20200401_20200430&#x2F;_search&amp;#123;  &quot;query&quot;: &amp;#1">
+<meta name="description" content="1、起因某天java组的同事跟我说，es查询报错了，报了个Data too large异常，网上找了一下，好像这个内存不足是es默认设置引起的，具体的再分析看看。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一次es内存使用异常引发的思考">
 <meta property="og:url" content="https://voidchen.cn/%E4%B8%80%E6%AC%A1es%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E5%BC%82%E5%B8%B8%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="1、起因某天java组的同事跟我说，es查询报错了，报错信息如下：  查询的json： 1234567891011121314151617181920212223242526272829303132333435363738394041get &#x2F;es_ic_mobile_20200401_20200430&#x2F;_search&amp;#123;  &quot;query&quot;: &amp;#1">
+<meta property="og:description" content="1、起因某天java组的同事跟我说，es查询报错了，报了个Data too large异常，网上找了一下，好像这个内存不足是es默认设置引起的，具体的再分析看看。">
 <meta property="og:image" content="https://voidchen.cn/%E4%B8%80%E6%AC%A1es%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E5%BC%82%E5%B8%B8%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/1.png">
 <meta property="og:image" content="https://voidchen.cn/%E4%B8%80%E6%AC%A1es%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E5%BC%82%E5%B8%B8%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/2.png">
 <meta property="og:image" content="https://voidchen.cn/%E4%B8%80%E6%AC%A1es%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E5%BC%82%E5%B8%B8%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/3.png">
 <meta property="og:image" content="https://voidchen.cn/%E4%B8%80%E6%AC%A1es%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E5%BC%82%E5%B8%B8%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/4.png">
 <meta property="article:published_time" content="2020-05-31T16:56:28.000Z">
-<meta property="article:modified_time" content="2020-06-05T17:14:27.225Z">
+<meta property="article:modified_time" content="2020-06-05T17:17:45.793Z">
 <meta property="article:author" content="VoidChen10">
 <meta property="article:tag" content="es">
 <meta property="article:tag" content="内存">
@@ -416,12 +416,15 @@
       
 
       
-        <h1 id="1、起因"><a href="#1、起因" class="headerlink" title="1、起因"></a>1、起因</h1><p>某天java组的同事跟我说，es查询报错了，报错信息如下：</p>
+        <h1 id="1、起因"><a href="#1、起因" class="headerlink" title="1、起因"></a>1、起因</h1><p>某天java组的同事跟我说，es查询报错了，报了个<code>Data too large</code>异常，网上找了一下，好像这个内存不足是es默认设置引起的，具体的再分析看看。</p>
+<a id="more"></a>
+
+<p>详细的报错信息如下：</p>
 <p><img src="/%E4%B8%80%E6%AC%A1es%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E5%BC%82%E5%B8%B8%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/1.png" alt="img"></p>
 <p>查询的json：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">get &#x2F;es_ic_mobile_20200401_20200430&#x2F;_search</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line"></span><br><span class="line">    &quot;range&quot;: &#123;</span><br><span class="line"></span><br><span class="line">      &quot;capTimeFormat&quot;: &#123;</span><br><span class="line"></span><br><span class="line">        &quot;format&quot;: &quot;yyyy-MM-dd&quot;,</span><br><span class="line"></span><br><span class="line">        &quot;gte&quot;: &quot;2020-03-06&quot;,</span><br><span class="line"></span><br><span class="line">        &quot;lte&quot;: &quot;2020-05-07&quot;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  &quot;sort&quot;: [&#123;</span><br><span class="line"></span><br><span class="line">    &quot;capTimeFormat&quot;: &#123;</span><br><span class="line"></span><br><span class="line">      &quot;order&quot;: &quot;desc&quot;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    &quot;_id&quot;: &#123;</span><br><span class="line"></span><br><span class="line">      &quot;order&quot;: &quot;desc&quot;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125;],</span><br><span class="line"></span><br><span class="line">  &quot;size&quot;: 20</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>网上找了一下，好像这个内存不足是es默认设置引起的，具体的再分析一下。</p>
+<p>。</p>
 <h1 id="2、内存不足是怎么引起的？"><a href="#2、内存不足是怎么引起的？" class="headerlink" title="2、内存不足是怎么引起的？"></a>2、内存不足是怎么引起的？</h1><p>官方文档关于这个问题有很详细的解释: <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/_limiting_memory_usage.html" target="_blank" rel="noopener">限制内存使用</a></p>
 <blockquote>
 <p>设想我们正在对日志进行索引，每天使用一个新的索引。通常我们只对过去一两天的数据感兴趣，尽管我们会保留老的索引，但我们很少需要查询它们。不过如果采用默认设置，旧索引的 fielddata 永远不会从缓存中回收！ fieldata 会保持增长直到 fielddata 发生断熔（请参阅 <a href="https://www.elastic.co/guide/cn/elasticsearch/guide/current/_limiting_memory_usage.html#circuit-breaker" target="_blank" rel="noopener">断路器</a>），这样我们就无法载入更多的 fielddata。</p>
