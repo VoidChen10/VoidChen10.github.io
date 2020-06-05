@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -21,12 +21,12 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
-  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw">
+  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw" />
 
 
 
@@ -45,7 +45,7 @@
 
 
 
-  <meta name="baidu-site-verification" content="ImJKZq1eMD">
+  <meta name="baidu-site-verification" content="ImJKZq1eMD" />
 
 
 
@@ -55,7 +55,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="Kerberos,Hive,zookeeper,kafka,solr,hbase">
+  <meta name="keywords" content="Kerberos,Hive,zookeeper,kafka,solr,hbase" />
 
 
 
@@ -95,19 +95,23 @@
 
 
 <meta name="description" content="Kerberos在集群开启时做了什么kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。  注意，这些用户将只存在于创建这些用户的机器上">
-<meta name="keywords" content="Kerberos,Hive,zookeeper,kafka,solr,hbase">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kerberos探索遇到的问题及心得">
-<meta property="og:url" content="https://voidchen.cn/Kerberos探索遇到的问题及心得/index.html">
+<meta property="og:url" content="https://voidchen.cn/Kerberos%E6%8E%A2%E7%B4%A2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%BF%83%E5%BE%97/index.html">
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="Kerberos在集群开启时做了什么kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。  注意，这些用户将只存在于创建这些用户的机器上">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://www.showdoc.cc/server/api/common/visitfile/sign/1e0e5300663c407a1a3f75ec815857a8?showdoc=.jpg">
 <meta property="og:image" content="https://www.showdoc.cc/server/api/common/visitfile/sign/948a9c1d34e2d8a6cf842ec96d463218?showdoc=.jpg">
-<meta property="og:updated_time" content="2019-03-18T08:42:27.503Z">
+<meta property="article:published_time" content="2019-01-27T03:03:34.000Z">
+<meta property="article:modified_time" content="2019-04-27T18:07:13.000Z">
+<meta property="article:author" content="VoidChen10">
+<meta property="article:tag" content="Kerberos">
+<meta property="article:tag" content="Hive">
+<meta property="article:tag" content="zookeeper">
+<meta property="article:tag" content="kafka">
+<meta property="article:tag" content="solr">
+<meta property="article:tag" content="hbase">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Kerberos探索遇到的问题及心得">
-<meta name="twitter:description" content="Kerberos在集群开启时做了什么kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。  注意，这些用户将只存在于创建这些用户的机器上">
 <meta name="twitter:image" content="https://www.showdoc.cc/server/api/common/visitfile/sign/1e0e5300663c407a1a3f75ec815857a8?showdoc=.jpg">
 
 
@@ -138,7 +142,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/Kerberos探索遇到的问题及心得/">
+  <link rel="canonical" href="https://voidchen.cn/Kerberos探索遇到的问题及心得/"/>
 
 
 
@@ -147,7 +151,7 @@
 
 
 
-  <title>Kerberos探索遇到的问题及心得 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Kerberos探索遇到的问题及心得 | 「旅の途中」</title>
   
 
 
@@ -157,9 +161,9 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -169,13 +173,13 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">「旅の途中」</span>
         <span class="logo-line-after"><i></i></span>
@@ -203,9 +207,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -213,9 +217,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -223,9 +227,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -233,9 +237,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -243,9 +247,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -258,7 +262,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -279,7 +283,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -311,20 +317,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Kerberos探索遇到的问题及心得/">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Kerberos%E6%8E%A2%E7%B4%A2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%BF%83%E5%BE%97/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="「旅の途中」">
     </span>
 
@@ -358,7 +364,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -369,8 +375,8 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/集群/" itemprop="url" rel="index">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9B%86%E7%BE%A4/" itemprop="url" rel="index">
                     <span itemprop="name">集群</span>
                   </a>
                 </span>
@@ -391,7 +397,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -412,10 +418,11 @@
       
 
       
-        <h1 id="Kerberos在集群开启时做了什么"><a href="#Kerberos在集群开启时做了什么" class="headerlink" title="Kerberos在集群开启时做了什么"></a>Kerberos在集群开启时做了什么</h1><p>kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。<br>  <strong>注意，这些用户将只存在于创建这些用户的机器上</strong><br><a id="more"></a></p>
-<h1 id="关于Hive执行HQL时count-会出错"><a href="#关于Hive执行HQL时count-会出错" class="headerlink" title="关于Hive执行HQL时count(*)会出错"></a>关于Hive执行HQL时count(*)会出错</h1><p>  Hive跟HDFS一样，在集群开启Kerberos后不需要特别的设置即可使用，然而在试图执行<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count( * ) from test</span><br></pre></td></tr></table></figure></p>
-<p>  时，会出现以下报错:</p>
-<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/1e0e5300663c407a1a3f75ec815857a8?showdoc=.jpg" alt=""><br>  原因便是上面提到的，创建的用户只在创建的机器上有，而Hive这个<code>count</code>其实是启动了一个MapReduce在集群上跑，集群上其他的机器没有nassoft_m这个账号，所以报错说找不到用户名。</p>
+        <h1 id="Kerberos在集群开启时做了什么"><a href="#Kerberos在集群开启时做了什么" class="headerlink" title="Kerberos在集群开启时做了什么"></a>Kerberos在集群开启时做了什么</h1><p>kerberos在浪潮集群中启动时会自动安装clien端，此时它会针对每个服务以及机器创建对应得Principal，这些principal也将创建成Linux内的用户。<br>  <strong>注意，这些用户将只存在于创建这些用户的机器上</strong></p>
+<a id="more"></a>
+
+<h1 id="关于Hive执行HQL时count-会出错"><a href="#关于Hive执行HQL时count-会出错" class="headerlink" title="关于Hive执行HQL时count(*)会出错"></a>关于Hive执行HQL时count(*)会出错</h1><p>  Hive跟HDFS一样，在集群开启Kerberos后不需要特别的设置即可使用，然而在试图执行<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select count( * ) from test</span><br></pre></td></tr></table></figure><br>  时，会出现以下报错:</p>
+<p><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/1e0e5300663c407a1a3f75ec815857a8?showdoc=.jpg" alt><br>  原因便是上面提到的，创建的用户只在创建的机器上有，而Hive这个<code>count</code>其实是启动了一个MapReduce在集群上跑，集群上其他的机器没有nassoft_m这个账号，所以报错说找不到用户名。</p>
 <blockquote>
 <p> <strong>解决办法：</strong><br>  &ensp;&ensp;&ensp;&ensp;在每台机都加上nassoft_m这个账号即可</p>
 </blockquote>
@@ -425,12 +432,14 @@
 <p> <strong>解决办法：</strong><br>  &ensp;&ensp;&ensp;&ensp;把nassoft_m账号添加到hdfs用户组里，然后使用chmod 777(或者774)命令修改权限</p>
 </blockquote>
 <h1 id="查看zookeeper节点认证失败"><a href="#查看zookeeper节点认证失败" class="headerlink" title="查看zookeeper节点认证失败"></a>查看zookeeper节点认证失败</h1><blockquote>
-<p> <strong>解决办法：</strong><br>在zkCli.sh 中加入<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JVMFLAGS=&quot;-Djava.security.auth.login.config=/usr/hdp/2.6.4.0-91/zookeeper/conf/zookeeper_jaas.conf&quot;</span><br></pre></td></tr></table></figure></p>
+<p> <strong>解决办法：</strong><br>在zkCli.sh 中加入<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JVMFLAGS&#x3D;&quot;-Djava.security.auth.login.config&#x3D;&#x2F;usr&#x2F;hdp&#x2F;2.6.4.0-91&#x2F;zookeeper&#x2F;conf&#x2F;zookeeper_jaas.conf&quot;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h2 id="关于Hbase出现的权限不足报错"><a href="#关于Hbase出现的权限不足报错" class="headerlink" title="关于Hbase出现的权限不足报错"></a>关于Hbase出现的权限不足报错</h2><p>认证后在hbase中使用命令行出现如下错误：<br><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/948a9c1d34e2d8a6cf842ec96d463218?showdoc=.jpg" alt=""></p>
+<h2 id="关于Hbase出现的权限不足报错"><a href="#关于Hbase出现的权限不足报错" class="headerlink" title="关于Hbase出现的权限不足报错"></a>关于Hbase出现的权限不足报错</h2><p>认证后在hbase中使用命令行出现如下错误：<br><img src="https://www.showdoc.cc/server/api/common/visitfile/sign/948a9c1d34e2d8a6cf842ec96d463218?showdoc=.jpg" alt></p>
 <blockquote>
-<p> <strong>解决办法：</strong><br>给相应的用户分配权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant &apos;nassoft_r&apos;,&apos;RWXCA&apos;</span><br></pre></td></tr></table></figure></p>
+<p> <strong>解决办法：</strong><br>给相应的用户分配权限</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant &#39;nassoft_r&#39;,&#39;RWXCA&#39;</span><br></pre></td></tr></table></figure>
+
 <h2 id="关于kafka在Kerberos中的使用"><a href="#关于kafka在Kerberos中的使用" class="headerlink" title="关于kafka在Kerberos中的使用"></a>关于kafka在Kerberos中的使用</h2><p>命令行稍有变化</p>
 <blockquote>
 <p>生产者端命令为：<br>bin/kafka-console-producer.sh –broker-list hd2.bigdata:6667 –topic test_wifi2 –producer.config conf/producer.properties –security-protocol SASL_PLAINTEXT</p>
@@ -438,18 +447,21 @@
 <blockquote>
 <p>消费者端命令为：<br>bin/kafka-console-consumer.sh –bootstrap-server hd2.bigdata:6667  –from-beginning –topic test_wifi2  conf/consumer.properties –security-protocol SASL_PLAINTEXT </p>
 </blockquote>
-<p>另外就是java代码中需要添加以下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(&quot;java.security.krb5.conf&quot;, &quot;E:\\krb5.conf&quot;);</span><br><span class="line">System.setProperty(&quot;java.security.auth.login.config&quot;, &quot;E:\\kafka_client_jaas.conf&quot;);</span><br><span class="line"></span><br><span class="line">Properties props = new Properties();</span><br><span class="line">props.put(&quot;security.protocol&quot;, &quot;SASL_PLAINTEXT&quot;);</span><br><span class="line">props.put(&quot;sasl.mechanism&quot;, &quot;GSSAPI&quot;);</span><br><span class="line">props.put(&quot;sasl.kerberos.service.name&quot;, &quot;kafka&quot;);</span><br><span class="line">......</span><br></pre></td></tr></table></figure></p>
+<p>另外就是java代码中需要添加以下配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">System.setProperty(&quot;java.security.krb5.conf&quot;, &quot;E:\\krb5.conf&quot;);</span><br><span class="line">System.setProperty(&quot;java.security.auth.login.config&quot;, &quot;E:\\kafka_client_jaas.conf&quot;);</span><br><span class="line"></span><br><span class="line">Properties props &#x3D; new Properties();</span><br><span class="line">props.put(&quot;security.protocol&quot;, &quot;SASL_PLAINTEXT&quot;);</span><br><span class="line">props.put(&quot;sasl.mechanism&quot;, &quot;GSSAPI&quot;);</span><br><span class="line">props.put(&quot;sasl.kerberos.service.name&quot;, &quot;kafka&quot;);</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
 <p>需要从服务器下载以下3个文件：</p>
 <ul>
 <li><strong>krb5.conf</strong></li>
 <li><strong>kafka_client_jaas.conf</strong></li>
 <li><strong>kafka.service.keytab</strong></li>
 </ul>
-<p>其中kafka_client_jaas.conf稍作修改：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Client&#123;</span><br><span class="line"> com.sun.security.auth.module.Krb5LoginModule required</span><br><span class="line"> doNotPrompt=true</span><br><span class="line"> useTicketCache=true</span><br><span class="line"> principal=&quot;kafka/hd2.bigdata@HADOOP.COM&quot;</span><br><span class="line"> useKeyTab=true</span><br><span class="line"> serviceName=&quot;zookeeper&quot;</span><br><span class="line"> keyTab=&quot;E:\\kafka.service.keytab&quot;</span><br><span class="line"> client=true;</span><br><span class="line">&#125;;</span><br><span class="line">KafkaClient &#123;</span><br><span class="line"> com.sun.security.auth.module.Krb5LoginModule required</span><br><span class="line"> doNotPrompt=true</span><br><span class="line"> useTicketCache=true</span><br><span class="line"> principal=&quot;kafka/hd2.bigdata@HADOOP.COM&quot;</span><br><span class="line"> useKeyTab=true</span><br><span class="line"> serviceName=&quot;kafka&quot;</span><br><span class="line"> keyTab=&quot;E:\\kafka.service.keytab&quot;</span><br><span class="line"> client=true;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="solr的相关问题"><a href="#solr的相关问题" class="headerlink" title="solr的相关问题"></a>solr的相关问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Kinit nassoft_m</span><br><span class="line">curl --negotiate -u : &quot;http://hd1.bigdata:8983/solr/&quot;</span><br></pre></td></tr></table></figure>
+<p>其中kafka_client_jaas.conf稍作修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Client&#123;</span><br><span class="line"> com.sun.security.auth.module.Krb5LoginModule required</span><br><span class="line"> doNotPrompt&#x3D;true</span><br><span class="line"> useTicketCache&#x3D;true</span><br><span class="line"> principal&#x3D;&quot;kafka&#x2F;hd2.bigdata@HADOOP.COM&quot;</span><br><span class="line"> useKeyTab&#x3D;true</span><br><span class="line"> serviceName&#x3D;&quot;zookeeper&quot;</span><br><span class="line"> keyTab&#x3D;&quot;E:\\kafka.service.keytab&quot;</span><br><span class="line"> client&#x3D;true;</span><br><span class="line">&#125;;</span><br><span class="line">KafkaClient &#123;</span><br><span class="line"> com.sun.security.auth.module.Krb5LoginModule required</span><br><span class="line"> doNotPrompt&#x3D;true</span><br><span class="line"> useTicketCache&#x3D;true</span><br><span class="line"> principal&#x3D;&quot;kafka&#x2F;hd2.bigdata@HADOOP.COM&quot;</span><br><span class="line"> useKeyTab&#x3D;true</span><br><span class="line"> serviceName&#x3D;&quot;kafka&quot;</span><br><span class="line"> keyTab&#x3D;&quot;E:\\kafka.service.keytab&quot;</span><br><span class="line"> client&#x3D;true;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="solr的相关问题"><a href="#solr的相关问题" class="headerlink" title="solr的相关问题"></a>solr的相关问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Kinit nassoft_m</span><br><span class="line">curl --negotiate -u : &quot;http:&#x2F;&#x2F;hd1.bigdata:8983&#x2F;solr&#x2F;&quot;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p> <strong>解决方法：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server/scripts/cloud-scripts/zkcli.sh -zkhost hd2.bigdata:2181,master2.bigdata:2181,master1.bigdata:2181 -cmd put /security.json &apos;&#123;&quot;authentication&quot;:&#123;&quot;class&quot;: &quot;org.apache.solr.security.KerberosPlugin&quot;&#125;&#125;&apos;</span><br><span class="line">刷新solr keytab</span><br><span class="line">修改 keytab 权限</span><br><span class="line">重启solr集群</span><br></pre></td></tr></table></figure></p>
+<p> <strong>解决方法：</strong></p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server&#x2F;scripts&#x2F;cloud-scripts&#x2F;zkcli.sh -zkhost hd2.bigdata:2181,master2.bigdata:2181,master1.bigdata:2181 -cmd put &#x2F;security.json &#39;&#123;&quot;authentication&quot;:&#123;&quot;class&quot;: &quot;org.apache.solr.security.KerberosPlugin&quot;&#125;&#125;&#39;</span><br><span class="line">刷新solr keytab</span><br><span class="line">修改 keytab 权限</span><br><span class="line">重启solr集群</span><br></pre></td></tr></table></figure>
 <p><code>curl --negotiate -u : &quot;http://hd1.bigdata:8983/solr/&quot;</code><br>成功</p>
 
       
@@ -471,7 +483,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/Kerberos探索遇到的问题及心得/" title="Kerberos探索遇到的问题及心得">https://voidchen.cn/Kerberos探索遇到的问题及心得/</a>
+    <a href="https://voidchen.cn/Kerberos%E6%8E%A2%E7%B4%A2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%BF%83%E5%BE%97/" title="Kerberos探索遇到的问题及心得">https://voidchen.cn/Kerberos%E6%8E%A2%E7%B4%A2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%BF%83%E5%BE%97/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -488,7 +500,7 @@
           
             <a href="/tags/Keeberos/" rel="tag"># Keeberos</a>
           
-            <a href="/tags/集群安全/" rel="tag"># 集群安全</a>
+            <a href="/tags/%E9%9B%86%E7%BE%A4%E5%AE%89%E5%85%A8/" rel="tag"># 集群安全</a>
           
         </div>
       
@@ -507,7 +519,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Spark-MLlib学习日记1：K-means聚类分析/" rel="prev" title="Spark-MLlib学习日记1：K-means聚类分析">
+              <a href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B01%EF%BC%9AK-means%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/" rel="prev" title="Spark-MLlib学习日记1：K-means聚类分析">
                 Spark-MLlib学习日记1：K-means聚类分析 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -578,9 +590,11 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg" alt="VoidChen10">
+              <img class="site-author-image" itemprop="image"
+                src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg"
+                alt="VoidChen10" />
             
               <p class="site-author-name" itemprop="name">VoidChen10</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -591,9 +605,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -604,7 +618,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -615,7 +629,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -669,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kerberos在集群开启时做了什么"><span class="nav-number">1.</span> <span class="nav-text">Kerberos在集群开启时做了什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Hive执行HQL时count-会出错"><span class="nav-number">2.</span> <span class="nav-text">关于Hive执行HQL时count(*)会出错</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Hive遇到的权限问题"><span class="nav-number">3.</span> <span class="nav-text">关于Hive遇到的权限问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看zookeeper节点认证失败"><span class="nav-number">4.</span> <span class="nav-text">查看zookeeper节点认证失败</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Hbase出现的权限不足报错"><span class="nav-number">4.1.</span> <span class="nav-text">关于Hbase出现的权限不足报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于kafka在Kerberos中的使用"><span class="nav-number">4.2.</span> <span class="nav-text">关于kafka在Kerberos中的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solr的相关问题"><span class="nav-number">4.3.</span> <span class="nav-text">solr的相关问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kerberos在集群开启时做了什么"><span class="nav-text">Kerberos在集群开启时做了什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Hive执行HQL时count-会出错"><span class="nav-text">关于Hive执行HQL时count(*)会出错</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关于Hive遇到的权限问题"><span class="nav-text">关于Hive遇到的权限问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查看zookeeper节点认证失败"><span class="nav-text">查看zookeeper节点认证失败</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于Hbase出现的权限不足报错"><span class="nav-text">关于Hbase出现的权限不足报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于kafka在Kerberos中的使用"><span class="nav-text">关于kafka在Kerberos中的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#solr的相关问题"><span class="nav-text">solr的相关问题</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -689,7 +703,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

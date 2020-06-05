@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw" />
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "95e00cf9"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="ImJKZq1eMD" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ubuntu,双显卡" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1、前言其实在这次安装前，我已经用了一个多星期的ubuntu-18.04.2了，在经历了数次重装和各种安装的坑之后，总算是对ubuntu有了一些理解。然后早上不知道做了个什么操作又把驱动给弄坏了，正好因为之前的安装也是一路磕磕碰碰搞错了不少东西，索性就直接再重装一次好了。吸取了之前各种驱动和软件安装的经验，想着这次应该能完美装好，所以有了这篇安装实记。一来是给自己留个记录方便以后查看（说不定又会重">
+<meta property="og:type" content="article">
+<meta property="og:title" content="双显卡1050TI笔记本的Ubuntu18安装实记">
+<meta property="og:url" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/index.html">
+<meta property="og:site_name" content="「旅の途中」">
+<meta property="og:description" content="1、前言其实在这次安装前，我已经用了一个多星期的ubuntu-18.04.2了，在经历了数次重装和各种安装的坑之后，总算是对ubuntu有了一些理解。然后早上不知道做了个什么操作又把驱动给弄坏了，正好因为之前的安装也是一路磕磕碰碰搞错了不少东西，索性就直接再重装一次好了。吸取了之前各种驱动和软件安装的经验，想着这次应该能完美装好，所以有了这篇安装实记。一来是给自己留个记录方便以后查看（说不定又会重">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/1.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/2.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/3.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/4.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/5.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/6.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/7.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/8.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/9.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/10.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/11.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/12.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/13.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/14.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/15.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/16.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/17.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/18.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/19.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/20.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/21.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/22.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/23.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/24.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/25.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/26.png">
+<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/27.png">
+<meta property="article:published_time" content="2019-06-29T03:07:54.000Z">
+<meta property="article:modified_time" content="2020-06-04T20:02:05.155Z">
+<meta property="article:author" content="VoidChen10">
+<meta property="article:tag" content="ubuntu">
+<meta property="article:tag" content="双显卡">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://voidchen.cn/双显卡1050TI笔记本的Ubuntu18安装实记/"/>
+
+
+
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=66186813" charset="UTF-8"></script>
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=66176152" charset="UTF-8"></script>
+
+
+
+  <title>双显卡1050TI笔记本的Ubuntu18安装实记 | 「旅の途中」</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">「旅の途中」</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="VoidChen10">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="「旅の途中」">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">双显卡1050TI笔记本的Ubuntu18安装实记</h2>
+        
+
+        <div class="post-meta">
+		  
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-29T11:07:54+08:00">
+                2019-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h1><p>其实在这次安装前，我已经用了一个多星期的<code>ubuntu-18.04.2</code>了，在经历了数次重装和各种安装的坑之后，总算是对ubuntu有了一些理解。然后早上不知道做了个什么操作又把驱动给弄坏了，正好因为之前的安装也是一路磕磕碰碰搞错了不少东西，索性就直接再重装一次好了。吸取了之前各种驱动和软件安装的经验，想着这次应该能完美装好，所以有了这篇安装实记。一来是给自己留个记录方便以后查看（说不定又会重装= =），二来是有感于C某N上的文章抄来抄去把很多错误的、过时的办法给抄进去，让我这种小白看完跟着做一直踩坑，所以干脆把自己这次安装记录下来，我想应该也能帮助到一些同学吧。</p>
+<a id="more"></a>
+<p>这里我的笔记本是<code>hp spectre x360 15</code>，4K触摸屏（有坑）+ <code>Nvidia GTX1050ti maxQ</code>（巨坑），安装的是当前时间最新的一个长期支持版本<code>ubuntu-18.04.2</code>，这次安装包括系统安装、开发环境搭建以及系统的美化，如无意外最终的效果应该如下图所示，篇幅可能会有点长，嫌烦的同学可以根据导航栏跳转查阅。</p>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/1.png" alt></p>
+<h1 id="2、系统安装"><a href="#2、系统安装" class="headerlink" title="2、系统安装"></a>2、系统安装</h1><p>这一部分照着官网来就好了，建议是下载LTS长期支持版，然后下面有usb烧录的教程，照着来制作USB启动盘插进去安装就好了，值得注意的主要有以下几点：</p>
+<ul>
+<li><p><strong>bios设置</strong><br>找自己电脑型号进入bios，改成U盘启动优先，另外禁用掉安全启动，就是把<code>secure boot</code>设置为disable</p>
+</li>
+<li><p><strong>nvidia显卡的电脑安装的时候就卡在logo界面进不去：</strong><br>原因是nvidia的显卡和ubuntu自带的开源驱动<code>Nouveau</code>有冲突，临时解决的办法就是在开机进入grub引导界面的时候，在光标移动到<code>Install Ubuntu</code>这个选项的时候，按<code>e</code>进入到启动参数编辑界面，禁用掉显卡驱动。具体的做法就是在倒数第二行<code>quiet slash</code> 这句后面加一个<code>nomodeset</code>，空格隔开就行，然后按F10保存并启动，之后就能以低分辨率进入到安装界面。安装过车界面可能会卡卡的，鼠标动一下刷新界面显示就行，没装好驱动前只能讲究下= =</p>
+</li>
+<li><p><strong>关于linux分区方案：</strong><br>这边我是建议自己手动分区的，新手可以参考我这个简单分区，我是1T的固态硬盘，分区如下：</p>
+<ul>
+<li><strong>efi分区：</strong>500M，用于安装引导</li>
+<li><strong>/boot</strong>：500M</li>
+<li><strong>Swap交换分区：</strong>20G，大小最好为你实际机器内存大小的2倍</li>
+<li><strong>/：</strong>400G，根目录，相当于win10的C盘，后续安装的软件大多会丢里面（/opt）</li>
+<li><strong>/home：</strong>580G，相当于D、E、F盘，反正剩下多少都给他就好了</li>
+</ul>
+</li>
+</ul>
+<h1 id="3、Nvidia驱动完美安装（巨坑）"><a href="#3、Nvidia驱动完美安装（巨坑）" class="headerlink" title="3、Nvidia驱动完美安装（巨坑）"></a>3、Nvidia驱动完美安装（巨坑）</h1><p>如无意外，N卡笔记本的话安装好系统之后重启就会卡在登陆界面，输入完密码一按回车就卡住，或者登陆进去卡住，总之就是各种卡住。。。原因就是上面提到的驱动冲突问题，我们需要以<strong>禁用内置驱动</strong>的方式去登陆系统，再去安装正确的驱动。</p>
+<p>在这里，如果之前尝试过C某D上面文章的处理办法，基本就会各种扑街= =，什么“ctrl+alt+F1进入tty模式” 啊，或者“把Nouveau驱动加入到内核禁用列表“，通通不管用。。。我甚至怀疑我们装的根本不是同一个版本（难道我的1050TI特别难装？），因为这些方法全都过时了。。参考还是可以的，比如tty模式其实ctrl+alt+F1默认就是桌面了，要进F2～F6，另外驱动没装好切过去一样是卡住的。总之，我们还是一个个问题来解决。</p>
+<h2 id="3-1-进入grub引导，以nomodeset模式登陆系统"><a href="#3-1-进入grub引导，以nomodeset模式登陆系统" class="headerlink" title="3.1 进入grub引导，以nomodeset模式登陆系统"></a>3.1 进入grub引导，以nomodeset模式登陆系统</h2><p>首先想要进入系统，这需要和我们安装ubuntu时一样，临时把nouveau驱动给禁用掉，就是以“nomodeset”模式进入（据说ubuntu19.01的grub引导已经有专门的安全图形模式启动了）。这里首先会面临一个问题，就是装完系统重启之后，我们看不到grub引导界面就直接进入系统了。。。我去查资料发现，原来ubuntu18当电脑内只有一个系统的时候，会默认跳过grub，这需要我们进入系统后修改<code>/etc/default/grub</code>文件。这里又是一个死循环，想要进系统需要进入grub并修改启动参数，而想要进入grub又需要先进入系统去修改grub配置文件。。。</p>
+<p>这显然是无解的，于是我上网找资料，看看怎么可以进入grub，然后又是在C某D上面的文章中找到 “长按shift可以进入引导界面”，显然我试过也是不行的，最后在一个别人处理矿机的帖子里找到了正确的解决办法：“<strong>在开机出现了紫色背景的时候，迅速按下ESC键</strong>” ，然后就能顺利看到grub引导界面（不行多按几下，不过按多了会进去别的），然后如同我们安装ubuntu那会一样，选中启动项，按e进入界面编辑，在倒数第二行<code>quiet slash</code> 这句后面加一个<code>nomodeset</code>，然后按F10保存并启动。</p>
+<p><strong>PS：</strong> 之前的安装里面，我并没有看到那个<strong>”ESC进入grub“</strong>，你们知道我是怎么处理的吗，我强行分了10G硬盘出来，多装了一个ubuntu弄成双系统，就为了让他显示出grub。。。这也是为什么我能下定决心重装，因为洁癖让我很不爽这个瑕疵，虽然通过修改grub可以直接隐藏这个系统。说道这顺便贴一下这个关于grub的文章：<a href="https://www.jianshu.com/p/a24d51276a82" target="_blank" rel="noopener">《如何修改GRUB》</a>，里面讲的非常细致，可以学习下。</p>
+<h2 id="3-2-安装最新的Nvidia-1050TI驱动"><a href="#3-2-安装最新的Nvidia-1050TI驱动" class="headerlink" title="3.2 安装最新的Nvidia 1050TI驱动"></a>3.2 安装最新的Nvidia 1050TI驱动</h2><p>这个安装驱动也是花了我好多时间，网上找到的资料都是什么“将nouveau添加到黑名单blacklist.conf中”，又要禁用nouveau驱动，又要卸载旧的nvidia，又要加载源什么的，搞得非常复杂，又没什么len用，最后驱动没装上反倒是重装了几遍系统。实际并不需要搞这么多花里胡哨的，先联网，然后就几行代码完事了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:graphics-drivers/ppa  </span><br><span class="line">sudo apt-get update  </span><br><span class="line">ubuntu-drivers devices  </span><br><span class="line">sudo ubuntu-drivers autoinstall</span><br></pre></td></tr></table></figure>
+
+<p>解释下这几句，第一句就是添加新的源，如果不添加的话，默认ubuntu版本库里最新的也就390版本，我去官网查自己的型号最新的是430版本了。第二句就是更新到本地版本库，网络不好的同学可以先更换一下国内源。第三句就是检查可以安装的驱动有哪些，看不堪都行，就是为了看看自动推荐的是不是最新的而已，都能用的。第四句就是自动安装推荐的版本了。</p>
+<p>这里我不建议下载包自己手动装，反正我就没手动装成功过= =，如无疑外的话，重启系统应该就装好了（不需要启动的时候加nomodeset了）。打开终端，输入<code>nvidia-smi</code>，回车能看到以下界面就是装好了：<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/2.png" alt></p>
+<p>输入<code>nvidia-settings</code>，回车可见nvidia的设置的图形界面，这里可以切换独显和集显：<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/3.png" alt></p>
+<h1 id="4、系统设置和软件安装"><a href="#4、系统设置和软件安装" class="headerlink" title="4、系统设置和软件安装"></a>4、系统设置和软件安装</h1><p>装好系统之后首先把日常的软件装上，先打造出日常办公环境。我也是一边装一边写这篇文章，实打实的安装配置实录啊。</p>
+<h2 id="4-1-更换国内源"><a href="#4-1-更换国内源" class="headerlink" title="4.1 更换国内源"></a>4.1 更换国内源</h2><p>这个网上很多，为了方便我就贴我现在用到的。<br>编辑apt源配置文件：<code>sudo vi /etc/apt/sources.list</code><br>这里我还没来得及装vim，vi的操作有点不熟练，<code>a</code>是追加模式，找个空行把下面的阿里源复制粘贴过去就好了，里面其他的默认源最好就<code>#</code>注释掉。改好之后<code>wq</code>报存退出，并更新源<code>sudo apt-get update</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse  </span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse  </span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse  </span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse  </span><br><span class="line">deb http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse  </span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic main restricted universe multiverse  </span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-security main restricted universe multiverse  </span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-updates main restricted universe multiverse  </span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-proposed main restricted universe multiverse  </span><br><span class="line">deb-src http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;ubuntu&#x2F; bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-安装markdown编辑器Typora"><a href="#4-2-安装markdown编辑器Typora" class="headerlink" title="4.2 安装markdown编辑器Typora"></a>4.2 安装markdown编辑器Typora</h2><p>为了边装边写，所以第一时间就装这个了= =，上官网找到linux版安装，也是几句代码的事,，这里我就直接贴出来了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wget -qO - https:&#x2F;&#x2F;typora.io&#x2F;linux&#x2F;public-key.asc | sudo apt-key add -  </span><br><span class="line"></span><br><span class="line">sudo add-apt-repository &#39;deb https:&#x2F;&#x2F;typora.io&#x2F;linux .&#x2F;&#39;  </span><br><span class="line">sudo apt-get update  </span><br><span class="line"></span><br><span class="line">sudo apt-get install typora</span><br></pre></td></tr></table></figure>
+<p>Typora官网：<a href="https://www.typora.io/#linux" target="_blank" rel="noopener">https://www.typora.io/#linux</a></p>
+<h2 id="4-3-安装chrome浏览器"><a href="#4-3-安装chrome浏览器" class="headerlink" title="4.3 安装chrome浏览器"></a>4.3 安装chrome浏览器</h2><p>也是差不多的步骤，添加源，更新源，安装。唯一多了的一步就是添加了一个授权key。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;repo.fdzh.org&#x2F;chrome&#x2F;google-chrome.list -P &#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;  </span><br><span class="line">sudo wget -q -O - https:&#x2F;&#x2F;dl.google.com&#x2F;linux&#x2F;linux\_signing\_key.pub  | sudo apt-key add -  </span><br><span class="line">sudo apt-get update   </span><br><span class="line">sudo apt-get install google-chrome-stable</span><br></pre></td></tr></table></figure>
+<p>装好就能抛弃掉自带的火狐浏览器了，卸载火狐命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dpkg --get-selections | grep firefox  </span><br><span class="line">sudo apt-get purge firefox firefox-locale-en firefox-locale-zh-hans</span><br></pre></td></tr></table></figure>
+<p>第一句就是查看装了哪些火狐相关的，第二句是指定哪些要删除，效果如图：<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/4.png" alt></p>
+<h2 id="4-4-安装搜狗拼音输入法"><a href="#4-4-安装搜狗拼音输入法" class="headerlink" title="4.4 安装搜狗拼音输入法"></a>4.4 安装搜狗拼音输入法</h2><p>搜狗输入法官网：<a href="https://pinyin.sogou.com/linux/" target="_blank" rel="noopener">https://pinyin.sogou.com/linux/</a><br>ubuntu18如果你在安装的时候语言选了中文，那么系统里面是内置了拼音输入法，我正是用这个输入法敲到现在，实在是不好用，所以直接安装一个搜狗输入法。我们直接去官网下载该软件，下载deb包,然后命令安装：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i sogoupinyin\_2.2.0.0108\_amd64.deb</span><br></pre></td></tr></table></figure>
+<p>然后就报错了= =。。。。我们还缺少一些相关依赖， sogou是基于<code>fcitx</code>的，而系统默认的键盘输入法系统是<code>iBus</code>，且ubuntu18并没有自带这个输入法，所以我们还得先安装<code>fcitx</code>。根据报错提示下面有一句自动修复的命令，我猜应该就是根据依赖关系自动安装一些需要的软件包吧，我们把这句命令执行一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt --fix-broken install</span><br></pre></td></tr></table></figure>
+<p>如无意外在软件界面就能看到fcitx小企鹅了，然后在系统设置-&gt;区域语言-&gt;管理已安装语言 那里选择输入法为fcitx，应用到系统，再<strong>重新执行一下上面安装sougo的命令</strong>，安装好后重启下系统并设置一下输入法就能用啦。<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/5.png" alt></p>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/6.png" alt></p>
+<h2 id="4-5-安装屏幕截图软件Flameshot"><a href="#4-5-安装屏幕截图软件Flameshot" class="headerlink" title="4.5 安装屏幕截图软件Flameshot"></a>4.5 安装屏幕截图软件Flameshot</h2><p>Flameshot这款截图软件还蛮好用的，基本满足日常需求，可以加马赛克，添加箭头和文本，安装也很简单，下面一句命令就装好了= =  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install flameshot</span><br></pre></td></tr></table></figure>
+<p>为了方便使用，我们还可以添加到快捷键，这个就看个人习惯了，在系统设置-&gt;设备-&gt;键盘 里设置，拉到最下面有个+号，添加一个就好了。<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/7.png" alt></p>
+<h2 id="4-6-安装QQ、微信"><a href="#4-6-安装QQ、微信" class="headerlink" title="4.6 安装QQ、微信"></a>4.6 安装QQ、微信</h2><p>目前试了挺多版本的QQ微信，还是deepin封装的win软件最好用，这里贴一下deepin官网：<a href="https://wiki.deepin.org/" target="_blank" rel="noopener">https://wiki.deepin.org/</a> ，感谢他们付出的努力。</p>
+<p>先去他们提供的仓库下载deb包，如果有别的软件需要也可以上上面找找：</p>
+<ul>
+<li>首先安装deepin封装好的框架：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;gitee.com&#x2F;wszqkzqk&#x2F;deepin-wine-for-ubuntu.git  </span><br><span class="line">cd deepin-wine-for-ubuntu  </span><br><span class="line">.&#x2F;install.sh</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ul>
+<li><p>QQ：<br><a href="http://packagess.deepin.com:8081/deepin/pool/non-free/d/deepin.com.qq.im/" target="_blank" rel="noopener">http://packagess.deepin.com:8081/deepin/pool/non-free/d/deepin.com.qq.im/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i deepin.com.qq.im\_8.9.19983deepin23\_i386.deb</span><br></pre></td></tr></table></figure></li>
+<li><p>微信：<br><a href="http://packagess.deepin.com:8081/deepin/pool/non-free/d/deepin.com.wechat/" target="_blank" rel="noopener">http://packagess.deepin.com:8081/deepin/pool/non-free/d/deepin.com.wechat/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i deepin.com.wechat\_2.6.2.31deepin0\_i386.deb</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>deepin官方还提供了迅雷，百度云等等各种软件，有需要的朋友可以自行找找看。我这里只用了QQ和微信，原因是有个问题一直没想到好的解决办法，就是我这个屏幕是4K屏，而deepin移植的包其实是运行在wine里，并不能随系统一起缩放，这就导致了我分辨率选4K的时候，QQ微信界面和字体都非常的小。。如果以后找到好的解决办法，我会更新到这里的QAQ</p>
+<p><strong>更新！！找到解决的办法啦！！</strong><br>deepin的QQ和微信都是自己封装在一个wine里面，所以常规的wine设置对他来说不起作用，不过最后还是被我找到了设置deepin-wine的办法！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">env WINEPREFIX&#x3D;&quot;&#x2F;home&#x2F;chen&#x2F;.deepinwine&#x2F;Deepin-WeChat&quot; deepin-wine winecfg  </span><br><span class="line">env WINEPREFIX&#x3D;&quot;&#x2F;home&#x2F;chen&#x2F;.deepinwine&#x2F;Deepin-QQ&quot; deepin-wine winecfg</span><br></pre></td></tr></table></figure>
+
+<p>输入这个就会弹出一个界面，上面有字体大小设置，自己去改就好啦，我把dpi改成200，如果发现改完启动秒退，可以尝试改小一点。</p>
+<p>如果你是有别的deepin的软件，可以在<code>~/.deepinwine/</code>看到对应的文件夹名字，照着上面的改改就好了</p>
+<h2 id="4-7-安装为知笔记"><a href="#4-7-安装为知笔记" class="headerlink" title="4.7 安装为知笔记"></a>4.7 安装为知笔记</h2><p>官网下载：<a href="http://www.wiz.cn/download.html" target="_blank" rel="noopener">http://www.wiz.cn/download.html</a></p>
+<p>一行命令安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i wiznote\_2.3.2.4\_amd64.deb</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-8-安装TeamViewer"><a href="#4-8-安装TeamViewer" class="headerlink" title="4.8 安装TeamViewer"></a>4.8 安装TeamViewer</h2><p>官网下载：<a href="https://www.teamviewer.cn/cn/download/linux/" target="_blank" rel="noopener">https://www.teamviewer.cn/cn/download/linux/</a></p>
+<p>一行命令安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i teamviewer\_14.3.4730\_amd64.deb</span><br></pre></td></tr></table></figure>
+<p>提示依赖关系没有配置，执行以下命令修复并再次安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get -f -y install   </span><br><span class="line">sudo dpkg -i teamviewer\_14.3.4730\_amd64.deb</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-9-安装网易云音乐"><a href="#4-9-安装网易云音乐" class="headerlink" title="4.9 安装网易云音乐"></a>4.9 安装网易云音乐</h2><p>官网下载：<a href="https://music.163.com/#/download" target="_blank" rel="noopener">https://music.163.com/#/download</a><br>一行命令安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i netease-cloud-music\_1.2.1\_amd64\_ubuntu\_20190428.deb</span><br></pre></td></tr></table></figure>
+<p>如果觉得网易云音乐UI的DPI太小，可以改下.desktop的exec：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exec&#x3D;netease-cloud-music --force-device-scale-factor&#x3D;2 %U</span><br></pre></td></tr></table></figure>
+<h2 id="4-10-安装百度网盘"><a href="#4-10-安装百度网盘" class="headerlink" title="4.10 安装百度网盘"></a>4.10 安装百度网盘</h2><p>官网下载：<a href="https://pan.baidu.com/download" target="_blank" rel="noopener">https://pan.baidu.com/download</a><br>一行命令安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i baidunetdisk\_linux\_2.0.1.deb</span><br></pre></td></tr></table></figure>
+<h2 id="4-11-安装wps及卸载自带的Liboffice"><a href="#4-11-安装wps及卸载自带的Liboffice" class="headerlink" title="4.11 安装wps及卸载自带的Liboffice"></a>4.11 安装wps及卸载自带的Liboffice</h2><p>本来我是想将就着用liboffice算了，但是用了一周发现他改完的文档格式老是有些莫名其妙的问题，所以干脆就卸载掉直接安装wps了，正好wps也有linux版。</p>
+<p>先卸载LibOffice：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get remove libreoffice-common</span><br></pre></td></tr></table></figure>
+<p>安装wps：<br>前往官网下载deb包：<a href="https://www.wps.cn/product/wpslinux" target="_blank" rel="noopener">https://www.wps.cn/product/wpslinux</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i wps-office\_11.1.0.8722\_amd64.deb</span><br></pre></td></tr></table></figure>
+
+<h1 id="5、安装配置开发环境"><a href="#5、安装配置开发环境" class="headerlink" title="5、安装配置开发环境"></a>5、安装配置开发环境</h1><p>开发环境其实大部分都是在官网下载好，然后解压丢到/opt，配置环境变量就好了，因为每个人开发环境都不完全相同，我也不说这么细了，前往各个官网下载自己需要的版本吧。。。</p>
+<h2 id="5-1-Java、scala、maven安装配置"><a href="#5-1-Java、scala、maven安装配置" class="headerlink" title="5.1 Java、scala、maven安装配置"></a>5.1 Java、scala、maven安装配置</h2><p>前往各个官网下载<code>tar.gz</code>包，<code>sudo tar -zxvf</code>命令，解压到<strong>/opt</strong>目录下，然后修改<strong>/etc/profile</strong>文件，添加环境变量，wq保存后自行一下 <code>source /etc/profile</code> 命令刷新一下就ok啦。</p>
+<ul>
+<li>java官网：<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></li>
+<li>maven官网：<a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></li>
+<li>scala官网：<a href="https://www.scala-lang.org/download/" target="_blank" rel="noopener">https://www.scala-lang.org/download/</a></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export MAVEN_HOME&#x3D;&#x2F;opt&#x2F;apache-maven-3.6.1  </span><br><span class="line">export JAVA\_HOME&#x3D;&#x2F;opt&#x2F;jdk1.8.0\_211  </span><br><span class="line">export SCALA_HOME&#x3D;&#x2F;opt&#x2F;scala-2.11.1  </span><br><span class="line">export JRE\_HOME&#x3D;$&#123;JAVA\_HOME&#125;&#x2F;jre  </span><br><span class="line">export CLASSPATH&#x3D;.:$&#123;JAVA\_HOME&#125;&#x2F;lib:$&#123;JRE\_HOME&#125;&#x2F;lib  </span><br><span class="line">export PATH&#x3D;$&#123;JAVA\_HOME&#125;&#x2F;bin:$&#123;MAVEN\_HOME&#125;&#x2F;bin:$&#123;SCALA_HOME&#125;&#x2F;bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/8.png" alt></p>
+<p>另外还有maven的配置，设置一下本地仓库和添加国内源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"> &lt;localRepository&gt;&#x2F;home&#x2F;repository&lt;&#x2F;localRepository&gt;  </span><br><span class="line">&lt;mirrors&gt;  </span><br><span class="line"> &lt;mirror&gt;  </span><br><span class="line"> &lt;id&gt;alimaven&lt;&#x2F;id&gt;  </span><br><span class="line"> &lt;name&gt;aliyun maven&lt;&#x2F;name&gt;  </span><br><span class="line"> &lt;url&gt;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&#x2F;&lt;&#x2F;url&gt;  </span><br><span class="line"> &lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;  </span><br><span class="line"> &lt;&#x2F;mirror&gt;  </span><br><span class="line"> &lt;mirror&gt;  </span><br><span class="line"> &lt;id&gt;alimaven&lt;&#x2F;id&gt;  </span><br><span class="line"> &lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;  </span><br><span class="line"> &lt;name&gt;aliyun maven&lt;&#x2F;name&gt;  </span><br><span class="line"> &lt;url&gt;http:&#x2F;&#x2F;maven.aliyun.com&#x2F;nexus&#x2F;content&#x2F;repositories&#x2F;central&#x2F;&lt;&#x2F;url&gt;  </span><br><span class="line"> &lt;&#x2F;mirror&gt;  </span><br><span class="line"></span><br><span class="line"> &lt;mirror&gt;  </span><br><span class="line"> &lt;id&gt;ibiblio&lt;&#x2F;id&gt;  </span><br><span class="line"> &lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;  </span><br><span class="line"> &lt;name&gt;Human Readable Name for this Mirror.&lt;&#x2F;name&gt;  </span><br><span class="line"> &lt;url&gt;http:&#x2F;&#x2F;mirrors.ibiblio.org&#x2F;pub&#x2F;mirrors&#x2F;maven2&#x2F;&lt;&#x2F;url&gt;  </span><br><span class="line"> &lt;&#x2F;mirror&gt;  </span><br><span class="line"> &lt;mirror&gt;  </span><br><span class="line"> &lt;id&gt;jboss-public-repository-group&lt;&#x2F;id&gt;  </span><br><span class="line"> &lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;  </span><br><span class="line"> &lt;name&gt;JBoss Public Repository Group&lt;&#x2F;name&gt;  </span><br><span class="line"> &lt;url&gt;http:&#x2F;&#x2F;repository.jboss.org&#x2F;nexus&#x2F;content&#x2F;groups&#x2F;public&lt;&#x2F;url&gt;  </span><br><span class="line"> &lt;&#x2F;mirror&gt;  </span><br><span class="line"></span><br><span class="line"> &lt;mirror&gt;  </span><br><span class="line"> &lt;id&gt;central&lt;&#x2F;id&gt;  </span><br><span class="line"> &lt;name&gt;Maven Repository Switchboard&lt;&#x2F;name&gt;  </span><br><span class="line"> &lt;url&gt;http:&#x2F;&#x2F;repo1.maven.org&#x2F;maven2&#x2F;&lt;&#x2F;url&gt;  </span><br><span class="line"> &lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;  </span><br><span class="line"> &lt;&#x2F;mirror&gt;  </span><br><span class="line"> &lt;mirror&gt;  </span><br><span class="line"> &lt;id&gt;repo2&lt;&#x2F;id&gt;  </span><br><span class="line"> &lt;mirrorOf&gt;central&lt;&#x2F;mirrorOf&gt;  </span><br><span class="line"> &lt;name&gt;Human Readable Name for this Mirror.&lt;&#x2F;name&gt;  </span><br><span class="line"> &lt;url&gt;http:&#x2F;&#x2F;repo2.maven.org&#x2F;maven2&#x2F;&lt;&#x2F;url&gt;  </span><br><span class="line"> &lt;&#x2F;mirror&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="5-2-安装idea"><a href="#5-2-安装idea" class="headerlink" title="5.2 安装idea"></a>5.2 安装idea</h2><p>前往官网下载：<a href="https://www.jetbrains.com/idea/download/#section=linux" target="_blank" rel="noopener">https://www.jetbrains.com/idea/download/#section=linux</a></p>
+<p>下载完解压到/opt ：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf ideaIU-2019.1.3.tar.gz -C &#x2F;opt  </span><br><span class="line">cd &#x2F;opt&#x2F;ideaIU-2019.1.3&#x2F;bin  </span><br><span class="line">.&#x2F;idea</span><br></pre></td></tr></table></figure>
+<p>接下来就能看到熟悉的idea的界面啦，一直下一步配置完就好了，至于破解什么的，百度最新的方法吧hhhhhhh，安装完之后顺手先配置一下maven，免得使用默认的.m2目录又浪费时间下载（自己的本地仓库移动硬盘有备份=。=）</p>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/9.png" alt></p>
+<h2 id="5-3-安装破解Navicat"><a href="#5-3-安装破解Navicat" class="headerlink" title="5.3 安装破解Navicat"></a>5.3 安装破解Navicat</h2><p>官网下载：<a href="https://www.navicat.com/en/download/navicat-premium" target="_blank" rel="noopener">https://www.navicat.com/en/download/navicat-premium</a><br>下载完解压到/opt ：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf navicat121\_premium\_cs_x64.tar.gz -C &#x2F;opt  </span><br><span class="line">cd &#x2F;opt&#x2F;navicat121\_premium\_cs_x64&#x2F;  </span><br><span class="line">.&#x2F;start_navicat</span><br></pre></td></tr></table></figure>
+
+<p><code>./start_navicat</code>这句千万不要加sudo，不然等下图标就不够权限了（加了的话删除掉<code>~/.navicat64/</code>文件夹就行，原因是里面的配置文件是root权限的）。然后他会提示叫你安装：<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/10.png" alt></p>
+<p>配置好就可以启动了，就是界面非常的丑，而且不支持中文字体，会变成小方格，这些都没关系，等我们后续美化的时候，装个好看的字体，换过来就解决了= =</p>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/11.png" alt></p>
+<p>如果不想装字体的话，现在解决乱码的方式就是：<strong>先在linux系统中添加中文支持</strong>，然后手动编辑start_navicat里面的内容，将<code>export LANG=&quot;en_US.UTF-8&quot;</code>将这句话改为<code>export LANG=&quot;zh_CN.UTF-8&quot;</code>，然后在设置里更改字体为<code>Noto Sans Mono CJK JP Regular</code>，重启程序即可：</p>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/12.png" alt></p>
+<p>关于破解呢，网上有好多方法，嫌麻烦我选择删配置文件重置试用就好了，命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rm &#x2F;home&#x2F;chen&#x2F;.navicat64&#x2F;user.reg</span><br></pre></td></tr></table></figure>
+
+<p>另外就是这个软件的linux版本非常偷懒，图标还需要自己去创建，还需要自己下载图标。。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;opt&#x2F;navicat121\_premium\_cs_x64&#x2F;  </span><br><span class="line">sudo wget http:&#x2F;&#x2F;www.navicat.com.cn&#x2F;images&#x2F;02.Product\_00\_AllProducts\_Premium\_large.png  </span><br><span class="line">sudo mv 02.Product\_00\_AllProducts\_Premium\_large.png  navicat.png  </span><br><span class="line"></span><br><span class="line">#以上为下载图标&#x3D;。&#x3D;，名好长顺便给改一下，然后创建图标文件：  </span><br><span class="line">sudo vim navicat.desktop  </span><br><span class="line"></span><br><span class="line">#在打开的文本里输入以下内容，wq保存即可  </span><br><span class="line">\[Desktop Entry\]  </span><br><span class="line">Encoding&#x3D;UTF-8  </span><br><span class="line">Name&#x3D;Navicat  </span><br><span class="line">Comment&#x3D;Navicat Premium  </span><br><span class="line">Exec&#x3D;&#x2F;opt&#x2F;navicat121\_premium\_cs\_x64&#x2F;start\_navicat  </span><br><span class="line">Icon&#x3D;&#x2F;opt&#x2F;navicat121\_premium\_cs_x64&#x2F;navicat.png  </span><br><span class="line">Terminal&#x3D;0  </span><br><span class="line">Type&#x3D;Application  </span><br><span class="line">Categories&#x3D;Application  </span><br><span class="line"></span><br><span class="line">#赋权后赋值到app目录  </span><br><span class="line">chmod +x navicat.desktop  </span><br><span class="line">sudo cp navicat.desktop &#x2F;usr&#x2F;share&#x2F;applications&#x2F;</span><br></pre></td></tr></table></figure>
+<p><strong>图标路径后面主要不要有空格，执行如果出不来记得个文件夹附权，或者是sudo导致配置文件（~/.navicat64）权限为root</strong></p>
+<p>把用户加入到root组：<code>sudo adduser chen root</code></p>
+<p><strong><em>最新更新！解决高分屏下这个navicat 缩放（UI太小，DPI低）的问题！！！</em></strong><br>我研究了好久他的启动脚本<code>start_navicat</code>，发现他就是内置了一个wine，然后我们用外部的winecfg影响不到他，最后我写了个脚本。。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">!&#x2F;bin&#x2F;sh  </span><br><span class="line"></span><br><span class="line">cd \&#96;dirname &quot;$0&quot;\&#96;  </span><br><span class="line">navicat_root&#x3D;\&#96;pwd\&#96;  </span><br><span class="line"></span><br><span class="line"># Wine environment variables  </span><br><span class="line">WINEDIR&#x3D;&quot;wine&quot;  </span><br><span class="line">export LANG&#x3D;&quot;en_US.UTF-8&quot;  </span><br><span class="line">export PATH&#x3D;&quot;$navicat\_root&#x2F;$WINEDIR&#x2F;bin&quot;:&quot;$navicat\_root&quot;:&quot;$navicat\_root&#x2F;$WINEDIR&#x2F;drive\_c&#x2F;windows&quot;:&quot;$PATH&quot;  </span><br><span class="line">export LD\_LIBRARY\_PATH&#x3D;&quot;$navicat\_root&#x2F;$WINEDIR&#x2F;lib&quot;:&quot;$navicat\_root&#x2F;lib&quot;:&quot;$LD\_LIBRARY\_PATH&quot;  </span><br><span class="line">export WINEDLLPATH&#x3D;&quot;$navicat_root&#x2F;$WINEDIR&#x2F;lib&#x2F;wine&quot;  </span><br><span class="line">export WINELOADER&#x3D;&quot;$navicat_root&#x2F;$WINEDIR&#x2F;bin&#x2F;wine64&quot;  </span><br><span class="line">export WINESERVER&#x3D;&quot;$navicat_root&#x2F;$WINEDIR&#x2F;bin&#x2F;wineserver&quot;  </span><br><span class="line">export WINEPREFIX&#x3D;&quot;$HOME&#x2F;.navicat64&quot;  </span><br><span class="line">export WINEDLLOVERRIDES&#x3D;&quot;ucrtbase,msvcp140,vcruntime140,msvcp110,msvcr110,msxml3&#x3D;n,b&quot;  </span><br><span class="line"></span><br><span class="line">exec &quot;$&#123;WINELOADER:-wine&#125;&quot; &quot;winecfg&quot;</span><br></pre></td></tr></table></figure>
+<p>把它保存为<code>test.sh</code>，放在跟<code>start_navicat</code>同级目录下面，执行一下就会弹出一个界面来，在里面改DPI就可以了！！！</p>
+<h2 id="5-4-安装RedisDesktopManager"><a href="#5-4-安装RedisDesktopManager" class="headerlink" title="5.4 安装RedisDesktopManager"></a>5.4 安装RedisDesktopManager</h2><p>官方网站：<a href="https://redisdesktop.com/download" target="_blank" rel="noopener">https://redisdesktop.com/download</a><br>一句命令行解决：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo snap install redis-desktop-manager</span><br></pre></td></tr></table></figure>
+<p>或者直接通过软件管理中心下载，如果网络卡下载不了，可以先翻墙= =</p>
+<h2 id="5-5-安装svn客户端"><a href="#5-5-安装svn客户端" class="headerlink" title="5.5 安装svn客户端"></a>5.5 安装svn客户端</h2><p>一行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install subversion</span><br></pre></td></tr></table></figure>
+<p>在idea中<code>file--&gt;settings...--&gt;subversion---&gt;Enable interactive mode</code> 勾选上</p>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/13.png" alt></p>
+<h2 id="5-6-安装git"><a href="#5-6-安装git" class="headerlink" title="5.6 安装git"></a>5.6 安装git</h2><p>一行命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install git  </span><br><span class="line"></span><br><span class="line">git config --global user.name &quot;VoidChen10&quot;  </span><br><span class="line">git config --global user.email &quot;425325925@qq.com&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="5-7-配置ssh的config文件实现快速登录服务器"><a href="#5-7-配置ssh的config文件实现快速登录服务器" class="headerlink" title="5.7 配置ssh的config文件实现快速登录服务器"></a>5.7 配置ssh的config文件实现快速登录服务器</h2><p>如果没装ssh的话自己装一下，我这好像是自己装了。linux的终端配置好了比xshell还方便，把服务器信息加到<code>~/.ssh/config</code>文件即可，没有该文件就创建一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">vim .ssh&#x2F;config  </span><br><span class="line"></span><br><span class="line">#配置多个服务器  </span><br><span class="line">Host 100    #别名  </span><br><span class="line"> Hostname 192.168.1.100 #服务器  </span><br><span class="line"> Port 22  #端口  </span><br><span class="line"> User root #用户  </span><br><span class="line">Host 172  </span><br><span class="line"> Hostname 172.26.152.1  </span><br><span class="line"> Port 2233  </span><br><span class="line"> User chen</span><br></pre></td></tr></table></figure>
+<p>编辑好wq保存下，就可以愉快的使用别名登录了，效果如下：</p>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/14.png" alt></p>
+<p>搞完之后还有个问题，就是登录还需要密码，这里我们首先生成秘钥：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa</span><br></pre></td></tr></table></figure>
+<p>敲3下回车默认即可，然后把秘钥发送到服务端，由于我们刚配好了config，这里<code>-i</code>后面直接接别名即可：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i 100</span><br></pre></td></tr></table></figure>
+<p>如图，已经能轻松无密码登录了~~<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/15.png" alt></p>
+<h2 id="5-8-配置Hexo博客"><a href="#5-8-配置Hexo博客" class="headerlink" title="5.8 配置Hexo博客"></a>5.8 配置Hexo博客</h2><p>关于如何创建和使用hexo可以参考这篇文章：<a href="https://blog.csdn.net/Hoshea_chx/article/details/78826689" target="_blank" rel="noopener">《用Hexo + github搭建自己的博客 — 再也不用羡慕别人了！》</a><br>我以前弄好的直接拿过来用就好了，就是装一下<code>npm</code>和配置一下就好了(nodejs已经预装了)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install npm  </span><br><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>把生成的公钥加到github上：<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/16.png" alt></p>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/17.png" alt></p>
+<p>测试一下github配置是否成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>然后hexo就装好啦，进入到博客安装目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean  #清理  </span><br><span class="line">hexo g   #打包  </span><br><span class="line">hexo s   #本地发布  </span><br><span class="line">hexo d   #上传</span><br></pre></td></tr></table></figure>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/18.png" alt></p>
+<h1 id="6、系统美化"><a href="#6、系统美化" class="headerlink" title="6、系统美化"></a>6、系统美化</h1><h2 id="6-1-安装gnome优化工具"><a href="#6-1-安装gnome优化工具" class="headerlink" title="6.1 安装gnome优化工具"></a>6.1 安装gnome优化工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnome-tweak-tool</span><br></pre></td></tr></table></figure>
+<p>装完会多一个叫<code>优化</code>的程序，进去可以初步定制我们的系统了</p>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/19.png" alt></p>
+<p>安装扩展以支持安装自己的主题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gnome-shell-extensions</span><br></pre></td></tr></table></figure>
+<p>安装完重启一下，把<code>User themes</code>选上：<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/20.png" alt></p>
+<h2 id="6-2添加托盘插件TopIcons"><a href="#6-2添加托盘插件TopIcons" class="headerlink" title="6.2添加托盘插件TopIcons"></a>6.2添加托盘插件TopIcons</h2><p>wine应用（qq、微信）不装的话启动之后会多个窗口显示托盘图标，这显然是及其难受的。。。好在有个插件可以帮我们解决，github地址：<a href="https://github.com/phocean/TopIcons-plus" target="_blank" rel="noopener">https://github.com/phocean/TopIcons-plus</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;phocean&#x2F;TopIcons-plus.git  </span><br><span class="line">cd TopIcons-plus  </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>这将编译glib模式并将所有必需的文件复制到您自己的用户帐户的GNOME Shell扩展目录（因此您不需要管理员权限才能运行<code>make</code>）。默认情况下，TopIcons Plus将存在于目录中<code>~/.local/share/gnome-shell/extensions/TopIcons@phocean.net/</code>。</p>
+<p>如果要安装扩展以使其在系统范围内可用，则必须更改<code>INSTALL_PATH</code>变量，并以root身份运行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install INSTALL_PATH&#x3D;&#x2F;us &#x2F;share&#x2F;gnome-shell&#x2F;extensions</span><br></pre></td></tr></table></figure>
+<p>现在，重新加载GNOME Shell。您可以点击Alt+ F2，键入<code>r</code>，然后按Enter —或登录/注销。<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/21.png" alt></p>
+<p>最后，启动_gnome-tweak-tool_实用程序来管理扩展。在那里，您可以启用_TopIcons Plus_，然后调整其外观。<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/22.png" alt></p>
+<p>把图片偏移设置为靠右，然后就可以看到微信在托盘里啦<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/23.png" alt></p>
+<h2 id="6-3-安装Cinnamon桌面环境"><a href="#6-3-安装Cinnamon桌面环境" class="headerlink" title="6.3 安装Cinnamon桌面环境"></a>6.3 安装Cinnamon桌面环境</h2><hr>
+<p>首先是添加源，输入密码后，根据提示按回车继续，更新完直接安装即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:embrosyn&#x2F;cinnamon  </span><br><span class="line">sudo apt update &amp;&amp; sudo apt install cinnamon</span><br></pre></td></tr></table></figure>
+<p>安装好重启下，等登录那个框别急着输入密码，<strong>点那个小齿轮</strong>，选择<code>cinnamon</code>使用装好的桌面环境。<br>进去之后就是一个跟windows非常像的系统界面啦~~不过桌面还是空空如也，点击左下角的图片，找到你要用的软件，添加到桌面就好了。<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/24.png" alt></p>
+<p>同样在这个启动菜单的左上角，就是系统设置了，里面提供了丰富的系统设置，可以根据自己的需要进行修改。</p>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/25.png" alt></p>
+<p>另外就是截图的快捷键需要重新添加了，这个自己找找吧。搜索<code>“键盘”</code>就能找到了。</p>
+<h2 id="6-4-zsh终端的使用和美化"><a href="#6-4-zsh终端的使用和美化" class="headerlink" title="6.4 zsh终端的使用和美化"></a>6.4 zsh终端的使用和美化</h2><p>安装zsh并让zsh作为默认的终端：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y zsh  </span><br><span class="line">chsh -s &#x2F;bin&#x2F;zsh</span><br></pre></td></tr></table></figure>
+<p>装完重启下，默认的终端就是zsh了。接下来安装<code>oh my zsh</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https:&#x2F;&#x2F;github.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;raw&#x2F;master&#x2F;tools&#x2F;install.sh -O - | sh</span><br></pre></td></tr></table></figure>
+<p>重启终端即可看到效果，接下来修改<code>~/.zshrc</code>文件，加入一些好用的插件和更换主题即可。</p>
+<p>安装高亮插件和命令自动补齐：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;.oh-my-zsh&#x2F;custom&#x2F;plugins  </span><br><span class="line">#高亮插件  </span><br><span class="line">git clone git:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-syntax-highlighting.git  </span><br><span class="line">#命令补齐  </span><br><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;zsh-users&#x2F;zsh-autosuggestions $&#123;ZSH_CUSTOM:-~&#x2F;.oh-my-zsh&#x2F;custom&#125;&#x2F;plugins&#x2F;zsh-autosuggestions  </span><br><span class="line"></span><br><span class="line">vim ~&#x2F;.zshrc  #在文本内添加：  </span><br><span class="line">    </span><br><span class="line">#设置主题，内置主题可前往github查看：https:&#x2F;&#x2F;github.com&#x2F;robbyrussell&#x2F;oh-my-zsh&#x2F;wiki&#x2F;Themes  </span><br><span class="line">ZSH_THEME&#x3D;&quot;robbyrussell&quot;  </span><br><span class="line"></span><br><span class="line">#添加高亮插件和自动补齐  </span><br><span class="line">plugins&#x3D;(git zsh-syntax-highlighting zsh-autosuggestions  web-search)  </span><br><span class="line"></span><br><span class="line">#wq保存后刷新一下  </span><br><span class="line">source .zshrc</span><br></pre></td></tr></table></figure>
+<p>最后一步就是右键终端，配置首选项，把终端调整成自己喜欢的样子~~<br><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/26.png" alt></p>
+<h2 id="6-5-安装Vimix主题"><a href="#6-5-安装Vimix主题" class="headerlink" title="6.5 安装Vimix主题"></a>6.5 安装Vimix主题</h2><p>官网地址：<a href="https://www.opendesktop.org/p/1013698" target="_blank" rel="noopener">https://www.opendesktop.org/p/1013698</a><br>直接在该页面下载下来，注意他是一个<code>xz</code>包，然后解压安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">xz -d vimix-color-light.tar.xz  </span><br><span class="line">tar -xvf vimix-color-light.tar   </span><br><span class="line">cd vimix-color-light   </span><br><span class="line">sudo sh Install</span><br></pre></td></tr></table></figure>
+<p>安装完<code>系统设置-&gt;主题</code>，就能看到了，选一下应用即可</p>
+<p><img src="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/27.png" alt></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    VoidChen10
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/" title="双显卡1050TI笔记本的Ubuntu18安装实记">https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://voidchen10.github.io/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag"># 小技巧</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B08%EF%BC%9AK-Means%E7%9A%84%E6%89%A9%E5%B1%95%E5%AD%A6%E4%B9%A0/" rel="next" title="Spark-MLlib学习日记8：K-Means的扩展学习">
+                <i class="fa fa-chevron-left"></i> Spark-MLlib学习日记8：K-Means的扩展学习
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/" rel="prev" title="ArchLinux安装实况">
+                ArchLinux安装实况 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM3OS8xODkyNg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg"
+                alt="VoidChen10" />
+            
+              <p class="site-author-name" itemprop="name">VoidChen10</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/VoidChen10" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=425325925&website=www.oicqzone.com" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/1994787451" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1、前言"><span class="nav-text">1、前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2、系统安装"><span class="nav-text">2、系统安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3、Nvidia驱动完美安装（巨坑）"><span class="nav-text">3、Nvidia驱动完美安装（巨坑）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-进入grub引导，以nomodeset模式登陆系统"><span class="nav-text">3.1 进入grub引导，以nomodeset模式登陆系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-安装最新的Nvidia-1050TI驱动"><span class="nav-text">3.2 安装最新的Nvidia 1050TI驱动</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4、系统设置和软件安装"><span class="nav-text">4、系统设置和软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-更换国内源"><span class="nav-text">4.1 更换国内源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-安装markdown编辑器Typora"><span class="nav-text">4.2 安装markdown编辑器Typora</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-安装chrome浏览器"><span class="nav-text">4.3 安装chrome浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-安装搜狗拼音输入法"><span class="nav-text">4.4 安装搜狗拼音输入法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-安装屏幕截图软件Flameshot"><span class="nav-text">4.5 安装屏幕截图软件Flameshot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-安装QQ、微信"><span class="nav-text">4.6 安装QQ、微信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7-安装为知笔记"><span class="nav-text">4.7 安装为知笔记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-8-安装TeamViewer"><span class="nav-text">4.8 安装TeamViewer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-安装网易云音乐"><span class="nav-text">4.9 安装网易云音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-10-安装百度网盘"><span class="nav-text">4.10 安装百度网盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-11-安装wps及卸载自带的Liboffice"><span class="nav-text">4.11 安装wps及卸载自带的Liboffice</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5、安装配置开发环境"><span class="nav-text">5、安装配置开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-Java、scala、maven安装配置"><span class="nav-text">5.1 Java、scala、maven安装配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-安装idea"><span class="nav-text">5.2 安装idea</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-安装破解Navicat"><span class="nav-text">5.3 安装破解Navicat</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-安装RedisDesktopManager"><span class="nav-text">5.4 安装RedisDesktopManager</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-安装svn客户端"><span class="nav-text">5.5 安装svn客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-安装git"><span class="nav-text">5.6 安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-7-配置ssh的config文件实现快速登录服务器"><span class="nav-text">5.7 配置ssh的config文件实现快速登录服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-8-配置Hexo博客"><span class="nav-text">5.8 配置Hexo博客</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6、系统美化"><span class="nav-text">6、系统美化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-安装gnome优化工具"><span class="nav-text">6.1 安装gnome优化工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2添加托盘插件TopIcons"><span class="nav-text">6.2添加托盘插件TopIcons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-安装Cinnamon桌面环境"><span class="nav-text">6.3 安装Cinnamon桌面环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-zsh终端的使用和美化"><span class="nav-text">6.4 zsh终端的使用和美化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-5-安装Vimix主题"><span class="nav-text">6.5 安装Vimix主题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">VoidChen10</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

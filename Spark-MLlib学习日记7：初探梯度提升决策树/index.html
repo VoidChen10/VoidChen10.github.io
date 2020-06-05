@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -21,12 +21,12 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
-  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw">
+  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw" />
 
 
 
@@ -45,7 +45,7 @@
 
 
 
-  <meta name="baidu-site-verification" content="ImJKZq1eMD">
+  <meta name="baidu-site-verification" content="ImJKZq1eMD" />
 
 
 
@@ -55,7 +55,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="梯度提升决策树,手写数字,MNIST,spark,mllib">
+  <meta name="keywords" content="梯度提升决策树,手写数字,MNIST,spark,mllib" />
 
 
 
@@ -95,19 +95,22 @@
 
 
 <meta name="description" content="前言嗯。。怎么说呢，本来见识到随机森林的强大之后，觉得分类算法里面，另一个集成算法——梯度提升决策树(GBDT)看不看都那样了，看各类书和spark官网对他的介绍也是一笔带过，所以抱着轻视的态度，顺手训练了下模型，结果识别率居然高达99.763593%！！！用的还是官方给的默认参数。。。而且训练速度贼快。我随机森林要跑15分钟，这个几分钟就好了。所以决定单独写一篇日记，来深入地去学习一下这个算法。">
-<meta name="keywords" content="梯度提升决策树,手写数字,MNIST,spark,mllib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记7：初探梯度提升决策树">
-<meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/index.html">
+<meta property="og:url" content="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/index.html">
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="前言嗯。。怎么说呢，本来见识到随机森林的强大之后，觉得分类算法里面，另一个集成算法——梯度提升决策树(GBDT)看不看都那样了，看各类书和spark官网对他的介绍也是一笔带过，所以抱着轻视的态度，顺手训练了下模型，结果识别率居然高达99.763593%！！！用的还是官方给的默认参数。。。而且训练速度贼快。我随机森林要跑15分钟，这个几分钟就好了。所以决定单独写一篇日记，来深入地去学习一下这个算法。">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g1719jze6aj20i90ei761.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g1627e3uv7j21pc11y10a.jpg">
-<meta property="og:updated_time" content="2019-03-19T03:09:37.506Z">
+<meta property="article:published_time" content="2019-03-14T01:43:21.000Z">
+<meta property="article:modified_time" content="2019-03-18T19:09:37.000Z">
+<meta property="article:author" content="VoidChen10">
+<meta property="article:tag" content="梯度提升决策树">
+<meta property="article:tag" content="手写数字">
+<meta property="article:tag" content="MNIST">
+<meta property="article:tag" content="spark">
+<meta property="article:tag" content="mllib">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spark-MLlib学习日记7：初探梯度提升决策树">
-<meta name="twitter:description" content="前言嗯。。怎么说呢，本来见识到随机森林的强大之后，觉得分类算法里面，另一个集成算法——梯度提升决策树(GBDT)看不看都那样了，看各类书和spark官网对他的介绍也是一笔带过，所以抱着轻视的态度，顺手训练了下模型，结果识别率居然高达99.763593%！！！用的还是官方给的默认参数。。。而且训练速度贼快。我随机森林要跑15分钟，这个几分钟就好了。所以决定单独写一篇日记，来深入地去学习一下这个算法。">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g1719jze6aj20i90ei761.jpg">
 
 
@@ -138,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/">
+  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/"/>
 
 
 
@@ -147,7 +150,7 @@
 
 
 
-  <title>Spark-MLlib学习日记7：初探梯度提升决策树 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Spark-MLlib学习日记7：初探梯度提升决策树 | 「旅の途中」</title>
   
 
 
@@ -157,9 +160,9 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -169,13 +172,13 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">「旅の途中」</span>
         <span class="logo-line-after"><i></i></span>
@@ -203,9 +206,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -213,9 +216,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -223,9 +226,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -233,9 +236,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -243,9 +246,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -258,7 +261,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -279,7 +282,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -311,20 +316,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="「旅の途中」">
     </span>
 
@@ -358,7 +363,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -369,8 +374,8 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spark-MLlib学习日记/" itemprop="url" rel="index">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index">
                     <span itemprop="name">Spark-MLlib学习日记</span>
                   </a>
                 </span>
@@ -391,7 +396,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -415,6 +420,7 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>嗯。。怎么说呢，本来见识到随机森林的强大之后，觉得分类算法里面，另一个集成算法——<strong>梯度提升决策树(<em>GBDT</em>)</strong>看不看都那样了，看各类书和spark官网对他的介绍也是一笔带过，所以抱着轻视的态度，顺手训练了下模型，结果识别率居然高达<code>99.763593%</code>！！！用的还是官方给的默认参数。。。而且训练速度贼快。我随机森林要跑15分钟，这个几分钟就好了。所以决定单独写一篇日记，来深入地去学习一下这个算法。</p>
 <p>比较可惜地是，该算法目前还不支持多分类，不过找了下资料貌似挺多大神在一点点改进这个算法了，比如陈天奇的<code>xgboost</code>。总而言之，不能以一份数据来衡量机器学习算法的好坏，应该根据数据特点，选择最适合这个数据的算法，这也是我这个系列学习希望达成的目标之一。</p>
 <a id="more"></a>
+
 <h1 id="什么是梯度提升决策树"><a href="#什么是梯度提升决策树" class="headerlink" title="什么是梯度提升决策树"></a>什么是梯度提升决策树</h1><p>梯度提升决策树简称 <strong>GBDT</strong> ，是 <em>Gradient Boosting Decision Tree</em> 的缩写，也有文章称之为 <strong>MART（<em>Multiple Additive Regression Tree</em>）</strong>，是一种迭代的决策树算法，该算法由多棵决策树组成，所有树的结论<strong>累加</strong>起来做最终答案。注意这里的决策树算法用的并不是随机森林提到的分类树，而是<strong>回归树</strong>，而且梯度提升树目前不支持多分类问题。</p>
 <p>梯度提升树依次迭代训练一系列的决策树。在一次迭代中，算法使用现有的集成来对每个训练实例的类别进行预测，然后将预测结果与真实的标签值进行比较。通过重新标记，来赋予预测结果不好的实例更高的<strong>权重</strong>。所以，在下次迭代中，决策树会对先前的错误进行修正。</p>
 <p>对实例标签进行重新标记的机制由损失函数来指定。每次迭代过程中，梯度迭代树在训练数据上进一步减少损失函数的值。<code>spark.ml</code>为分类问题提供一种损失函数<strong>（<em>Log Loss</em>）</strong>，为回归问题提供两种损失函数<strong>（<em>平方误差与绝对误差</em>）</strong>。</p>
@@ -423,7 +429,7 @@
 <p>GBDT的思想可以用一个通俗的例子解释，假如有个人30岁，我们首先用20岁去拟合，发现损失有10岁，这时我们用6岁去拟合剩下的损失，发现差距还有4岁，第三轮我们用3岁拟合剩下的差距，差距就只有一岁了。如果我们的迭代轮数还没有完，可以继续迭代下面，每一轮迭代，拟合的岁数误差都会减小。</p>
 <h2 id="构造过程"><a href="#构造过程" class="headerlink" title="构造过程"></a>构造过程</h2><p>这里只给出网上找到的算法步骤，里面很多推导以及公式我还没弄懂，实在有些惭愧，后续闲下来会针对这个再进一步学习。</p>
 <p>算法如下步骤，截图来自《The Elements of Statistical Learning》：</p>
-<p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g1719jze6aj20i90ei761.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g1719jze6aj20i90ei761.jpg" alt></p>
 <p>算法步骤解释：</p>
 <ul>
 <li>1、初始化，估计使损失函数极小化的常数值，它是只有一个根节点的树，即ganma是一个常数值。</li>
@@ -452,7 +458,34 @@
 <h1 id="GBDT重要参数介绍"><a href="#GBDT重要参数介绍" class="headerlink" title="GBDT重要参数介绍"></a>GBDT重要参数介绍</h1><ul>
 <li><p><strong>lose：损失函数。</strong></p>
 <p> ​    spark mllib一共提供3种，注意每一种都只适合一类问题，要么是回归，要么是分类。分类只可选择<strong><em>Log Loss</em></strong>，回归问题可选择<strong>平方误差(<em>Squared Error</em>)</strong>和<strong>绝对值误差(<em>Absolute Error</em>)</strong>。分别又称为L2损失和L1损失。绝对值误差（L1损失）在处理带有离群值的数据时比L2损失更加具有鲁棒性。分别如下表格：</p>
-<p> | Loss | Task | Formula | Description |<br> | —- | —- | ——- | ———– |<br> | Log Loss| Classification| 2∑Ni=1log(1+exp(−2yiF(xi)))| Twice binomial negative log likelihood.|<br> | Squared Error| Regression| ∑Ni=1(yi−F(xi))2| 也称为L2损失。回归任务的默认损失。 |<br> | Absolute Error| Regression| ∑Ni=1|yi−F(xi)|| 也称为L1损失。对于异常值比Squared Error更强大。 |</p>
+<table>
+<thead>
+<tr>
+<th>Loss</th>
+<th>Task</th>
+<th>Formula</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Log Loss</td>
+<td>Classification</td>
+<td>2∑Ni=1log(1+exp(−2yiF(xi)))</td>
+<td>Twice binomial negative log likelihood.</td>
+</tr>
+<tr>
+<td>Squared Error</td>
+<td>Regression</td>
+<td>∑Ni=1(yi−F(xi))2</td>
+<td>也称为L2损失。回归任务的默认损失。</td>
+</tr>
+<tr>
+<td>Absolute Error</td>
+<td>Regression</td>
+<td>∑Ni=1|yi−F(xi)|</td>
+<td>也称为L1损失。对于异常值比Squared Error更强大。</td>
+</tr>
+</tbody></table>
 </li>
 <li><p><strong>numIterations：迭代次数。</strong></p>
 <p>​    GBDT迭代次数，每一次迭代将产生一棵树，因此这个numIterations也是算法中所包含的树的数目。增加numIterations会提高训练集数据预测准确率（注意是训练集数据上的准确率哦）。但是相应的会增加训练的时间。</p>
@@ -481,8 +514,9 @@
 <p>这里面主要用到的就是这几个参数，较为有用的就是<strong>迭代次数</strong>了，为了防止过拟合，这个迭代次数也得调整下，随着迭代次数的增加，一开始在验证集上预测误差会减小，迭代次数增大到一定程度后误差反而会增加，那么通过准确度vs.迭代次数曲线可以选择最合适的numIterations。</p>
 <h1 id="在MNIST手写数字集上使用GBDT做分类"><a href="#在MNIST手写数字集上使用GBDT做分类" class="headerlink" title="在MNIST手写数字集上使用GBDT做分类"></a>在MNIST手写数字集上使用GBDT做分类</h1><p>由于这一系列暂时用的都是同一份数据集，我就不重复讲怎么处理数据了，有需要的同学可以看下前面的数据集介绍，对比上一篇随机森林的代码呢，其实差别只是换了一个训练函数，以及因为GBDT只能做二分类所以把数据过滤了下，只取了0和1的数据来做判断，下面贴出主函数，完整代码请点击这里：<a href="https://github.com/VoidChen10/MachineLearning/blob/master/src/main/scala/SparkMLlib/Classification/GBDT_Example.scala" target="_blank" rel="noopener">前往GitHub</a></p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> <span class="type">SparkMLlib</span>.<span class="type">Classification</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="type">SparkMLlib</span>.<span class="type">Base</span>.<span class="type">MNIST_Util</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.linalg.<span class="type">Vectors</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.regression.<span class="type">LabeledPoint</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.tree.&#123;<span class="type">GradientBoostedTrees</span>&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.tree.configuration.<span class="type">BoostingStrategy</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.&#123;<span class="type">SparkConf</span>, <span class="type">SparkContext</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">GBDT_Example</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="comment">// 获取当前运行路径</span></span><br><span class="line">    <span class="keyword">val</span> userPath = <span class="type">System</span>.getProperty(<span class="string">"user.dir"</span>)</span><br><span class="line">    <span class="keyword">val</span> trainLabelFilePath = userPath + <span class="string">"/src/main/resources/data/train-labels.idx1-ubyte"</span></span><br><span class="line">    <span class="keyword">val</span> trainImageFilePath = userPath + <span class="string">"/src/main/resources/data/train-images.idx3-ubyte"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> testLabelFilePath = userPath + <span class="string">"/src/main/resources/data/t10k-labels.idx1-ubyte"</span></span><br><span class="line">    <span class="keyword">val</span> testImageFilePath = userPath + <span class="string">"/src/main/resources/data/t10k-images.idx3-ubyte"</span></span><br><span class="line"><span class="comment">//        val testLabelFilePath = "C:\\Users\\42532\\Desktop\\test-labels.idx1-ubyte"</span></span><br><span class="line"><span class="comment">//        val testImageFilePath = "C:\\Users\\42532\\Desktop\\test-images.idx3-ubyte"</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setMaster(<span class="string">"local[*]"</span>).setAppName(<span class="string">"NaiveBayesExample"</span>)</span><br><span class="line">    <span class="keyword">val</span> sc = <span class="keyword">new</span> <span class="type">SparkContext</span>(conf)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> trainLabel = <span class="type">MNIST_Util</span>.loadLabel(trainLabelFilePath)</span><br><span class="line">    <span class="keyword">val</span> trainImages = <span class="type">MNIST_Util</span>.loadImages(trainImageFilePath)</span><br><span class="line">    <span class="keyword">val</span> testLabel = <span class="type">MNIST_Util</span>.loadLabel(testLabelFilePath)</span><br><span class="line">    <span class="keyword">val</span> testImages = <span class="type">MNIST_Util</span>.loadImages(testImageFilePath)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Train a GradientBoostedTrees model.</span></span><br><span class="line">    <span class="comment">// The defaultParams for Classification use LogLoss by default.</span></span><br><span class="line">    <span class="keyword">val</span> boostingStrategy = <span class="type">BoostingStrategy</span>.defaultParams(<span class="string">"Classification"</span>)</span><br><span class="line">    boostingStrategy.numIterations = <span class="number">3</span> <span class="comment">// Note: Use more iterations in practice.</span></span><br><span class="line">    boostingStrategy.treeStrategy.numClasses = <span class="number">2</span></span><br><span class="line">    boostingStrategy.treeStrategy.maxDepth = <span class="number">5</span></span><br><span class="line">    <span class="comment">// Empty categoricalFeaturesInfo indicates all features are continuous.</span></span><br><span class="line">    boostingStrategy.treeStrategy.categoricalFeaturesInfo = <span class="type">Map</span>[<span class="type">Int</span>, <span class="type">Int</span>]()</span><br><span class="line"></span><br><span class="line">    <span class="comment">//处理成mlLib能用的基本类型 LabeledPoint</span></span><br><span class="line">    <span class="keyword">if</span>(trainLabel.length == trainImages.length) &#123;</span><br><span class="line">      <span class="comment">//标签数量和图像数量能对上则合并数组  Array[(labe,images)]</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> data = trainLabel.zip(trainImages)</span><br><span class="line">        .filter(d =&gt; &#123;d._1.toInt == <span class="number">0</span> || d._1.toInt == <span class="number">1</span>&#125;) <span class="comment">//梯度树不能处理多分类问题，这里处理成判断0和1</span></span><br><span class="line">        .map( d =&gt;</span><br><span class="line">        <span class="type">LabeledPoint</span>(d._1.toInt, <span class="type">Vectors</span>.dense(d._2.map(p =&gt; (p &amp; <span class="number">0xFF</span>).toDouble)))</span><br><span class="line">      )</span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> trainRdd = sc.makeRDD(data)</span><br><span class="line"></span><br><span class="line">      println(<span class="string">"开始计算"</span>)</span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> model = <span class="type">GradientBoostedTrees</span>.train(trainRdd, boostingStrategy)</span><br><span class="line">      model.save(sc,userPath + <span class="string">"/src/main/resources/model/GBDT"</span>)</span><br><span class="line"></span><br><span class="line">      println(<span class="string">"检验结果"</span>)</span><br><span class="line">      <span class="keyword">val</span> testData = testLabel.zip(testImages)</span><br><span class="line">        .filter(d =&gt; &#123;d._1.toInt == <span class="number">0</span> || d._1.toInt == <span class="number">1</span>&#125;) <span class="comment">//梯度树不能处理多分类问题，这里处理成判断0和1</span></span><br><span class="line">        .map(d =&gt;( d._1.toInt,<span class="type">Vectors</span>.dense(d._2.map(p =&gt; (p &amp; <span class="number">0xFF</span>).toDouble )) ))</span><br><span class="line">      <span class="keyword">val</span> testRDD = sc.makeRDD(testData.map(_._2))</span><br><span class="line">      <span class="keyword">val</span> res = model.predict(testRDD).map(l =&gt; l.toInt).collect()</span><br><span class="line"></span><br><span class="line">      <span class="comment">//res.foreach(println(_))</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> tr = res.zip(testData.map(_._1))</span><br><span class="line"></span><br><span class="line">      <span class="keyword">val</span> sum = tr.map( f =&gt;&#123;</span><br><span class="line">        <span class="keyword">if</span>(f._1 == f._2.toInt) <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">      &#125;).sum</span><br><span class="line"></span><br><span class="line">      println(<span class="string">"准确率为："</span>+ sum.toDouble /tr.length.toDouble)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>我们运行一下看看，用他默认的参数居然就有<code>99.76%</code> 的识别率！因为只是0和1，所以训练样本也少了五分之一，光看准确率可能并不能说明什么，不过也可以看出，对于二分类问题它是非常厉害的，而且训练时间也比随机森林快很多（可能随机森林调的参数树比较多，而且样本数据比较少）。</p>
-<p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g1627e3uv7j21pc11y10a.jpg" alt=""></p>
+<p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g1627e3uv7j21pc11y10a.jpg" alt></p>
 <h1 id="相关术语"><a href="#相关术语" class="headerlink" title="相关术语"></a>相关术语</h1><p><strong>泛化能力（<em>generalization ability</em>）</strong>：<br>​    是指机器学习算法对新鲜样本的适应能力。学习的目的是学到隐含在数据对背后的规律，对具有同一规律的学习集以外的数据，经过训练的网络也能给出合适的输出，该能力称为泛化能力。</p>
 <p><strong>鲁棒性（<em>Robustness</em>）：</strong><br>​    从英文翻译而来-健壮是体质强壮健康的特性。当它被转换到系统中时，它指的是容忍可能影响系统功能体的扰动的能力。在同一行中，鲁棒性可以定义为“系统抵抗变化而不适应其初始稳定配置的能力”。</p>
 <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>其实梯度提升决策树最适合的用处并不是在分类上，而是处理一些回归问题，在今后的学习中我肯定也会遇到类似的问题，到时候在拿相关的数据集来进一步学习和尝试吧，今天这篇只能算是初探梯度提升决策树，一些推导和理论我也还不是太清楚明白，这些也都是有待以后补充了。</p>
@@ -511,7 +545,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/" title="Spark-MLlib学习日记7：初探梯度提升决策树">https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/</a>
+    <a href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/" title="Spark-MLlib学习日记7：初探梯度提升决策树">https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -526,11 +560,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
-          
             <a href="/tags/MachineLeaning/" rel="tag"># MachineLeaning</a>
           
-            <a href="/tags/分类/" rel="tag"># 分类</a>
+            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          
+            <a href="/tags/%E5%88%86%E7%B1%BB/" rel="tag"># 分类</a>
           
         </div>
       
@@ -543,7 +577,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/" rel="next" title="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">
+              <a href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B06%EF%BC%9A%E4%BD%BF%E7%94%A8%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E7%AE%97%E6%B3%95%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97/" rel="next" title="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">
                 <i class="fa fa-chevron-left"></i> Spark-MLlib学习日记6：使用随机森林算法识别手写数字
               </a>
             
@@ -553,7 +587,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Spark-MLlib学习日记8：K-Means的扩展学习/" rel="prev" title="Spark-MLlib学习日记8：K-Means的扩展学习">
+              <a href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B08%EF%BC%9AK-Means%E7%9A%84%E6%89%A9%E5%B1%95%E5%AD%A6%E4%B9%A0/" rel="prev" title="Spark-MLlib学习日记8：K-Means的扩展学习">
                 Spark-MLlib学习日记8：K-Means的扩展学习 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -624,9 +658,11 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg" alt="VoidChen10">
+              <img class="site-author-image" itemprop="image"
+                src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg"
+                alt="VoidChen10" />
             
               <p class="site-author-name" itemprop="name">VoidChen10</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -637,9 +673,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -650,7 +686,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -661,7 +697,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -715,7 +751,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是梯度提升决策树"><span class="nav-number">2.</span> <span class="nav-text">什么是梯度提升决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法原理"><span class="nav-number">2.1.</span> <span class="nav-text">算法原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造过程"><span class="nav-number">2.2.</span> <span class="nav-text">构造过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GBDT的优缺点及应用场景"><span class="nav-number">3.</span> <span class="nav-text">GBDT的优缺点及应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GBDT重要参数介绍"><span class="nav-number">4.</span> <span class="nav-text">GBDT重要参数介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在MNIST手写数字集上使用GBDT做分类"><span class="nav-number">5.</span> <span class="nav-text">在MNIST手写数字集上使用GBDT做分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关术语"><span class="nav-number">6.</span> <span class="nav-text">相关术语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">7.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">8.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是梯度提升决策树"><span class="nav-text">什么是梯度提升决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法原理"><span class="nav-text">算法原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造过程"><span class="nav-text">构造过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GBDT的优缺点及应用场景"><span class="nav-text">GBDT的优缺点及应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GBDT重要参数介绍"><span class="nav-text">GBDT重要参数介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在MNIST手写数字集上使用GBDT做分类"><span class="nav-text">在MNIST手写数字集上使用GBDT做分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关术语"><span class="nav-text">相关术语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-text">后记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
@@ -735,7 +771,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

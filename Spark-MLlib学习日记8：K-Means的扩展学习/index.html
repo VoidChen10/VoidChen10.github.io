@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -21,12 +21,12 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
-  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw">
+  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw" />
 
 
 
@@ -45,7 +45,7 @@
 
 
 
-  <meta name="baidu-site-verification" content="ImJKZq1eMD">
+  <meta name="baidu-site-verification" content="ImJKZq1eMD" />
 
 
 
@@ -55,7 +55,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="K-Means,流式,Streaming,spark,mllib">
+  <meta name="keywords" content="K-Means,流式,Streaming,spark,mllib" />
 
 
 
@@ -95,17 +95,20 @@
 
 
 <meta name="description" content="前言关于聚类的经典算法K-Means 算法在第一期就已经讲过了，需要回顾的同学点这里，现在顺着spark的api继续看下去，又看到聚类这一块，就着重讲一下基于流数据的K-Menas算法使用，因为最近比较忙的，所以感觉又一些东西都还没很完整的看完，比如回归的算法，还有聚类的一些统计学方法，这些都会在今后慢慢补上，给自己一个小目标，今年6月底把spark的api全部都过一遍，然后开始又针对地去做人脸识">
-<meta name="keywords" content="K-Means,流式,Streaming,spark,mllib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记8：K-Means的扩展学习">
-<meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记8：K-Means的扩展学习/index.html">
+<meta property="og:url" content="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B08%EF%BC%9AK-Means%E7%9A%84%E6%89%A9%E5%B1%95%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="前言关于聚类的经典算法K-Means 算法在第一期就已经讲过了，需要回顾的同学点这里，现在顺着spark的api继续看下去，又看到聚类这一块，就着重讲一下基于流数据的K-Menas算法使用，因为最近比较忙的，所以感觉又一些东西都还没很完整的看完，比如回归的算法，还有聚类的一些统计学方法，这些都会在今后慢慢补上，给自己一个小目标，今年6月底把spark的api全部都过一遍，然后开始又针对地去做人脸识">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-19T12:49:58.122Z">
+<meta property="article:published_time" content="2019-03-19T03:07:54.000Z">
+<meta property="article:modified_time" content="2020-06-04T20:02:51.687Z">
+<meta property="article:author" content="VoidChen10">
+<meta property="article:tag" content="K-Means">
+<meta property="article:tag" content="流式">
+<meta property="article:tag" content="Streaming">
+<meta property="article:tag" content="spark">
+<meta property="article:tag" content="mllib">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spark-MLlib学习日记8：K-Means的扩展学习">
-<meta name="twitter:description" content="前言关于聚类的经典算法K-Means 算法在第一期就已经讲过了，需要回顾的同学点这里，现在顺着spark的api继续看下去，又看到聚类这一块，就着重讲一下基于流数据的K-Menas算法使用，因为最近比较忙的，所以感觉又一些东西都还没很完整的看完，比如回归的算法，还有聚类的一些统计学方法，这些都会在今后慢慢补上，给自己一个小目标，今年6月底把spark的api全部都过一遍，然后开始又针对地去做人脸识">
 
 
 
@@ -135,7 +138,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记8：K-Means的扩展学习/">
+  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记8：K-Means的扩展学习/"/>
 
 
 
@@ -144,7 +147,7 @@
 
 
 
-  <title>Spark-MLlib学习日记8：K-Means的扩展学习 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Spark-MLlib学习日记8：K-Means的扩展学习 | 「旅の途中」</title>
   
 
 
@@ -154,9 +157,9 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -166,13 +169,13 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">「旅の途中」</span>
         <span class="logo-line-after"><i></i></span>
@@ -200,9 +203,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -210,9 +213,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -220,9 +223,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -230,9 +233,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -240,9 +243,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -255,7 +258,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -276,7 +279,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -308,20 +313,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib学习日记8：K-Means的扩展学习/">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B08%EF%BC%9AK-Means%E7%9A%84%E6%89%A9%E5%B1%95%E5%AD%A6%E4%B9%A0/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="「旅の途中」">
     </span>
 
@@ -335,10 +340,6 @@
 
         <div class="post-meta">
 		  
-            <i class="fa fa-thumb-tack"></i>
-            <font color="FF4500">置顶</font>
-            <span class="post-meta-divider">|</span>
-          
 
           <span class="post-time">
             
@@ -359,7 +360,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -370,8 +371,8 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spark-MLlib学习日记/" itemprop="url" rel="index">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index">
                     <span itemprop="name">Spark-MLlib学习日记</span>
                   </a>
                 </span>
@@ -392,7 +393,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -416,10 +417,11 @@
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>关于聚类的经典算法<strong>K-Means</strong> 算法在第一期就已经讲过了，需要回顾的同学<a href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B01%EF%BC%9AK-means%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/">点这里</a>，现在顺着spark的api继续看下去，又看到聚类这一块，就着重讲一下基于流数据的K-Menas算法使用，因为最近比较忙的，所以感觉又一些东西都还没很完整的看完，比如回归的算法，还有聚类的一些统计学方法，这些都会在今后慢慢补上，给自己一个小目标，今年6月底把spark的api全部都过一遍，然后开始又针对地去做人脸识别相关的学习，还有神经网络和深度学习，在此之前希望我能打下较好的基础。</p>
 <p>有点扯远了，看回今天的主题，<strong><em>Streaming k-means</em></strong>——基于流的k-means算法，其实就是在原有的k-means算法里面引入流的概念，并放在分布式的集群上去做，下面我们就来简单了解一下。</p>
 <a id="more"></a>
+
 <h1 id="流式k-means算法"><a href="#流式k-means算法" class="headerlink" title="流式k-means算法"></a>流式k-means算法</h1><p>spark官网讲的挺清楚的，我就翻译下搬过来了，官网地址：<a href="http://spark.apache.org/docs/latest/mllib-clustering.html" target="_blank" rel="noopener">点这里</a></p>
 <blockquote>
 <p>当数据是以流的方式到达的时候，我们可能想动态地去估算(<em>estimate</em>)聚类的簇，通过新的到达的数据来更新它们。<code>spark.mllib</code>支持流式<code>k-means</code>聚类，并且可以通过参数控制估计衰减(<em>decay</em>)（ 或“忽略”(<em>forgetfulness</em>) ）。 这个算法使用一般地小批量更新规则来更新簇。</p>
-<p>对每批新到的数据，我们首先将点分配给距离它们最近的簇，然后计算新的数据中心，最后更新每一个簇。使用的公式如下所示：<br>$$\begin{equation}     c_{t+1} = \frac{c_tn_t\alpha + x_tm_t}{n_t\alpha+m_t} \end{equation}$$<br>$$\begin{equation}     n_{t+1} = n_t + m_t \end{equation}$$<br>在上面的公式中，$c_{t}$表示前一个簇中心，$n_{t}$表示至今位置分配给这个簇的点的数量， $x_{t}$表示从当前批数据中计算出来的簇中心，$m_{t}$表示当前添加的这批数据的点数量。衰减因子 $\alpha$ 可以被用来忽略过去的聚类中心：当 $\alpha$ 等于1时，所有的批数据赋予相同的权重，当 $\alpha​$ 等于0时，数据中心点完全通过当前数据确定。</p>
+<p>对每批新到的数据，我们首先将点分配给距离它们最近的簇，然后计算新的数据中心，最后更新每一个簇。使用的公式如下所示：<br>$$\begin{equation}     c_{t+1} = \frac{c_tn_t\alpha + x_tm_t}{n_t\alpha+m_t} \end{equation}$$<br>$$\begin{equation}     n_{t+1} = n_t + m_t \end{equation}$$<br>在上面的公式中，$c_{t}$表示前一个簇中心，$n_{t}$表示至今位置分配给这个簇的点的数量， $x_{t}$表示从当前批数据中计算出来的簇中心，$m_{t}$表示当前添加的这批数据的点数量。衰减因子 $\alpha$ 可以被用来忽略过去的聚类中心：当 $\alpha$ 等于1时，所有的批数据赋予相同的权重，当 $\alpha$ 等于0时，数据中心点完全通过当前数据确定。</p>
 </blockquote>
 <p>这里我想稍微讲一下这个衰减因子 $\alpha$ ，看他在公式中，当 $\alpha = 0$ 的时候，其实就相当于完全忽略掉前面历史累积下来的聚类中心的结果了，所以说他是“衰减因子”挺贴切的，这个系数可以在每一次迭代中消减历史数据带来的影响，这个系数越大，则代表着越看重最新的数据。要知道源源不断的流数据，其实还是挺看重实时数据的，比如说你冬天喜欢买羽绒，到了夏天不可能还这么喜欢买羽绒吧。。。 </p>
 <blockquote>
@@ -442,8 +444,12 @@
 <p>除此以外还要注意的是，spark streaming读取文件的时候，旧文件是不识别的，他只会读取新创建的文件，也就是说我们要单独写一个文件IO，把训练集和测试集以流形式给写进去。。。不过生产环境的时候，就可以上kafka来做信息读取了。</p>
 <p>下面贴出训练的主函数：</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> <span class="type">SparkMLlib</span>.<span class="type">Clustering</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.<span class="type">SparkConf</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.clustering.<span class="type">StreamingKMeans</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.linalg.<span class="type">Vectors</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.mllib.regression.<span class="type">LabeledPoint</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.streaming.&#123;<span class="type">Seconds</span>, <span class="type">StreamingContext</span>&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * @Author: voidChen</span></span><br><span class="line"><span class="comment">  * @Date: 2019/3/19 17:24</span></span><br><span class="line"><span class="comment">  * @Version 1.0</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">StreamingKMeansExample</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]) &#123;</span><br><span class="line">    <span class="keyword">val</span> trainingPath =  <span class="string">"D:\\data\\train\\"</span>  <span class="comment">//训练数据集文件路径</span></span><br><span class="line"><span class="comment">//    val testPath =  userPath + "/src/main/resources/data/StreamingKmeans-test.txt" //测试数据集文件路径</span></span><br><span class="line">    <span class="keyword">val</span> testPath =  <span class="string">"D:\\data\\test\\"</span> <span class="comment">//测试数据集文件路径</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> conf = <span class="keyword">new</span> <span class="type">SparkConf</span>().setAppName(<span class="string">"StreamingKMeansExample"</span>)</span><br><span class="line">      .setMaster(<span class="string">"local[*]"</span>) <span class="comment">//<span class="doctag">TODO:</span> 生成打包前，需注释掉此行</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> ssc = <span class="keyword">new</span> <span class="type">StreamingContext</span>(conf, <span class="type">Seconds</span>(<span class="number">10</span>)) <span class="comment">//数据量太少这里设置了1秒给它。。</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> trainingData = ssc.textFileStream(trainingPath)</span><br><span class="line">      .filter(!isColumnNameLine(_))</span><br><span class="line">      .map(line =&gt; &#123;<span class="comment">//处理数据成标准向量</span></span><br><span class="line">        println(line)</span><br><span class="line">        <span class="type">Vectors</span>.dense(line.split(<span class="string">"\t"</span>).map(_.trim).filter(!<span class="string">""</span>.equals(_)).map(_.toDouble))</span><br><span class="line">      &#125;)</span><br><span class="line">    <span class="keyword">val</span> testData = ssc.textFileStream(testPath).map(<span class="type">LabeledPoint</span>.parse)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> model = <span class="keyword">new</span> <span class="type">StreamingKMeans</span>()</span><br><span class="line">      .setK(<span class="number">8</span>) <span class="comment">//聚类中心</span></span><br><span class="line">      .setDecayFactor(<span class="number">1.0</span>) <span class="comment">//损失因子</span></span><br><span class="line">      .setRandomCenters(<span class="number">8</span>, <span class="number">0.0</span>) <span class="comment">//初始化随机中心，只需要维数。 第一个参数是维数，第二个参数是簇权重</span></span><br><span class="line"></span><br><span class="line">    model.trainOn(trainingData)</span><br><span class="line">    model.predictOnValues(testData.map(lp =&gt; (lp.label, lp.features))).print()</span><br><span class="line"></span><br><span class="line">    ssc.start()</span><br><span class="line">    ssc.awaitTermination()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 只是用来去掉表头</span></span><br><span class="line"><span class="comment">    * @param line</span></span><br><span class="line"><span class="comment">    * @return</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">isColumnNameLine</span></span>(line:<span class="type">String</span>):<span class="type">Boolean</span> = &#123;</span><br><span class="line">    <span class="keyword">if</span> (line != <span class="literal">null</span> &amp;&amp; line.contains(<span class="string">"Channel"</span>)) <span class="literal">true</span></span><br><span class="line">    <span class="keyword">else</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <p>再给出一个文件读写的简易demo：</p>
 <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">FileIODemo</span></span>(): <span class="type">Unit</span> =&#123;</span><br><span class="line">    <span class="keyword">val</span> f= <span class="keyword">new</span> <span class="type">File</span>(<span class="string">"D:\\data\\test.txt"</span>)</span><br><span class="line"><span class="comment">//    val f= new File("D:\\data\\Wholesale customers data_training.txt")</span></span><br><span class="line">    <span class="keyword">val</span> in = <span class="keyword">new</span> <span class="type">InputStreamReader</span>(<span class="keyword">new</span> <span class="type">FileInputStream</span>(f))</span><br><span class="line">    <span class="keyword">val</span> out = <span class="keyword">new</span> <span class="type">OutputStreamWriter</span>(<span class="keyword">new</span> <span class="type">FileOutputStream</span>(<span class="string">"D:\\data\\test\\test4.txt"</span>))</span><br><span class="line"><span class="comment">//    val out = new OutputStreamWriter(new FileOutputStream("D:\\data\\train\\train4.txt"))</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> r = <span class="keyword">new</span> <span class="type">BufferedReader</span>(in)</span><br><span class="line">    <span class="keyword">val</span> w = <span class="keyword">new</span> <span class="type">BufferedWriter</span>(out)</span><br><span class="line">    <span class="keyword">var</span> lineTxt = <span class="type">Option</span>(r.readLine)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ( !lineTxt.isEmpty)&#123;</span><br><span class="line">      println(lineTxt.getOrElse(<span class="string">""</span>))</span><br><span class="line">      w.write(lineTxt.getOrElse(<span class="string">""</span>))</span><br><span class="line">      w.flush()</span><br><span class="line">      lineTxt = <span class="type">Option</span>(r.readLine)</span><br><span class="line">      <span class="keyword">if</span>(!lineTxt.isEmpty) w.newLine()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    in.close</span><br><span class="line">    w.close()</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
 <p>完整代码请前往github查看，文件路径请灵性修改。。。另外数据集分别就是<code>Wholesale customers data_training.txt</code> 和 <code>StreamingKmeans-test.txt</code>，我会放在github上：<a href="https://github.com/VoidChen10/MachineLearning/tree/master/src/main/scala/SparkMLlib/Clustering" target="_blank" rel="noopener">点我前往github</a></p>
 
       
@@ -465,7 +471,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/Spark-MLlib学习日记8：K-Means的扩展学习/" title="Spark-MLlib学习日记8：K-Means的扩展学习">https://voidchen.cn/Spark-MLlib学习日记8：K-Means的扩展学习/</a>
+    <a href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B08%EF%BC%9AK-Means%E7%9A%84%E6%89%A9%E5%B1%95%E5%AD%A6%E4%B9%A0/" title="Spark-MLlib学习日记8：K-Means的扩展学习">https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B08%EF%BC%9AK-Means%E7%9A%84%E6%89%A9%E5%B1%95%E5%AD%A6%E4%B9%A0/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -482,7 +488,7 @@
           
             <a href="/tags/MachineLeaning/" rel="tag"># MachineLeaning</a>
           
-            <a href="/tags/聚类/" rel="tag"># 聚类</a>
+            <a href="/tags/%E8%81%9A%E7%B1%BB/" rel="tag"># 聚类</a>
           
         </div>
       
@@ -495,7 +501,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Spark-MLlib学习日记7：初探梯度提升决策树/" rel="next" title="Spark-MLlib学习日记7：初探梯度提升决策树">
+              <a href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/" rel="next" title="Spark-MLlib学习日记7：初探梯度提升决策树">
                 <i class="fa fa-chevron-left"></i> Spark-MLlib学习日记7：初探梯度提升决策树
               </a>
             
@@ -504,6 +510,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/" rel="prev" title="双显卡1050TI笔记本的Ubuntu18安装实记">
+                双显卡1050TI笔记本的Ubuntu18安装实记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -572,9 +582,11 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg" alt="VoidChen10">
+              <img class="site-author-image" itemprop="image"
+                src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg"
+                alt="VoidChen10" />
             
               <p class="site-author-name" itemprop="name">VoidChen10</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -585,9 +597,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -598,7 +610,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -609,7 +621,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -663,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流式k-means算法"><span class="nav-number">2.</span> <span class="nav-text">流式k-means算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法步骤"><span class="nav-number">3.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用场景"><span class="nav-number">4.</span> <span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码demo"><span class="nav-number">5.</span> <span class="nav-text">代码demo</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#流式k-means算法"><span class="nav-text">流式k-means算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法步骤"><span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#应用场景"><span class="nav-text">应用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码demo"><span class="nav-text">代码demo</span></a></li></ol></div>
             
 
           </div>
@@ -683,7 +695,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

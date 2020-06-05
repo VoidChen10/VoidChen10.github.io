@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -21,12 +21,12 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
-  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw">
+  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw" />
 
 
 
@@ -45,7 +45,7 @@
 
 
 
-  <meta name="baidu-site-verification" content="ImJKZq1eMD">
+  <meta name="baidu-site-verification" content="ImJKZq1eMD" />
 
 
 
@@ -55,7 +55,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="K-means,聚类,spark,mllib">
+  <meta name="keywords" content="K-means,聚类,spark,mllib" />
 
 
 
@@ -95,13 +95,11 @@
 
 
 <meta name="description" content="前言作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。 由于公司用的是Spark，所以从Spark MLlib开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望">
-<meta name="keywords" content="K-means,聚类,spark,mllib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记1：K-means聚类分析">
-<meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记1：K-means聚类分析/index.html">
+<meta property="og:url" content="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B01%EF%BC%9AK-means%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/index.html">
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="前言作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。 由于公司用的是Spark，所以从Spark MLlib开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpts0dduej20sh0j8djd.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpw34amzwj20m808vq39.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpxk3c5rlj21at0mntc0.jpg">
@@ -109,10 +107,14 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzsrn0oyj20ai0aijse.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpztlhcn2j2094094aal.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzuhfmhcj20ai0aiwfh.jpg">
-<meta property="og:updated_time" content="2019-03-18T08:42:18.096Z">
+<meta property="article:published_time" content="2019-01-30T06:40:31.000Z">
+<meta property="article:modified_time" content="2019-03-18T00:42:18.000Z">
+<meta property="article:author" content="VoidChen10">
+<meta property="article:tag" content="K-means">
+<meta property="article:tag" content="聚类">
+<meta property="article:tag" content="spark">
+<meta property="article:tag" content="mllib">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spark-MLlib学习日记1：K-means聚类分析">
-<meta name="twitter:description" content="前言作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。 由于公司用的是Spark，所以从Spark MLlib开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpts0dduej20sh0j8djd.jpg">
 
 
@@ -143,7 +145,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记1：K-means聚类分析/">
+  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记1：K-means聚类分析/"/>
 
 
 
@@ -152,7 +154,7 @@
 
 
 
-  <title>Spark-MLlib学习日记1：K-means聚类分析 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Spark-MLlib学习日记1：K-means聚类分析 | 「旅の途中」</title>
   
 
 
@@ -162,9 +164,9 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -174,13 +176,13 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">「旅の途中」</span>
         <span class="logo-line-after"><i></i></span>
@@ -208,9 +210,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -218,9 +220,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -228,9 +230,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -238,9 +240,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -248,9 +250,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -263,7 +265,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -284,7 +286,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -316,20 +320,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib学习日记1：K-means聚类分析/">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B01%EF%BC%9AK-means%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="「旅の途中」">
     </span>
 
@@ -363,7 +367,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -374,8 +378,8 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spark-MLlib学习日记/" itemprop="url" rel="index">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index">
                     <span itemprop="name">Spark-MLlib学习日记</span>
                   </a>
                 </span>
@@ -396,7 +400,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -418,7 +422,8 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为该系列的第一篇文章，也是我正式步入机器学习的第一篇学习日记，想说几句话，机器学习跟普通编程不一样，门槛对于大多数人来说都是算比较高的。曾经我也在惊叹和好奇中望而却步，现在在大佬的推动下也是鼓起勇气正式开始学习，完成这个系列也是我2019的目标。</p>
-<p>由于公司用的是Spark，所以从<strong>Spark MLlib</strong>开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望看到这篇文章地小伙伴也能下定决心，一起攻克机器学习。<br><a id="more"></a></p>
+<p>由于公司用的是Spark，所以从<strong>Spark MLlib</strong>开始学起，不积硅步无以至千里，在这个系列我也会从简单一点地基础开始，一点点切实地去学习，希望看到这篇文章地小伙伴也能下定决心，一起攻克机器学习。</p>
+<a id="more"></a>
 <h1 id="K-Means-聚类算法原理"><a href="#K-Means-聚类算法原理" class="headerlink" title="K-Means 聚类算法原理"></a>K-Means 聚类算法原理</h1><h2 id="K-Means算法流程"><a href="#K-Means算法流程" class="headerlink" title="K-Means算法流程"></a>K-Means算法流程</h2><p>关于原理呢，我直接引用<a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-spark-practice4/" target="_blank" rel="noopener">《使用Spark MLlib做K-mean聚类分析》</a>里面的资料好了：</p>
 <blockquote>
 <p>聚类分析是一个无监督学习 (Unsupervised Learning) 过程, 一般是用来对数据对象按照其特征属性进行分组，经常被应用在客户分群，欺诈检测，图像分析等领域。K-means 应该是最有名并且最经常使用的聚类算法了，其原理比较容易理解，并且聚类效果良好，有着广泛的使用。<br>和诸多机器学习算法一样，K-means 算法也是一个<strong>迭代式</strong>的算法，其主要步骤如下:</p>
@@ -438,7 +443,7 @@
 <p>光这么看有点不是很直观，其实就是不断换聚类中心以求达到“最合理”的分类的过程，下面我贴一张数据可视化的图，更直观地描述这个过程：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpts0dduej20sh0j8djd.jpg" alt="k-means过程可视化"><br>如图，k-means算法在每一次迭代中，选择了更靠谱的红蓝中心点，试图让分类更合理，跟均匀。</p>
 <h2 id="欧式距离"><a href="#欧式距离" class="headerlink" title="欧式距离"></a>欧式距离</h2><p>欧几里得公式的含义还是比较简单的，但是一开始看还是有点懵，在这里我稍微提一下自己的理解，如果不对的话欢迎留言指正=。=首先我们先回顾一下那个公式，那个n代表的是什么呢？<br>$$D(C,X) = \sqrt{\sum_{i=1}^n(c_i - x_i)^2}​$$<br>我们先来看看欧式距离在二维和三维中的展开：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpw34amzwj20m808vq39.jpg" alt="欧式距离2维3维展开"><br>是不是觉得很熟悉咧，就是求坐标之间的距离嘛，以此类推，在4维空间5维空间或者更高维度的空间中怎么算两点坐标距离呢？那就是原版的欧式距离公式啦！n在我看来，就是代表所求的维度数嘛，对应到实际应用中，这个“维度”对应的就是我们想要聚类的对象的参数（特征）。当n个参数可以确定一个唯一（或近似）的对象，我们通过欧式距离公式计算这个对象坐标的距离，把最后n维空间坐标相近的对象聚到同一个类别里，就完成了K-Means聚类算法要做的工作了。</p>
 <h1 id="聚类测试数据"><a href="#聚类测试数据" class="headerlink" title="聚类测试数据"></a>聚类测试数据</h1><p>在本文中，我们所用到目标数据集是来自UCI Machine Learning Repository的<a href="http://archive.ics.uci.edu/ml/datasets/Wholesale+customers" target="_blank" rel="noopener">Wholesale customer Data Set</a>。UCI是一个关于机器学习测试数据的下载中心站点，里面包含了适用于做聚类，分群，回归等各种机器学习问题的数据集。</p>
-<p>Wholesale customer Data Set是引用某批发经销商的客户在各种类别产品上的年消费数。为了方便处理，本文把原始的CSV格式转化成了两个文本文件，取前面20行作为测试集，其余的数据作为训练集。如图：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpxk3c5rlj21at0mntc0.jpg" alt=""></p>
+<p>Wholesale customer Data Set是引用某批发经销商的客户在各种类别产品上的年消费数。为了方便处理，本文把原始的CSV格式转化成了两个文本文件，取前面20行作为测试集，其余的数据作为训练集。如图：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpxk3c5rlj21at0mntc0.jpg" alt></p>
 <h1 id="代码样例"><a href="#代码样例" class="headerlink" title="代码样例"></a>代码样例</h1><p>看注释就好了，基本就是处理好数据，然后调用spark-lib包里面的kmeans方法去做训练就ok了，源码分析大概会在做完这个系列之后再考虑要不要做。。。</p>
 <p>值得注意的是：<code>val clusters:KMeansModel = KMeans.train(parsedTrainingData, numClusters, numIterations,runTimes)</code>这行代码，我来介绍一下这几个参数：</p>
 <ul>
@@ -447,14 +452,15 @@
 <li><strong>numIterations：</strong> K-means算法的迭代次数</li>
 <li><strong>runTimes：</strong> K-means算法run的次数</li>
 </ul>
-<p>完整代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * @author Chenyl</span><br><span class="line">  * @date 2019/1/23 15:57</span><br><span class="line">  */</span><br><span class="line">import org.apache.spark.&#123;SparkContext, SparkConf&#125;</span><br><span class="line">import org.apache.spark.mllib.clustering.&#123;KMeans, KMeansModel&#125;</span><br><span class="line">import org.apache.spark.mllib.linalg.Vectors</span><br><span class="line">object KMeansClustering &#123;</span><br><span class="line">  def main (args: Array[String]) &#123;</span><br><span class="line"></span><br><span class="line">    val trainingPath = &quot;src/main/resources/Wholesale customers data_training.txt&quot;  //训练数据集文件路径</span><br><span class="line">    val testPath = &quot;src/main/resources/Wholesale customers data_test.txt&quot; //测试数据集文件路径</span><br><span class="line"></span><br><span class="line">    val numClusters = 8  //聚类的个数</span><br><span class="line">    val numIterations = 30  //K-means 算法的迭代次数</span><br><span class="line">    val runTimes = 3   //K-means 算法 run 的次数</span><br><span class="line"></span><br><span class="line">    val conf = new SparkConf().setAppName(&quot;Spark MLlib Exercise:K-Means Clustering&quot;)</span><br><span class="line">    conf</span><br><span class="line">      //TODO: 生成打包前，需注释掉此行</span><br><span class="line">      .setMaster(&quot;local[*]&quot;)</span><br><span class="line">      .set(&quot;spark.serializer&quot;, &quot;org.apache.spark.serializer.KryoSerializer&quot;)</span><br><span class="line"></span><br><span class="line">    val sc = new SparkContext(conf)</span><br><span class="line">    sc.setLogLevel(&quot;ERROR&quot;)  //设置日志级别，info会有很多运行日志出现，也可以打开看看</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">      *Channel Region Fresh Milk Grocery Frozen Detergents_Paper Delicassen</span><br><span class="line">      * 2 3 12669 9656 7561 214 2674 1338</span><br><span class="line">      * 2 3 7057 9810 9568 1762 3293 1776</span><br><span class="line">      * 2 3 6353 8808 7684 2405 3516 7844</span><br><span class="line">      */</span><br><span class="line">    val rawTrainingData = sc.textFile(trainingPath) //加载测试数据</span><br><span class="line"></span><br><span class="line">    //去表头处理</span><br><span class="line">    val parsedTrainingData = rawTrainingData.filter(!isColumnNameLine(_)).map(line =&gt; &#123;</span><br><span class="line">      Vectors.dense(line.split(&quot;\t&quot;).map(_.trim).filter(!&quot;&quot;.equals(_)).map(_.toDouble))</span><br><span class="line">    &#125;).cache()</span><br><span class="line"></span><br><span class="line">//    findK(parsedTrainingData)</span><br><span class="line"></span><br><span class="line">    // Cluster the data into two classes using KMeans</span><br><span class="line"></span><br><span class="line">    var clusterIndex:Int = 0</span><br><span class="line">    //使用K-Means训练</span><br><span class="line">    val clusters:KMeansModel = KMeans.train(parsedTrainingData, numClusters, numIterations,runTimes)</span><br><span class="line"></span><br><span class="line">    println(&quot;Cluster Number:&quot; + clusters.clusterCenters.length)</span><br><span class="line">    println(&quot;Cluster Centers Information Overview:&quot;)</span><br><span class="line">    clusters.clusterCenters.foreach(x =&gt; &#123;</span><br><span class="line">      println(&quot;Center Point of Cluster &quot; + clusterIndex + &quot;:&quot;)</span><br><span class="line">      println(x)</span><br><span class="line">      clusterIndex += 1</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    //begin to check which cluster each test data belongs to based on the clustering result</span><br><span class="line">    val rawTestData = sc.textFile(testPath) //加载测试数据</span><br><span class="line">    val parsedTestData = rawTestData.map(line =&gt;&#123;</span><br><span class="line">      Vectors.dense(line.split(&quot;\t&quot;).map(_.trim).filter(!&quot;&quot;.equals(_)).map(_.toDouble))</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    parsedTestData.collect().foreach(testDataLine =&gt; &#123;</span><br><span class="line">      val predictedClusterIndex: Int = clusters.predict(testDataLine) //使用训练好的模型进行分类</span><br><span class="line">      println(&quot;The data &quot; + testDataLine.toString + &quot; belongs to cluster &quot; +predictedClusterIndex)</span><br><span class="line">    &#125;)</span><br><span class="line">    println(&quot;Spark MLlib K-means clustering test finished.&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  private def isColumnNameLine(line:String):Boolean = &#123;</span><br><span class="line">    if (line != null &amp;&amp; line.contains(&quot;Channel&quot;)) true</span><br><span class="line">    else false</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">    * 查看最佳的K值</span><br><span class="line">    * @param parsedTrainingData</span><br><span class="line">    */</span><br><span class="line">  private def findK(parsedTrainingData:org.apache.spark.rdd.RDD[org.apache.spark.mllib.linalg.Vector]): Unit =&#123;</span><br><span class="line">    val ks:Array[Int] = Array(3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)</span><br><span class="line">    ks.foreach(cluster =&gt; &#123;</span><br><span class="line">      val model:KMeansModel = KMeans.train(parsedTrainingData, cluster,30,1)</span><br><span class="line">      val ssd = model.computeCost(parsedTrainingData)</span><br><span class="line">      println(&quot;sum of squared distances of points to their nearest center when k=&quot; + cluster + &quot; -&gt; &quot;+ ssd)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>完整代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">  * @author Chenyl</span><br><span class="line">  * @date 2019&#x2F;1&#x2F;23 15:57</span><br><span class="line">  *&#x2F;</span><br><span class="line">import org.apache.spark.&#123;SparkContext, SparkConf&#125;</span><br><span class="line">import org.apache.spark.mllib.clustering.&#123;KMeans, KMeansModel&#125;</span><br><span class="line">import org.apache.spark.mllib.linalg.Vectors</span><br><span class="line">object KMeansClustering &#123;</span><br><span class="line">  def main (args: Array[String]) &#123;</span><br><span class="line"></span><br><span class="line">    val trainingPath &#x3D; &quot;src&#x2F;main&#x2F;resources&#x2F;Wholesale customers data_training.txt&quot;  &#x2F;&#x2F;训练数据集文件路径</span><br><span class="line">    val testPath &#x3D; &quot;src&#x2F;main&#x2F;resources&#x2F;Wholesale customers data_test.txt&quot; &#x2F;&#x2F;测试数据集文件路径</span><br><span class="line"></span><br><span class="line">    val numClusters &#x3D; 8  &#x2F;&#x2F;聚类的个数</span><br><span class="line">    val numIterations &#x3D; 30  &#x2F;&#x2F;K-means 算法的迭代次数</span><br><span class="line">    val runTimes &#x3D; 3   &#x2F;&#x2F;K-means 算法 run 的次数</span><br><span class="line"></span><br><span class="line">    val conf &#x3D; new SparkConf().setAppName(&quot;Spark MLlib Exercise:K-Means Clustering&quot;)</span><br><span class="line">    conf</span><br><span class="line">      &#x2F;&#x2F;TODO: 生成打包前，需注释掉此行</span><br><span class="line">      .setMaster(&quot;local[*]&quot;)</span><br><span class="line">      .set(&quot;spark.serializer&quot;, &quot;org.apache.spark.serializer.KryoSerializer&quot;)</span><br><span class="line"></span><br><span class="line">    val sc &#x3D; new SparkContext(conf)</span><br><span class="line">    sc.setLogLevel(&quot;ERROR&quot;)  &#x2F;&#x2F;设置日志级别，info会有很多运行日志出现，也可以打开看看</span><br><span class="line"></span><br><span class="line">    &#x2F;**</span><br><span class="line">      *Channel Region Fresh Milk Grocery Frozen Detergents_Paper Delicassen</span><br><span class="line">      * 2 3 12669 9656 7561 214 2674 1338</span><br><span class="line">      * 2 3 7057 9810 9568 1762 3293 1776</span><br><span class="line">      * 2 3 6353 8808 7684 2405 3516 7844</span><br><span class="line">      *&#x2F;</span><br><span class="line">    val rawTrainingData &#x3D; sc.textFile(trainingPath) &#x2F;&#x2F;加载测试数据</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;去表头处理</span><br><span class="line">    val parsedTrainingData &#x3D; rawTrainingData.filter(!isColumnNameLine(_)).map(line &#x3D;&gt; &#123;</span><br><span class="line">      Vectors.dense(line.split(&quot;\t&quot;).map(_.trim).filter(!&quot;&quot;.equals(_)).map(_.toDouble))</span><br><span class="line">    &#125;).cache()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;    findK(parsedTrainingData)</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; Cluster the data into two classes using KMeans</span><br><span class="line"></span><br><span class="line">    var clusterIndex:Int &#x3D; 0</span><br><span class="line">    &#x2F;&#x2F;使用K-Means训练</span><br><span class="line">    val clusters:KMeansModel &#x3D; KMeans.train(parsedTrainingData, numClusters, numIterations,runTimes)</span><br><span class="line"></span><br><span class="line">    println(&quot;Cluster Number:&quot; + clusters.clusterCenters.length)</span><br><span class="line">    println(&quot;Cluster Centers Information Overview:&quot;)</span><br><span class="line">    clusters.clusterCenters.foreach(x &#x3D;&gt; &#123;</span><br><span class="line">      println(&quot;Center Point of Cluster &quot; + clusterIndex + &quot;:&quot;)</span><br><span class="line">      println(x)</span><br><span class="line">      clusterIndex +&#x3D; 1</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;begin to check which cluster each test data belongs to based on the clustering result</span><br><span class="line">    val rawTestData &#x3D; sc.textFile(testPath) &#x2F;&#x2F;加载测试数据</span><br><span class="line">    val parsedTestData &#x3D; rawTestData.map(line &#x3D;&gt;&#123;</span><br><span class="line">      Vectors.dense(line.split(&quot;\t&quot;).map(_.trim).filter(!&quot;&quot;.equals(_)).map(_.toDouble))</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    parsedTestData.collect().foreach(testDataLine &#x3D;&gt; &#123;</span><br><span class="line">      val predictedClusterIndex: Int &#x3D; clusters.predict(testDataLine) &#x2F;&#x2F;使用训练好的模型进行分类</span><br><span class="line">      println(&quot;The data &quot; + testDataLine.toString + &quot; belongs to cluster &quot; +predictedClusterIndex)</span><br><span class="line">    &#125;)</span><br><span class="line">    println(&quot;Spark MLlib K-means clustering test finished.&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  private def isColumnNameLine(line:String):Boolean &#x3D; &#123;</span><br><span class="line">    if (line !&#x3D; null &amp;&amp; line.contains(&quot;Channel&quot;)) true</span><br><span class="line">    else false</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &#x2F;**</span><br><span class="line">    * 查看最佳的K值</span><br><span class="line">    * @param parsedTrainingData</span><br><span class="line">    *&#x2F;</span><br><span class="line">  private def findK(parsedTrainingData:org.apache.spark.rdd.RDD[org.apache.spark.mllib.linalg.Vector]): Unit &#x3D;&#123;</span><br><span class="line">    val ks:Array[Int] &#x3D; Array(3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20)</span><br><span class="line">    ks.foreach(cluster &#x3D;&gt; &#123;</span><br><span class="line">      val model:KMeansModel &#x3D; KMeans.train(parsedTrainingData, cluster,30,1)</span><br><span class="line">      val ssd &#x3D; model.computeCost(parsedTrainingData)</span><br><span class="line">      println(&quot;sum of squared distances of points to their nearest center when k&#x3D;&quot; + cluster + &quot; -&gt; &quot;+ ssd)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h1 id="K-Means应用场景"><a href="#K-Means应用场景" class="headerlink" title="K-Means应用场景"></a>K-Means应用场景</h1><h2 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h2><p>常用的场景是在不清楚用户有几类时，尝试性的将用户进行分类，并根据每类用户的不同特征，决定下步动作。一个典型的应用场景是CRM管理中的数据库营销。举例，对于一个超市/电商网站/综合零售商，可以根据用户的购买行为，将其分为“年轻白领”、“一家三口”、“家有一老”、”初得子女“等等类型，然后通过邮件、短信、推送通知等，向其发起不同的优惠活动。</p>
 <blockquote>
 <p>明尼苏达州一家塔吉特门店被客户投诉，一位中年男子指控塔吉特将婴儿产品优惠券寄给他的女儿 —— 一个高中生。但没多久他却来电道歉，因为女儿经他逼问后坦承自己真的怀孕了。塔吉特百货就是靠着分析用户所有的购物数据，然后通过相关关系分析得出事情的真实状况。</p>
 </blockquote>
 <p>在这个案例中，那个高中生少女明显是被聚到了孕妇那一类，因为她的行为模式与孕妇是很相近的。</p>
 <p>总的来说，聚类算法大多用在用户画像、客户分群之类的，也可用于图像分析（色块相近聚集，后续会有一篇文章介绍kmeans在图像分析上的应用）<br>另外附上一篇<a href="http://kuaibao.qq.com/s/20180402A1W15B00?refer=spider" target="_blank" rel="noopener">《K-Means算法的10个有趣用例》</a>,有兴趣的可以详细看看</p>
-<h2 id="不适用场景"><a href="#不适用场景" class="headerlink" title="不适用场景"></a>不适用场景</h2><p>每一种算法都不是放之四海而皆准的，下面是 K-Means 算法不适用的两个场景：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzrlsz8uj2094094gm6.jpg" alt=""><br>这种情况如果由人来聚类，分分钟搞定，但是 K-Means 算法是这样做的：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzsrn0oyj20ai0aijse.jpg" alt=""><br>下面这种情况更微妙一些，各个子集的密集程度相差很大：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpztlhcn2j2094094aal.jpg" alt=""><br>看看 K-Means 算法是怎样做的：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzuhfmhcj20ai0aiwfh.jpg" alt=""><br>好吧，的确是差成渣了，但这真的不是算法的问题，而是我们人类对算法的选择问题。</p>
+<h2 id="不适用场景"><a href="#不适用场景" class="headerlink" title="不适用场景"></a>不适用场景</h2><p>每一种算法都不是放之四海而皆准的，下面是 K-Means 算法不适用的两个场景：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzrlsz8uj2094094gm6.jpg" alt><br>这种情况如果由人来聚类，分分钟搞定，但是 K-Means 算法是这样做的：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzsrn0oyj20ai0aijse.jpg" alt><br>下面这种情况更微妙一些，各个子集的密集程度相差很大：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpztlhcn2j2094094aal.jpg" alt><br>看看 K-Means 算法是怎样做的：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzpzuhfmhcj20ai0aiwfh.jpg" alt><br>好吧，的确是差成渣了，但这真的不是算法的问题，而是我们人类对算法的选择问题。</p>
 <h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>k-means算法无论是原理还是代码MLlib的使用都是较为简单，但是在某些领域其效果却是出奇的好，作为入门机器学习的第一步，K-means也向我们掀开了机器学习世界神秘面纱的一角，给我们这些初学者极大的信心。</p>
 <p>k-means只是机器学习中的一个算法工具，更多算法，将会在后续的日子中一一学习掌握，我也会即时把学习的一些心得写成系列文章，与君共勉。</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
@@ -483,7 +489,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/Spark-MLlib学习日记1：K-means聚类分析/" title="Spark-MLlib学习日记1：K-means聚类分析">https://voidchen.cn/Spark-MLlib学习日记1：K-means聚类分析/</a>
+    <a href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B01%EF%BC%9AK-means%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/" title="Spark-MLlib学习日记1：K-means聚类分析">https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B01%EF%BC%9AK-means%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -498,11 +504,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
-          
             <a href="/tags/MachineLeaning/" rel="tag"># MachineLeaning</a>
           
-            <a href="/tags/聚类/" rel="tag"># 聚类</a>
+            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          
+            <a href="/tags/%E8%81%9A%E7%B1%BB/" rel="tag"># 聚类</a>
           
         </div>
       
@@ -515,7 +521,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Kerberos探索遇到的问题及心得/" rel="next" title="Kerberos探索遇到的问题及心得">
+              <a href="/Kerberos%E6%8E%A2%E7%B4%A2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E5%BF%83%E5%BE%97/" rel="next" title="Kerberos探索遇到的问题及心得">
                 <i class="fa fa-chevron-left"></i> Kerberos探索遇到的问题及心得
               </a>
             
@@ -525,7 +531,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/小技巧！从网易云音乐缓存中获取版权失效的音乐/" rel="prev" title="小技巧！从网易云音乐缓存中获取版权失效的音乐">
+              <a href="/%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%81%E4%BB%8E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%BC%93%E5%AD%98%E4%B8%AD%E8%8E%B7%E5%8F%96%E7%89%88%E6%9D%83%E5%A4%B1%E6%95%88%E7%9A%84%E9%9F%B3%E4%B9%90/" rel="prev" title="小技巧！从网易云音乐缓存中获取版权失效的音乐">
                 小技巧！从网易云音乐缓存中获取版权失效的音乐 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -596,9 +602,11 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg" alt="VoidChen10">
+              <img class="site-author-image" itemprop="image"
+                src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg"
+                alt="VoidChen10" />
             
               <p class="site-author-name" itemprop="name">VoidChen10</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -609,9 +617,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -622,7 +630,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -633,7 +641,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -687,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K-Means-聚类算法原理"><span class="nav-number">2.</span> <span class="nav-text">K-Means 聚类算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#K-Means算法流程"><span class="nav-number">2.1.</span> <span class="nav-text">K-Means算法流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#欧式距离"><span class="nav-number">2.2.</span> <span class="nav-text">欧式距离</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#聚类测试数据"><span class="nav-number">3.</span> <span class="nav-text">聚类测试数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码样例"><span class="nav-number">4.</span> <span class="nav-text">代码样例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K-Means应用场景"><span class="nav-number">5.</span> <span class="nav-text">K-Means应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#适用场景"><span class="nav-number">5.1.</span> <span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不适用场景"><span class="nav-number">5.2.</span> <span class="nav-text">不适用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束语"><span class="nav-number">6.</span> <span class="nav-text">结束语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">7.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K-Means-聚类算法原理"><span class="nav-text">K-Means 聚类算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#K-Means算法流程"><span class="nav-text">K-Means算法流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#欧式距离"><span class="nav-text">欧式距离</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#聚类测试数据"><span class="nav-text">聚类测试数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码样例"><span class="nav-text">代码样例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K-Means应用场景"><span class="nav-text">K-Means应用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#适用场景"><span class="nav-text">适用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#不适用场景"><span class="nav-text">不适用场景</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束语"><span class="nav-text">结束语</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
@@ -707,7 +715,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

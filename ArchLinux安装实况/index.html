@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw" />
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "95e00cf9"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="ImJKZq1eMD" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="archlinux" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最终效果 本来以前一直是用ubuntu作为日常使用系统的，没想到买了联想yoga 14s之后，这个4800U新到ubuntu内核都没驱动，然后archlinux也要换成zen内核才有，于是只能用archlinux试试了。 结果一试发现好爽。。回不去了。。kde的华丽效果，居然还没有一丝卡顿，开机内存也仅仅只是一个G，就这么用着试试先吧&#x3D; &#x3D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ArchLinux安装实况">
+<meta property="og:url" content="https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/index.html">
+<meta property="og:site_name" content="「旅の途中」">
+<meta property="og:description" content="最终效果 本来以前一直是用ubuntu作为日常使用系统的，没想到买了联想yoga 14s之后，这个4800U新到ubuntu内核都没驱动，然后archlinux也要换成zen内核才有，于是只能用archlinux试试了。 结果一试发现好爽。。回不去了。。kde的华丽效果，居然还没有一丝卡顿，开机内存也仅仅只是一个G，就这么用着试试先吧&#x3D; &#x3D;">
+<meta property="og:image" content="https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1.png">
+<meta property="og:image" content="https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590580686979.png">
+<meta property="og:image" content="https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590583232766.png">
+<meta property="og:image" content="https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590583396014.png">
+<meta property="og:image" content="https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590586857868.png">
+<meta property="og:image" content="https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590594726234.png">
+<meta property="og:image" content="https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590596687318.png">
+<meta property="article:published_time" content="2020-05-26T07:40:55.000Z">
+<meta property="article:modified_time" content="2020-06-05T08:59:18.814Z">
+<meta property="article:author" content="VoidChen10">
+<meta property="article:tag" content="archlinux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://voidchen.cn/ArchLinux安装实况/"/>
+
+
+
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=66186813" charset="UTF-8"></script>
+<script type="text/javascript" src="https://tajs.qq.com/stats?sId=66176152" charset="UTF-8"></script>
+
+
+
+  <title>ArchLinux安装实况 | 「旅の途中」</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">「旅の途中」</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description"></h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="VoidChen10">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="「旅の途中」">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">ArchLinux安装实况</h2>
+        
+
+        <div class="post-meta">
+		  
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-26T15:40:55+08:00">
+                2020-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h1><p><img src="/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1.png" alt></p>
+<p>本来以前一直是用ubuntu作为日常使用系统的，没想到买了联想yoga 14s之后，这个4800U新到ubuntu内核都没驱动，然后archlinux也要换成zen内核才有，于是只能用archlinux试试了。</p>
+<p>结果一试发现好爽。。回不去了。。kde的华丽效果，居然还没有一丝卡顿，开机内存也仅仅只是一个G，就这么用着试试先吧= =</p>
+<a id="more"></a>
+
+<h1 id="前期安装"><a href="#前期安装" class="headerlink" title="前期安装"></a>前期安装</h1><p>官网下载：<a href="https://www.archlinux.org/" target="_blank" rel="noopener">https://www.archlinux.org/</a></p>
+<p>安装指南：<a href="https://wiki.archlinux.org/index.php/Installation_guide" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/Installation_guide</a> （<a href="https://wiki.archlinux.org/index.php/Installation_guide_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">中文</a>）</p>
+<p>参考博客：<a href="https://www.viseator.com/2017/05/17/arch_install/" target="_blank" rel="noopener">https://www.viseator.com/2017/05/17/arch_install/</a></p>
+<h2 id="1、Arch开始"><a href="#1、Arch开始" class="headerlink" title="1、Arch开始"></a>1、Arch开始</h2><p>arch Linux没有图形界面，U盘启动之后选第一个，进去shell界面</p>
+<h2 id="2、联网"><a href="#2、联网" class="headerlink" title="2、联网"></a>2、联网</h2><p>arch linux的安装必须联网，安装包都得网上下载所以必须要先联网</p>
+<ul>
+<li><p>无线网络</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wifi-menu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有线网络并且路由器支持DHCP</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dhcpcd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="3、更新系统时间"><a href="#3、更新系统时间" class="headerlink" title="3、更新系统时间"></a>3、更新系统时间</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-ntp true</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、分区与格式化"><a href="#4、分区与格式化" class="headerlink" title="4、分区与格式化"></a>4、分区与格式化</h2><h3 id="4-1-标准UEFI分区参考"><a href="#4-1-标准UEFI分区参考" class="headerlink" title="4.1. 标准UEFI分区参考:"></a>4.1. 标准UEFI分区参考:</h3><p><img src="/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590580686979.png" alt="1590580686979"></p>
+<h3 id="4-2-fdisk分区操作"><a href="#4-2-fdisk分区操作" class="headerlink" title="4.2. fdisk分区操作"></a>4.2. fdisk分区操作</h3><h4 id="4-2-1-重置磁盘"><a href="#4-2-1-重置磁盘" class="headerlink" title="4.2.1.重置磁盘"></a>4.2.1.重置磁盘</h4><p>安装要是空硬盘就最好，如果不是空硬盘就先重置硬盘吧</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l   #列出磁盘情况</span><br></pre></td></tr></table></figure>
+
+<p><img src="/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590583232766.png" alt="1590583232766"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/nvme0n1    #进入fdisk操作界面，参数为你的磁盘名字</span><br><span class="line"></span><br><span class="line">d  #操作界面下d为删除，提示你输入数字表示要删除哪个分区，重复操作至全部删除完</span><br><span class="line">w #保存操作并退出，之后就是一个空得磁盘了</span><br></pre></td></tr></table></figure>
+
+<p><img src="/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590583396014.png" alt="1590583396014"></p>
+<h4 id="4-2-2-重新分区"><a href="#4-2-2-重新分区" class="headerlink" title="4.2.2. 重新分区"></a>4.2.2. 重新分区</h4><p>参考标准分区来，有条件可以独立给/home 一个分区，这样重装就可以不用动他</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/nvme0n1    #进入fdisk操作界面，参数为你的磁盘名</span><br><span class="line"></span><br><span class="line">n  #创建分区，后续会让你输入创建第几个分区，分区从那开始，这些都默认回车就好</span><br><span class="line"><span class="meta">   #</span><span class="bash">到最后选择哪里结束的时候看着大小来分配，比如引导分区要512M就输入： +512M</span></span><br><span class="line">t  #选择新创建的分区序号来更改分区的类型，输入l可以查看所有支持的类型和代码，输入代码：1更改分类型为EFI</span><br><span class="line">w  #重复以上建完所有分区之后保存并退出</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-3-格式化分区"><a href="#4-2-3-格式化分区" class="headerlink" title="4.2.3. 格式化分区"></a>4.2.3. 格式化分区</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkfs.fat -F32 /dev/nvme0n1p1  #格式化EFI分区</span><br><span class="line">mkfs.ext4 /dev/nvme0n1p2 #格式化根分区</span><br><span class="line"></span><br><span class="line">mkswap /dev/nvme0n1p3   #格式化交换分区</span><br><span class="line">swapon /dev/nvme0n1p3</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-4-挂载分区"><a href="#4-2-4-挂载分区" class="headerlink" title="4.2.4. 挂载分区"></a>4.2.4. 挂载分区</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/nvme0n1p2 /mnt  #将根分区挂载到/mnt</span><br><span class="line"></span><br><span class="line">mkdir /mnt/boot     #创建/boot文件夹并将引导分区挂载到上面</span><br><span class="line">mount /dev/nvme0n1p1 /mnt/boot</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、安装系统"><a href="#5、安装系统" class="headerlink" title="5、安装系统"></a>5、安装系统</h2><h3 id="5-1-更换安装源"><a href="#5-1-更换安装源" class="headerlink" title="5.1. 更换安装源"></a>5.1. 更换安装源</h3><p>镜像源是我们下载的软件包的来源，我们需要根据自己的地区选择不同的源来加快下载的速度。</p>
+<p>执行以下命令，用<code>Vim</code>来编辑<code>/etc/pacman.d/mirrorlist</code>这个文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/pacman.d/mirrorlist</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#小技巧</span></span></span><br><span class="line">/n China  #快速查找中国的服务器，n往下，N往上</span><br><span class="line">dd  #剪切当前光标行</span><br><span class="line">gg  #回到文件第一行</span><br><span class="line">P   #粘贴到当前行</span><br><span class="line"></span><br><span class="line">wq  #保存退出</span><br></pre></td></tr></table></figure>
+
+<p>我们的目标是把中国源放最上面去，找包会按顺序找起</p>
+<h3 id="5-2-安装系统和基本包"><a href="#5-2-安装系统和基本包" class="headerlink" title="5.2. 安装系统和基本包"></a>5.2. 安装系统和基本包</h3><p>下面就要安装最基本的<code>ArchLinux</code>包到磁盘上了。这是一个联网下载并安装的过程。</p>
+<p>执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux linux-firmware dhcpcd</span><br></pre></td></tr></table></figure>
+
+<p>如果不想用默认的arch内核，可以用激进的zen内核，那么这里就换一个内核包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacstrap /mnt base base-devel linux-zen linux-firmware dhcpcd</span><br></pre></td></tr></table></figure>
+
+<p>当然内核也能以后再更换。</p>
+<p>根据下载速度的不同在这里需要等待一段时间，当命令提示符重新出现的时候就可以进行下一步操作了。</p>
+<h3 id="5-3-配置Fstab"><a href="#5-3-配置Fstab" class="headerlink" title="5.3. 配置Fstab"></a>5.3. 配置Fstab</h3><p>生成自动挂载分区的<code>fstab</code>文件，执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">genfstab -L /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+
+<p>由于这步比较重要，所以我们需要输出生成的文件来检查是否正确，执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;mnt&#x2F;etc&#x2F;fstab</span><br></pre></td></tr></table></figure>
+
+<p><img src="/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590586857868.png" alt="1590586857868"></p>
+<h3 id="5-4-Chroot到新装系统"><a href="#5-4-Chroot到新装系统" class="headerlink" title="5.4. Chroot到新装系统"></a>5.4. Chroot到新装系统</h3><p><code>Chroot</code>意为<code>Change root</code>，相当于把操纵权交给我们新安装（或已经存在）的<code>Linux</code>系统，<strong>执行了这步以后，我们的操作都相当于在磁盘上新装的系统中进行</strong>。</p>
+<p>执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arch-chroot &#x2F;mnt</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 这里顺便说一下，如果以后我们的系统出现了问题，只要插入U盘并启动， 将我们的系统根分区挂载到了<code>/mnt</code>下（如果有<code>efi</code>分区也要挂载到<code>/mnt/boot</code>下），再通过这条命令就可以进入我们的系统进行修复操作。</p>
+</blockquote>
+<h3 id="5-5-设置时区"><a href="#5-5-设置时区" class="headerlink" title="5.5. 设置时区"></a>5.5. 设置时区</h3><p>依次执行如下命令设置我们的时区为上海并生成相关文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line">hwclock --systohc</span><br><span class="line">date #看下时间对不对</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-6-安装基本包"><a href="#5-6-安装基本包" class="headerlink" title="5.6. 安装基本包"></a>5.6. 安装基本包</h3><p>安装包的命令格式为<code>pacman -S 包名</code>，<code>pacman</code>会自动检查这个包所需要的其他包（即为依赖）并一起装上。下面我们就通过<code>pacman</code>来安装一些包，这些包在之后会用上，在这里先提前装好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S vim dialog wpa_supplicant ntfs-3g networkmanager netctl</span><br></pre></td></tr></table></figure>
+
+<p>一路确认之后包就被成功装上了。</p>
+<h3 id="5-7-设置Locale"><a href="#5-7-设置Locale" class="headerlink" title="5.7. 设置Locale"></a>5.7. 设置Locale</h3><p>设置我们使用的语言选项，执行如下命令来编辑<code>/etc/locale.gen</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;locale.gen</span><br><span class="line"></span><br><span class="line">locale-gen</span><br></pre></td></tr></table></figure>
+
+<p>在文件中找到<code>zh_CN.UTF-8 UTF-8</code> <code>zh_HK.UTF-8 UTF-8</code> <code>zh_TW.UTF-8 UTF-8</code> <code>en_US.UTF-8 UTF-8</code>这四行，去掉行首的#号，保存退出并执行<code>locale-gen</code>。</p>
+<p>打开（不存在时会创建）<code>/etc/locale.conf</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;locale.conf</span><br></pre></td></tr></table></figure>
+
+<p>在文件的第一行加入以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LANG&#x3D;en_US.UTF-8</span><br></pre></td></tr></table></figure>
+
+<p>保存并退出。</p>
+<h3 id="5-8-设置主机名"><a href="#5-8-设置主机名" class="headerlink" title="5.8. 设置主机名"></a>5.8. 设置主机名</h3><p>打开（不存在时会创建）<code>/etc/hostname</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;hostname</span><br></pre></td></tr></table></figure>
+
+<p>在文件的第一行输入你自己设定的一个<code>myhostname</code></p>
+<p>保存并退出。</p>
+<p>编辑<code>/etc/hosts</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;hosts</span><br></pre></td></tr></table></figure>
+
+<p>在文件末添加如下内容（将<code>myhostname</code>替换成你自己设定的主机名）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1	localhost</span><br><span class="line">::1		localhost</span><br><span class="line">127.0.1.1	myhostname.localdomain	myhostname</span><br></pre></td></tr></table></figure>
+
+<p>保存并退出。</p>
+<h3 id="5-9-设置Root密码"><a href="#5-9-设置Root密码" class="headerlink" title="5.9. 设置Root密码"></a>5.9. 设置Root密码</h3><p><code>Root</code>是<code>Linux</code>中具有最高权限帐户，有些敏感的操作必须通过<code>Root</code>用户进行，比如使用<code>pacman</code>，我们之前进行所有的操作也都是以<code>Root</code>用户进行的，也正是因为<code>Root</code>的权限过高，如果使用不当会造成安全问题，所以我们之后会新建一个普通用户来进行日常的操作。在这里我们需要为<code>Root</code>帐户设置一个密码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd</span><br></pre></td></tr></table></figure>
+
+<p>按提示设置并确认就可以了。</p>
+<h3 id="5-10-安装CPU升级补丁"><a href="#5-10-安装CPU升级补丁" class="headerlink" title="5.10. 安装CPU升级补丁"></a>5.10. 安装CPU升级补丁</h3><p>如果为intel cpu</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S intel-ucode</span><br></pre></td></tr></table></figure>
+<p>如果为amd cpu</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S amd-ucode</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-11-安装Bootloader"><a href="#5-11-安装Bootloader" class="headerlink" title="5.11. 安装Bootloader"></a>5.11. 安装Bootloader</h3><p>经常听说很多人因为引导问题导致系统安装失败，多数是因为教程没有统一或是过时的教程引起的，这里只要按照步骤来其实是不难的。这里我们安装最流行的<code>Grub2</code>。<strong>（如果曾经装过Linux，记得删掉原来的Grub，否则不可能成功启动）</strong></p>
+<ul>
+<li><p>首先安装<code>os-prober</code>和<code>ntfs-3g</code>这两个包，它可以配合<code>Grub</code>检测已经存在的系统，自动设置启动选项。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S os-prober ntfs-3g</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果为EFI/GPT引导方式：</strong></p>
+</li>
+<li><p>安装<code>grub</code>与<code>efibootmgr</code>两个包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S grub efibootmgr</span><br></pre></td></tr></table></figure></li>
+<li><p>生成配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-mkconfig -o &#x2F;boot&#x2F;grub&#x2F;grub.cfg</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>部署<code>grub</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub-install --target&#x3D;x86_64-efi --efi-directory&#x3D;&#x2F;boot --bootloader-id&#x3D;grub</span><br></pre></td></tr></table></figure>
+<p>出现<code>Installation finished. No error reported.</code>字样表示安装成功。</p>
+</li>
+</ul>
+<h3 id="5-12-取消挂载并重启"><a href="#5-12-取消挂载并重启" class="headerlink" title="5.12. 取消挂载并重启"></a>5.12. 取消挂载并重启</h3><p>至此archlinux其实已经安装好了，接下来，你需要进行重启来启动已经安装好的系统，执行如下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果挂载了/mnt/boot，先umount /mnt/boot，再umount /mnt，否则直接umount /mnt：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">umount &#x2F;mnt&#x2F;boot</span><br><span class="line">umount &#x2F;mnt</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<p>注意这个时候你可能会卡在有两行提示的地方无法正常关机，长按电源键强制关机即可，没有影响。</p>
+<p>关机后拔出U盘，启动顺序会自动以硬盘启动，如果一切顺利，你将看到一个shell登陆界面。</p>
+<p>输入<code>root</code>，再输入之前设置的密码，显示出命令提示符，恭喜你，你已经成功安装<code>ArchLinux</code>！</p>
+<h1 id="后期定制及美化"><a href="#后期定制及美化" class="headerlink" title="后期定制及美化"></a>后期定制及美化</h1><p>安装指南：<a href="https://wiki.archlinux.org/index.php/General_recommendations" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/General_recommendations</a> （<a href="https://wiki.archlinux.org/index.php/General_recommendations_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)" target="_blank" rel="noopener">中文</a>）</p>
+<p>参考博客：<a href="https://www.viseator.com/2017/05/19/arch_setup/" target="_blank" rel="noopener">https://www.viseator.com/2017/05/19/arch_setup/</a></p>
+<h2 id="1、更换内核"><a href="#1、更换内核" class="headerlink" title="1、更换内核"></a>1、更换内核</h2><p>arch linux的安装必须联网，安装包都得网上下载所以必须要先联网</p>
+<ul>
+<li><p>无线网络</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wifi-menu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有线网络并且路由器支持DHCP</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dhcpcd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>参考wiki：<a href="https://wiki.archlinux.org/index.php/Kernel" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/Kernel</a></p>
+<p>参考博客：<a href="https://poemdear.com/2019/03/27/arch-linux-更换到稳定版lts内核/" target="_blank" rel="noopener">https://poemdear.com/2019/03/27/arch-linux-%E6%9B%B4%E6%8D%A2%E5%88%B0%E7%A8%B3%E5%AE%9A%E7%89%88lts%E5%86%85%E6%A0%B8/</a></p>
+<p>这里我会换成zen内核，所以操作如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pacman -S 	linux-zen  ##安装内核</span><br><span class="line">pacman -Rsdd linux     ##卸载旧的内核</span><br><span class="line">grub-mkconfig -o /boot/grub/grub.cfg   ##生成zen版本的grub.cfg</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、创建普通用户"><a href="#2、创建普通用户" class="headerlink" title="2、创建普通用户"></a>2、创建普通用户</h2><p>在这之前所有操作都是以<code>root</code>用户的身份进行的，由于<code>root</code>的权限过高，日常使用<code>root</code>用户是不安全的。<code>Linux</code>为我们提供了强大的用户与组的权限管理，提高了整个系统的安全性。这里我们就来新建一个用户。</p>
+<p>执行以下命令来创建一个名为<code>username</code>的用户（请自行替换<code>username</code>为你的用户名）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd -m -G wheel username （请自行替换username为你的用户名）</span><br></pre></td></tr></table></figure>
+
+<p>在这里稍微解释一下各参数的含义：</p>
+<p><code>-m</code>：在创建时同时在<code>/home</code>目录下创建一个与用户名同名的文件夹，这个目录就是你的<strong>家目录</strong>啦！家目录有一个别名是<code>~</code>，你可以在任何地方使用<code>~</code>来代替家目录路径。这个神奇的目录将会用于存放你所有的个人资料、配置文件等所有跟系统本身无关的资料。</p>
+<p><code>-G wheel</code>：<code>-G</code>代表把用户加入一个组，对用户与组的概念感兴趣的同学可以自行查找有关资料学习。后面跟着的<code>wheel</code>就是加入的组名，至于为什么要加入这个组，后面会提到。</p>
+<p>当然记得为新用户设置一个密码，执行如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd username （请自行替换username为你的用户名）</span><br></pre></td></tr></table></figure>
+
+<p>根据提示输入两次密码就可以了，注意，这是你的用户密码，推荐与之前设置的<code>root</code>用户的密码不同。</p>
+<h2 id="3、日常配置"><a href="#3、日常配置" class="headerlink" title="3、日常配置"></a>3、日常配置</h2><h3 id="3-1-配置sudo和vim"><a href="#3-1-配置sudo和vim" class="headerlink" title="3.1. 配置sudo和vim"></a>3.1. 配置sudo和vim</h3><p><code>sudo</code>本身也是一个软件包，所以我们需要通过<code>pacman</code>来安装（没想到连这个都没有。。。）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S sudo</span><br></pre></td></tr></table></figure>
+
+<p>接下来我们需要用专门的<code>visudo</code>命令来编辑<code>sudo</code>的配置文件（前面这句是为了创建<code>vim</code>到<code>vi</code>的软链接避免找不到<code>vi</code>编辑器）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/bin/vim /usr/bin/vi</span><br><span class="line">visudo</span><br></pre></td></tr></table></figure>
+
+<p>实际上就是<code>vim</code>的操作，使用它是为了对编辑后的文件进行检查防止格式的错误。</p>
+<p>找到</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> %wheel ALL=(ALL)ALL</span></span><br></pre></td></tr></table></figure>
+
+<p>这行，去掉之前的<code>#</code>注释符，保存并退出就可以了。</p>
+<p><img src="/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590594726234.png" alt="1590594726234"></p>
+<p>这里的<code>%wheel</code>就是代表<code>wheel</code>组，意味着<code>wheel</code>组中的所有用户都可以使用<code>sudo</code>命令。</p>
+<p>当然为了安全使用<code>sudo</code>命令还是需要输入<strong>当前用户</strong>的密码的。</p>
+<p>配置好<code>sudo</code>以后，我们进行一次重启，重启以后输入你<strong>刚创建的用户名与密码</strong>来登录。注意登录后要重新进行联网操作。</p>
+<h3 id="3-2-启用-NTP-同步时间服务"><a href="#3-2-启用-NTP-同步时间服务" class="headerlink" title="3.2. 启用 NTP 同步时间服务"></a>3.2. 启用 NTP 同步时间服务</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable systemd-timesyncd.service</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-安装-CPU-调频守护程序"><a href="#3-3-安装-CPU-调频守护程序" class="headerlink" title="3.3. 安装 CPU 调频守护程序"></a>3.3. 安装 CPU 调频守护程序</h3><p>CPU 调频守护程序可以帮助我们更好的控制 CPU 的频率和功耗</p>
+<p>安装：<code>sudo pacman -S cpupower</code></p>
+<p>启用：<code>sudo systemctl enable cpupower</code></p>
+<h3 id="3-4-安装蓝牙支持"><a href="#3-4-安装蓝牙支持" class="headerlink" title="3.4. 安装蓝牙支持"></a>3.4. 安装蓝牙支持</h3><p>安装：<code>sudo pacman -S bluedevil bluez bluez-utils pulseaudio-bluetooth</code></p>
+<p>启用：<code>sudo systemctl enable --now bluetooth</code></p>
+<h2 id="4、安装图形界面"><a href="#4、安装图形界面" class="headerlink" title="4、安装图形界面"></a>4、安装图形界面</h2><h3 id="4-1-显卡驱动的安装"><a href="#4-1-显卡驱动的安装" class="headerlink" title="4.1. 显卡驱动的安装"></a>4.1. 显卡驱动的安装</h3><p><img src="/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/1590596687318.png" alt="1590596687318"></p>
+<p>参照这个表格，安装相应的包，比如你是<code>amd</code>的集成显卡（绝大多数人的情况），执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xf86-video-amdgpu</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-安装Xorg"><a href="#4-2-安装Xorg" class="headerlink" title="4.2. 安装Xorg"></a>4.2. 安装Xorg</h3><p>Xorg是Linux下的一个著名的开源图形服务，我们的桌面环境需要Xorg的支持。</p>
+<p>执行如下命令安装Xorg及相关组件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S xorg</span><br></pre></td></tr></table></figure>
+
+<p>回车和y确认即可</p>
+<h3 id="4-3-安装KDE-Plasma"><a href="#4-3-安装KDE-Plasma" class="headerlink" title="4.3. 安装KDE(Plasma)"></a>4.3. 安装KDE(Plasma)</h3><p>直接安装软件包组（包含了很多软件包）即可：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S plasma kde-applications</span><br><span class="line"></span><br><span class="line">5    ARK:  一个允许你操作各种格式的压缩文件的程序</span><br><span class="line">13   dolphin：  KDE Plasma 桌面的默认，易用文件管理器。</span><br><span class="line">14   dolphin-plugins：  KDE Plasma配置工具</span><br><span class="line">21   gwenview:    一个快速容用的图像浏览器。</span><br><span class="line">36   kate:  一个简单但功能强大的文本编辑器。</span><br><span class="line">52   kdeconnect:  是一个允许所有设备与手机的连接的工具</span><br><span class="line">55   kdenetwork-filesharing:  文件分享</span><br><span class="line">68   kget:  下载管理器，兼简易的 BT 下载客户端</span><br><span class="line">99   knote: 把你的笔记粘到桌面上或是Kontact中。</span><br><span class="line">103  Kompare:  清晰的显示 2 个版本文本文件的差异。</span><br><span class="line">106  konsole:  一个多标签的终端模拟器,允许使用多种shell和用户配置。</span><br><span class="line">122  KSystemLog:  KDE 工作空间的系统日志查看器.</span><br><span class="line">138  okular:  KDE 的通用文档查看器。</span><br><span class="line">148  spectacle:   截图软件</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-4-安装桌面管理器sddm"><a href="#4-4-安装桌面管理器sddm" class="headerlink" title="4.4. 安装桌面管理器sddm"></a>4.4. 安装桌面管理器sddm</h3><p>安装好了桌面环境包以后，我们需要安装一个图形化的桌面管理器来帮助我们登录并且选择我们使用的桌面环境，这里我推荐使用<code>sddm</code>。执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S sddm</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-5-设置开机启动sddm服务"><a href="#4-5-设置开机启动sddm服务" class="headerlink" title="4.5. 设置开机启动sddm服务"></a>4.5. 设置开机启动sddm服务</h3><p>这里就要介绍一下<code>Arch</code>下用于管理系统服务的命令<code>systemctl</code>了，服务的作用就是字面意思，为我们提供特定的服务，比如<code>sddm</code>就为我们提供了启动<code>xorg</code>与管理桌面环境的服务。</p>
+<p>命令的使用并不复杂：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start   服务名 （启动一项服务）</span><br><span class="line">sudo systemctl stop    服务名 （停止一项服务）</span><br><span class="line">sudo systemctl enable  服务名 （开机启动一项服务）</span><br><span class="line">sudo systemctl disable 服务名 （取消开机启动一项服务）</span><br></pre></td></tr></table></figure>
+
+<p>所以这里我们就执行下面命令来设置开机启动<code>sddm</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable sddm</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、重新配置网络"><a href="#5、重新配置网络" class="headerlink" title="5、重新配置网络"></a>5、重新配置网络</h2><p>到现在我们已经安装好了桌面环境，但是还有一件事情需要我们提前设置一下。由于我们之前使用的一直都是<code>netctl</code>这个自带的网络服务，而桌面环境使用的是<code>NetworkManager</code>这个网络服务，所以我们需要禁用<code>netctl</code>并启用<code>NetworkManager</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl disable netctl</span><br><span class="line">sudo systemctl enable NetworkManager （注意大小写）</span><br></pre></td></tr></table></figure>
+
+<p>同时你可能需要安装工具栏工具来显示网络设置图标（某些桌面环境已经装了，但是为了保险可以再装一下）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S network-manager-applet</span><br></pre></td></tr></table></figure>
+
+<p>这样开机以后我们就可以在图形界面下配置我们的网络啦。重启继续美化</p>
+<h2 id="6、安装日用软件"><a href="#6、安装日用软件" class="headerlink" title="6、安装日用软件"></a>6、安装日用软件</h2><h3 id="6-1-安装chrome浏览器"><a href="#6-1-安装chrome浏览器" class="headerlink" title="6.1. 安装chrome浏览器"></a>6.1. 安装chrome浏览器</h3><p>Chromium 是开源版的 Google Chrome，它们的区别：<a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)#Differences_from_Google_Chrome" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Chromium_(web_browser)#Differences_from_Google_Chrome</a></p>
+<p>1.程序图标：两者图标只在色彩上不同，Chromium是天蓝色，而Chrome是Google公司的代表色（红、黄、蓝、绿）；<br>2.自动更新：Chromium不开放自动更新功能，所以用户需要手动下载更新，而Chrome则可自动脸上Google的服务器更新，但新版的推出很慢；<br>3.安装模式：Chromium可以免安装，下载zip压缩包后解压即可使用，而Chrome则只有安装板；<br>4.功能差异：新功能会率先在Chromium上推出，Chrome则会相对落后很多。</p>
+<p>安装命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S chromium</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-安装中文字体及输入法"><a href="#6-2-安装中文字体及输入法" class="headerlink" title="6.2. 安装中文字体及输入法"></a>6.2. 安装中文字体及输入法</h3><p>不装的话中文会变成小方格，省事我们就装文泉驿好了，有更好看的再美化</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S noto-fonts noto-fonts-cjk noto-fonts-extra ttf-liberation ttf-dejavu</span><br></pre></td></tr></table></figure>
+
+<p>安装中文输入法，这个remi输入法比搜狗好用多了= =</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pacman -S fcitx fcitx-rime fcitx-im kcm-fcitx</span><br><span class="line">vim ~/.xprofile</span><br></pre></td></tr></table></figure>
+
+<p>空文件写入这些本地化配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">export LANG=zh_CN.UTF-8</span><br><span class="line"></span><br><span class="line">export LC_CTYPE=en_US.UTF-8</span><br><span class="line">export LC_NUMERIC=zh_CN.UTF-8</span><br><span class="line">export LC_TIME=zh_CN.UTF-8</span><br><span class="line">export LC_COLLATE=zh_CN.UTF-8</span><br><span class="line">export LC_MONETARY=zh_CN.UTF-8</span><br><span class="line">export LC_MESSAGES=zh_CN.UTF-8</span><br><span class="line"></span><br><span class="line">export LC_ALL=zh_CN.UTF-8</span><br><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS="@im=fcitx"</span><br></pre></td></tr></table></figure>
+<p><code>qw</code>保存之后<code>reboot</code>重启即可</p>
+<p><strong>注意：</strong>这里这么配置会把整个环境完全变成中文环境，如果你像我一样不希望shell提示也变成中文的话，就不要配这个，在系统的设置中心里面加中文就可以了</p>
+<h3 id="6-3-Typora"><a href="#6-3-Typora" class="headerlink" title="6.3. Typora"></a>6.3. Typora</h3><p>为了可以先用这笔记本开始记录安装实况，所以先装了这个md编辑器。</p>
+<p>还没有装AUR工具，所以先在AUR仓库搜索这个软件包。</p>
+<p>地址：<a href="https://aur.archlinux.org/packages/typora/" target="_blank" rel="noopener">https://aur.archlinux.org/packages/typora/</a></p>
+<p>点击右边的<code>Download snapshot</code>下载压缩包到本地，然后解压安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf typora.tar.gz</span><br><span class="line">cd typora</span><br><span class="line">makepkg -si</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-4-安装AUR工具"><a href="#6-4-安装AUR工具" class="headerlink" title="6.4. 安装AUR工具"></a>6.4. 安装AUR工具</h3><p>这里我选择yay,主要是看起来比较短= =</p>
+<p>先安装下git：<code>sudo pacman -S git</code></p>
+<p>还是先在AUR仓库搜索这个软件包。</p>
+<p>地址：<a href="https://aur.archlinux.org/packages/yay/" target="_blank" rel="noopener">https://aur.archlinux.org/packages/yay/</a></p>
+<p>点击右边的<code>Download snapshot</code>下载压缩包到本地，然后解压安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf yay.tar.gz </span><br><span class="line">cd yay</span><br><span class="line">makepkg -si</span><br></pre></td></tr></table></figure>
+
+<p>好的这种官方的方式不行，傻逼go语言编译还要再远程拉包，然后我们被墙了。。。</p>
+<p>好在在github看到有人提了issues，我们加个国内的镜像库，参考链接：<a href="https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/" target="_blank" rel="noopener">https://www.archlinuxcn.org/archlinux-cn-repo-and-mirror/</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/pacman.conf </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">文末加入</span></span><br><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://repo.archlinuxcn.org/$arch</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">保存推出后刷新并导入PGP Keys</span></span><br><span class="line">sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring</span><br><span class="line"></span><br><span class="line">sudo pacman -S yay</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-5-修复discover"><a href="#6-5-修复discover" class="headerlink" title="6.5. 修复discover"></a>6.5. 修复discover</h3><p>这个鬼东西默认装好还用不了，利用<code>sudo pacman -Qi discover</code>查看一下依赖，把必选和可选的依赖都装上：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S knewstuff  kitemmodels  kdeclarative  qt5-graphicaleffects  appstream-qt archlinux-appstream-data  hicolor-icon-theme  kirigami2  discount  kuserfeedback</span><br><span class="line"></span><br><span class="line">sudo pacman -S packagekit-qt5 flatpak fwupd</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-6-安装ZSH"><a href="#6-6-安装ZSH" class="headerlink" title="6.6. 安装ZSH"></a>6.6. 安装ZSH</h3><p>用惯了这个，没有好不习惯，先装回来：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S zsh </span><br><span class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</span><br><span class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</span><br><span class="line"></span><br><span class="line">cd ~/.oh-my-zsh/custom/plugins</span><br><span class="line"><span class="meta">#</span><span class="bash">高亮插件</span></span><br><span class="line">git clone git://github.com/zsh-users/zsh-syntax-highlighting.git</span><br><span class="line"><span class="meta">#</span><span class="bash">命令补齐</span></span><br><span class="line">git clone https://github.com/zsh-users/zsh-autosuggestions $&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;/plugins/zsh-autosuggestions</span><br><span class="line"></span><br><span class="line">vim ~/.zshrc  #在文本内添加：</span><br><span class="line">   </span><br><span class="line"><span class="meta">#</span><span class="bash">设置主题，内置主题可前往github查看：https://github.com/robbyrussell/oh-my-zsh/wiki/Themes</span></span><br><span class="line">ZSH_THEME="robbyrussell"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">添加高亮插件和自动补齐</span></span><br><span class="line">plugins=(git zsh-syntax-highlighting zsh-autosuggestions  web-search)</span><br><span class="line">source /etc/profile   #文末添加</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">wq保存后刷新一下</span></span><br><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-7-跳过grub"><a href="#6-7-跳过grub" class="headerlink" title="6.7. 跳过grub"></a>6.7. 跳过grub</h3><p>修改<code>/etc/default/grub</code>文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/default/grub</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># GRUB_TIMEOUT=5   把这个改成0后wq保存退出</span></span></span><br><span class="line">sudo grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-8-安装解码器"><a href="#6-8-安装解码器" class="headerlink" title="6.8. 安装解码器"></a>6.8. 安装解码器</h3><p><strong>Kid3</strong> — MP3, Ogg/Vorbis, FLAC, MPC, MP4/AAC, MP2, Speex, TrueAudio, WavPack, WMA, WAV and AIFF files tag editor.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S kid3</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="7、美化环境"><a href="#7、美化环境" class="headerlink" title="7、美化环境"></a>7、美化环境</h2><h3 id="7-1-安装latte-dock"><a href="#7-1-安装latte-dock" class="headerlink" title="7.1. 安装latte-dock"></a>7.1. 安装latte-dock</h3><p>所谓的dock就是一个停靠栏面板，安装好启动一下就可以设置了:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S latte-dock</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-2-挑选主题和图标"><a href="#7-2-挑选主题和图标" class="headerlink" title="7.2. 挑选主题和图标"></a>7.2. 挑选主题和图标</h3><p>安装网页工具：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S ocs-url</span><br></pre></td></tr></table></figure>
+
+<p>去官网挑选主题：</p>
+<p><a href="https://store.kde.org/p/1354062" target="_blank" rel="noopener">https://store.kde.org/p/1354062</a><br><a href="https://store.kde.org/p/1294729" target="_blank" rel="noopener">https://store.kde.org/p/1294729</a></p>
+<h3 id="7-3-安装QQ和微信"><a href="#7-3-安装QQ和微信" class="headerlink" title="7.3. 安装QQ和微信"></a>7.3. 安装QQ和微信</h3><p>直接装如果依赖报错，如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ sudo pacman -S deepin.com.qq.im     </span><br><span class="line">[sudo] lin 的密码：</span><br><span class="line">正在解析依赖关系...</span><br><span class="line">警告：无法解决 "lib32-gettext"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-libxcursor"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-fontconfig"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-mesa"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-lcms2"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-libjpeg6"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-libpulse"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-alsa-plugins"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-libxml2"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-libxrandr"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-libxi"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-glu"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "lib32-libldap"，"deepin-wine" 的一个依赖关系</span><br><span class="line">警告：无法解决 "deepin-wine"，"deepin.com.qq.im" 的一个依赖关系</span><br><span class="line">:: 因为无法解决依赖关系，以下软件包无法进行更新：</span><br><span class="line">      deepin.com.qq.im</span><br></pre></td></tr></table></figure>
+
+<p>那么你跟我一样是有个32位包没装，先装一下再执行:</p>
+<p>使用文本编辑器打开/etc/pacman.conf，找到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#[multilib]</span><br><span class="line">#Include &#x3D; &#x2F;etc&#x2F;pacman.d&#x2F;mirrorlist</span><br></pre></td></tr></table></figure>
+<p>将之修改为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[multilib]</span><br><span class="line">Include &#x3D; &#x2F;etc&#x2F;pacman.d&#x2F;mirrorlist</span><br></pre></td></tr></table></figure>
+<p>而后<code>sudo pacman -Syyu</code></p>
+<p>接下来就能正常安装了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S deepin.com.qq.im</span><br><span class="line"></span><br><span class="line">sudo pacman -S gnome-settings-daemon</span><br><span class="line">sudo cp /etc/xdg/autostart/org.gnome.SettingsDaemon.XSettings.desktop ~/.config/autostart/</span><br><span class="line">sudo chmod 777 ~/.config/autostart/org.gnome.SettingsDaemon.XSettings.desktop</span><br></pre></td></tr></table></figure>
+
+<p><code>系统设置——开机和关机——自动启动——双击GNOME开头的那个程序——勾选开启——点击右下角高级——只在Plasma中自动启动——完成</code></p>
+<p>重启之后再打开QQ，能用。</p>
+<p>微信同理：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yay -S deepin.com.wechat2</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment">#调整wine</span></span></span><br><span class="line">env WINEPREFIX="$HOME/.deepinwine/Deepin-QQ" deepin-wine winecfg</span><br><span class="line">env WINEPREFIX="$HOME/.deepinwine/Deepin-WeChat" deepin-wine winecfg</span><br></pre></td></tr></table></figure>
+
+<p>安装完一切都很好，就是QQ图片显示不出来，查了一下发现是qq默认使用了ipv6，禁用一下就可以了：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/default/grub </span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">把其中的 GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">"quiet spalsh"</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">修改为  GRUB_CMDLINE_LINUX_DEFAULT=<span class="string">"ipv6.disable=1 quiet splash"</span></span></span><br><span class="line"></span><br><span class="line">sudo grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-4-调整色温"><a href="#7-4-调整色温" class="headerlink" title="7.4. 调整色温"></a>7.4. 调整色温</h3><p>安装<code>redshift</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S redshift</span><br></pre></td></tr></table></figure>
+
+<p>To instantly adjusts the color temperature of your screen use:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> redshift -P -O TEMPERATURE</span></span><br></pre></td></tr></table></figure>
+<p>where <em>TEMPERATURE</em> is the desired color temperature(between <code>1000</code> and <code>25000</code>).</p>
+<h3 id="7-5-主题图标和皮肤"><a href="#7-5-主题图标和皮肤" class="headerlink" title="7.5. 主题图标和皮肤"></a>7.5. 主题图标和皮肤</h3><p>这个见仁见智吧。。。自己去搜索下，这里给出我最后选的配置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">                  -`                    lin@voidChen </span><br><span class="line">                 .o+`                   ------------ </span><br><span class="line">                `ooo/                   OS: Arch Linux x86_64 </span><br><span class="line">               `+oooo:                  Host: 82A8 Yoga 14sARE 2020 </span><br><span class="line">              `+oooooo:                 Kernel: 5.6.15-zen2-1-zen </span><br><span class="line">              -+oooooo+:                Uptime: 10 mins </span><br><span class="line">            `/:-:++oooo+:               Packages: 1004 (pacman), 5 (flatpak) </span><br><span class="line">           `/++++/+++++++:              Shell: zsh 5.8 </span><br><span class="line">          `/++++++++++++++:             Resolution: 1920x1080 </span><br><span class="line">         `/+++ooooooooooooo/`           DE: Plasma </span><br><span class="line">        ./ooosssso++osssssso+`          WM: KWin </span><br><span class="line">       .oossssso-````/ossssss+`         WM Theme: 微风Blurred </span><br><span class="line">      -osssssso.      :ssssssso.        Theme: Sweet [Plasma], Breeze [GTK2/3] </span><br><span class="line">     :osssssss/        osssso+++.       Icons: Tela [Plasma], Tela [GTK2/3] </span><br><span class="line">    /ossssssss/        +ssssooo/-       Terminal: konsole </span><br><span class="line">  `/ossssso+/:-        -:/+osssso+-     Terminal Font: Source Code Pro Semibold 12 </span><br><span class="line"> `+sso+:-`                 `.-/+oso:    CPU: AMD Ryzen 7 4800U with Radeon Graphics  </span><br><span class="line">`++:.                           `-/+/   GPU: AMD ATI 03:00.0 Renoir </span><br><span class="line">.`                                 `/   Memory: 1578MiB / 15423MiB</span><br></pre></td></tr></table></figure>
+
+<h2 id="8、配置开发环境"><a href="#8、配置开发环境" class="headerlink" title="8、配置开发环境"></a>8、配置开发环境</h2><h3 id="8-1-安装java、maven、scala"><a href="#8-1-安装java、maven、scala" class="headerlink" title="8.1. 安装java、maven、scala"></a>8.1. 安装java、maven、scala</h3><p>前往各个官网下载<code>tar.gz</code>包，<code>sudo tar -zxvf</code>命令，解压到<strong>/opt</strong>目录下，然后修改<strong>/etc/profile</strong>文件，添加环境变量，wq保存后自行一下 <code>source /etc/profile</code> 命令刷新一下就ok啦。</p>
+<ul>
+<li>java官网：<a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/index.html</a></li>
+<li>maven官网：<a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a></li>
+<li>scala官网：<a href="https://www.scala-lang.org/download/" target="_blank" rel="noopener">https://www.scala-lang.org/download/</a></li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">export MAVEN_HOME=/opt/apache-maven-3.6.1</span><br><span class="line">export JAVA_HOME=/opt/jdk1.8.0_211</span><br><span class="line">export SCALA_HOME=/opt/scala-2.11.1</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$&#123;MAVEN_HOME&#125;/bin:$&#123;SCALA_HOME&#125;/bin:$&#123;PATH&#125;</span><br></pre></td></tr></table></figure>
+<p>另外还有maven的配置，设置一下本地仓库和添加国内源：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;/home/repository&lt;/localRepository&gt;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">&lt;mirrors&gt;</span><br><span class="line"> &lt;mirror&gt;</span><br><span class="line">          &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">          &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">          &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">          &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;/mirror&gt;</span><br><span class="line">      &lt;mirror&gt;</span><br><span class="line">          &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">          &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">          &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">          &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;</span><br><span class="line">      &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">      &lt;mirror&gt;</span><br><span class="line">          &lt;id&gt;ibiblio&lt;/id&gt;</span><br><span class="line">          &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">          &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">          &lt;url&gt;http://mirrors.ibiblio.org/pub/mirrors/maven2/&lt;/url&gt;</span><br><span class="line">      &lt;/mirror&gt;</span><br><span class="line">      &lt;mirror&gt;</span><br><span class="line">          &lt;id&gt;jboss-public-repository-group&lt;/id&gt;</span><br><span class="line">          &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">          &lt;name&gt;JBoss Public Repository Group&lt;/name&gt;</span><br><span class="line">          &lt;url&gt;http://repository.jboss.org/nexus/content/groups/public&lt;/url&gt;</span><br><span class="line">      &lt;/mirror&gt;</span><br><span class="line"></span><br><span class="line">      &lt;mirror&gt;</span><br><span class="line">          &lt;id&gt;central&lt;/id&gt;</span><br><span class="line">          &lt;name&gt;Maven Repository Switchboard&lt;/name&gt;</span><br><span class="line">          &lt;url&gt;http://repo1.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">          &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">      &lt;/mirror&gt;</span><br><span class="line">      &lt;mirror&gt;</span><br><span class="line">          &lt;id&gt;repo2&lt;/id&gt;</span><br><span class="line">          &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">          &lt;name&gt;Human Readable Name for this Mirror.&lt;/name&gt;</span><br><span class="line">          &lt;url&gt;http://repo2.maven.org/maven2/&lt;/url&gt;</span><br><span class="line">  &lt;/mirror&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-2-安装idea和pycharm"><a href="#8-2-安装idea和pycharm" class="headerlink" title="8.2. 安装idea和pycharm"></a>8.2. 安装idea和pycharm</h3><p>这里不打算去源里安装了，1是下载慢，2是wiki指导也是去官方下载tar包</p>
+<p>idea：<a href="https://www.jetbrains.com/idea/download/#section=linux" target="_blank" rel="noopener">https://www.jetbrains.com/idea/download/#section=linux</a></p>
+<p>pycharm：<a href="https://www.jetbrains.com/pycharm/download/#section=linux" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm/download/#section=linux</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">cd Downloads  </span><br><span class="line"></span><br><span class="line">tar -zxvf ideaIU-2020.1.1.tar.gz</span><br><span class="line">mv idea-IU-201.7223.91 ../Program/idea-IU</span><br><span class="line"></span><br><span class="line">tar -zxvf pycharm-professional-2020.1.1.tar.gz</span><br><span class="line">mv pycharm-2020.1.1 ../Program/pycharm</span><br><span class="line"></span><br><span class="line">cd ../Program/idea-IU/bin</span><br><span class="line">./idea.sh</span><br><span class="line"></span><br><span class="line">cd Program/pycharm/bin</span><br><span class="line">./pycharm.sh</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    VoidChen10
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/" title="ArchLinux安装实况">https://voidchen.cn/ArchLinux%E5%AE%89%E8%A3%85%E5%AE%9E%E5%86%B5/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://voidchen10.github.io/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/%E5%B0%8F%E6%8A%80%E5%B7%A7/" rel="tag"># 小技巧</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/" rel="next" title="双显卡1050TI笔记本的Ubuntu18安装实记">
+                <i class="fa fa-chevron-left"></i> 双显卡1050TI笔记本的Ubuntu18安装实记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjM3OS8xODkyNg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg"
+                alt="VoidChen10" />
+            
+              <p class="site-author-name" itemprop="name">VoidChen10</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/VoidChen10" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=425325925&website=www.oicqzone.com" target="_blank" title="QQ">
+                      
+                        <i class="fa fa-fw fa-qq"></i>QQ</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/u/1994787451" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#最终效果"><span class="nav-text">最终效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前期安装"><span class="nav-text">前期安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、Arch开始"><span class="nav-text">1、Arch开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、联网"><span class="nav-text">2、联网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、更新系统时间"><span class="nav-text">3、更新系统时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、分区与格式化"><span class="nav-text">4、分区与格式化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-标准UEFI分区参考"><span class="nav-text">4.1. 标准UEFI分区参考:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-fdisk分区操作"><span class="nav-text">4.2. fdisk分区操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-重置磁盘"><span class="nav-text">4.2.1.重置磁盘</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-重新分区"><span class="nav-text">4.2.2. 重新分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3-格式化分区"><span class="nav-text">4.2.3. 格式化分区</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-4-挂载分区"><span class="nav-text">4.2.4. 挂载分区</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、安装系统"><span class="nav-text">5、安装系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-更换安装源"><span class="nav-text">5.1. 更换安装源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-安装系统和基本包"><span class="nav-text">5.2. 安装系统和基本包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-配置Fstab"><span class="nav-text">5.3. 配置Fstab</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-Chroot到新装系统"><span class="nav-text">5.4. Chroot到新装系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-5-设置时区"><span class="nav-text">5.5. 设置时区</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-6-安装基本包"><span class="nav-text">5.6. 安装基本包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-7-设置Locale"><span class="nav-text">5.7. 设置Locale</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-8-设置主机名"><span class="nav-text">5.8. 设置主机名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-9-设置Root密码"><span class="nav-text">5.9. 设置Root密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-10-安装CPU升级补丁"><span class="nav-text">5.10. 安装CPU升级补丁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-11-安装Bootloader"><span class="nav-text">5.11. 安装Bootloader</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-12-取消挂载并重启"><span class="nav-text">5.12. 取消挂载并重启</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后期定制及美化"><span class="nav-text">后期定制及美化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、更换内核"><span class="nav-text">1、更换内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、创建普通用户"><span class="nav-text">2、创建普通用户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、日常配置"><span class="nav-text">3、日常配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-配置sudo和vim"><span class="nav-text">3.1. 配置sudo和vim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-启用-NTP-同步时间服务"><span class="nav-text">3.2. 启用 NTP 同步时间服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-安装-CPU-调频守护程序"><span class="nav-text">3.3. 安装 CPU 调频守护程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-安装蓝牙支持"><span class="nav-text">3.4. 安装蓝牙支持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、安装图形界面"><span class="nav-text">4、安装图形界面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-显卡驱动的安装"><span class="nav-text">4.1. 显卡驱动的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-安装Xorg"><span class="nav-text">4.2. 安装Xorg</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-安装KDE-Plasma"><span class="nav-text">4.3. 安装KDE(Plasma)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-安装桌面管理器sddm"><span class="nav-text">4.4. 安装桌面管理器sddm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-设置开机启动sddm服务"><span class="nav-text">4.5. 设置开机启动sddm服务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、重新配置网络"><span class="nav-text">5、重新配置网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、安装日用软件"><span class="nav-text">6、安装日用软件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-安装chrome浏览器"><span class="nav-text">6.1. 安装chrome浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-安装中文字体及输入法"><span class="nav-text">6.2. 安装中文字体及输入法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-Typora"><span class="nav-text">6.3. Typora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-安装AUR工具"><span class="nav-text">6.4. 安装AUR工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-5-修复discover"><span class="nav-text">6.5. 修复discover</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-6-安装ZSH"><span class="nav-text">6.6. 安装ZSH</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-7-跳过grub"><span class="nav-text">6.7. 跳过grub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-8-安装解码器"><span class="nav-text">6.8. 安装解码器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7、美化环境"><span class="nav-text">7、美化环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-安装latte-dock"><span class="nav-text">7.1. 安装latte-dock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-挑选主题和图标"><span class="nav-text">7.2. 挑选主题和图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-安装QQ和微信"><span class="nav-text">7.3. 安装QQ和微信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-调整色温"><span class="nav-text">7.4. 调整色温</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-5-主题图标和皮肤"><span class="nav-text">7.5. 主题图标和皮肤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8、配置开发环境"><span class="nav-text">8、配置开发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-安装java、maven、scala"><span class="nav-text">8.1. 安装java、maven、scala</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-安装idea和pycharm"><span class="nav-text">8.2. 安装idea和pycharm</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">VoidChen10</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

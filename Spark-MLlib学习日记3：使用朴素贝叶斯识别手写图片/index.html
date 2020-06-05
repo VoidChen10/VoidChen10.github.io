@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -21,12 +21,12 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
-  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw">
+  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw" />
 
 
 
@@ -45,7 +45,7 @@
 
 
 
-  <meta name="baidu-site-verification" content="ImJKZq1eMD">
+  <meta name="baidu-site-verification" content="ImJKZq1eMD" />
 
 
 
@@ -55,7 +55,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="朴素贝叶斯,手写图片,手写数字,MNIST,spark,mllib">
+  <meta name="keywords" content="朴素贝叶斯,手写图片,手写数字,MNIST,spark,mllib" />
 
 
 
@@ -95,18 +95,22 @@
 
 
 <meta name="description" content="前言上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——朴素贝叶斯算法(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。">
-<meta name="keywords" content="朴素贝叶斯,手写图片,手写数字,MNIST,spark,mllib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片">
-<meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/index.html">
+<meta property="og:url" content="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B03%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E5%9B%BE%E7%89%87/index.html">
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="前言上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——朴素贝叶斯算法(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ip8sx2fpj20jj04wweu.jpg">
-<meta property="og:updated_time" content="2019-03-18T08:42:01.270Z">
+<meta property="article:published_time" content="2019-02-24T10:37:19.000Z">
+<meta property="article:modified_time" content="2019-03-28T00:50:18.000Z">
+<meta property="article:author" content="VoidChen10">
+<meta property="article:tag" content="朴素贝叶斯">
+<meta property="article:tag" content="手写图片">
+<meta property="article:tag" content="手写数字">
+<meta property="article:tag" content="MNIST">
+<meta property="article:tag" content="spark">
+<meta property="article:tag" content="mllib">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片">
-<meta name="twitter:description" content="前言上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——朴素贝叶斯算法(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ip8sx2fpj20jj04wweu.jpg">
 
 
@@ -137,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/">
+  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/"/>
 
 
 
@@ -146,7 +150,7 @@
 
 
 
-  <title>Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片 | 「旅の途中」</title>
   
 
 
@@ -156,9 +160,9 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -168,13 +172,13 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">「旅の途中」</span>
         <span class="logo-line-after"><i></i></span>
@@ -202,9 +206,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -212,9 +216,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -222,9 +226,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -232,9 +236,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -242,9 +246,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -257,7 +261,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -278,7 +282,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -310,20 +316,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B03%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E5%9B%BE%E7%89%87/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="「旅の途中」">
     </span>
 
@@ -357,7 +363,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -368,8 +374,8 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spark-MLlib学习日记/" itemprop="url" rel="index">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index">
                     <span itemprop="name">Spark-MLlib学习日记</span>
                   </a>
                 </span>
@@ -390,7 +396,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -411,17 +417,19 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——<strong>朴素贝叶斯算法</strong>(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。<br><a id="more"></a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>上一篇讲完了MNIST手写数字数据集的读取使用，今天呢就来讲讲使用分类算法——<strong>朴素贝叶斯算法</strong>(Naive Bayesian classification)来对这个数据集进行训练，看看使用这个算法训练出来的模型，对手写数字的识别率有多高。本人也是初学者，所以对于算法的讲述只是基于自身粗浅的理解，如有不同意见欢迎指正。话不多说，我们来进入正题。</p>
+<a id="more"></a>
+
 <h1 id="朴素贝叶斯算法原理"><a href="#朴素贝叶斯算法原理" class="headerlink" title="朴素贝叶斯算法原理"></a>朴素贝叶斯算法原理</h1><p>不得不说，这个名字起得太贴切了，在我了解完这个算法之后，才知道他真的很“朴素”。。。</p>
 <h2 id="关于分类问题"><a href="#关于分类问题" class="headerlink" title="关于分类问题"></a>关于分类问题</h2><p>先来感性认识一下这个算法，朴素贝叶斯算法是一个分类算法，对于分类，其实我们并不陌生，在生活中我们也常常会下意思地对事物进行“分类”： 例如走在街上，看到一个路人，我们会下意思地去判断是男是女；别人请你吃水果，看一眼就分辨出是苹果还是橘子；在奶茶店买一杯茶，看茶汤颜色会判断是红茶还是绿茶或者是乌龙茶。这里例子都说明了一件事，我们生活中无时无刻都在对事物进行着分类。</p>
 <p>但是分类的前提，是我们得<strong>对这个事物有基本的认知</strong>，比如，舍友给了我一个牛油果，但是我没吃过牛油果，所以我不能准确地把它分类到“牛油果”这个类别去，虽然我不能明确他的分类，但是我能确定它不是“衣服”，因为它的<strong>特征</strong>跟衣服完全不一致，根据已知的事物中，它的特征跟“水果”最像，所以它是水果的<strong>概率</strong>最高，所以我们会把他分类到“水果”去。</p>
 <p>看到是不是觉得有点“朴素”。。。对的，朴素贝叶斯算法，听起来好像很厉害，实际上就是这么一个“朴素”的思想，在已知的条件下，选出概率最高的一个类别作为该项的分类，“朴素”到我这种数学渣渣都露出了会心的微笑2333333</p>
 <h2 id="朴素贝叶斯分类的数学原理与流程"><a href="#朴素贝叶斯分类的数学原理与流程" class="headerlink" title="朴素贝叶斯分类的数学原理与流程"></a>朴素贝叶斯分类的数学原理与流程</h2><p><strong>朴素贝叶斯分类的正式定义如下：</strong></p>
 <ol>
-<li>设$x=\{a_1,a_2,\ldots,a_m\}$为一个待分类项，而每个$a$为$x$的一个特征属性。</li>
-<li>有类别集合$C=\{y_1,y_2,\ldots,y_n\}$。</li>
+<li>设$x={a_1,a_2,\ldots,a_m}$为一个待分类项，而每个$a$为$x$的一个特征属性。</li>
+<li>有类别集合$C={y_1,y_2,\ldots,y_n}$。</li>
 <li>计算$P(y_1|x),P(y_2|x),\ldots,P(y_n|x)$。</li>
-<li>如果$P(y_k|x)=max\{P(y_1|x),P(y_2|x),\ldots,P(y_n|x)\}$，则$x \in y_k$。 </li>
+<li>如果$P(y_k|x)=max{P(y_1|x),P(y_2|x),\ldots,P(y_n|x)}$，则$x \in y_k$。 </li>
 </ol>
 <p><strong>那么现在的关键就是如何计算第3步中的各个条件概率。我们可以这么做：</strong></p>
 <ol>
@@ -452,10 +460,13 @@
 <li>人脸识别</li>
 </ol>
 <h1 id="朴素贝叶斯在Spark-MLlib中的使用"><a href="#朴素贝叶斯在Spark-MLlib中的使用" class="headerlink" title="朴素贝叶斯在Spark MLlib中的使用"></a>朴素贝叶斯在Spark MLlib中的使用</h1><p>Spark MLlib中提供了朴素贝叶斯算法工具，我们调用的时候只需要把数据处理成spark的标准输入格式即可轻松得到训练模型。下面我将使用MNIST手写数字数据集来做训练，并用其提供的测试集计算准确率。（ps:后续会加入对自己手写数字图片进行识别，请等下一次更新_(:з」∠)_）</p>
-<p>1、首先把标签数据和图片数据处理成 <a href="http://spark.apache.org/docs/latest/mllib-data-types.html" target="_blank" rel="noopener">LabeledPoint</a> 标签向量数据格式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val data = trainLabe.zip(trainImages).map( d =&gt;</span><br><span class="line">  LabeledPoint(d._1.toInt, Vectors.dense(d._2.map(p =&gt; (p &amp; 0xFF).toDouble)))</span><br><span class="line">)</span><br><span class="line">val trainRdd = sc.makeRDD(data)</span><br></pre></td></tr></table></figure></p>
-<p>2、调用MLlib的api，输入数据进行训练，得到分类模型：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val model = NaiveBayes.train(trainRdd)</span><br></pre></td></tr></table></figure></p>
-<p>3、利用训练好的模型，对测试数据进行检验，看看识别准确率有多少：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">val testData = testImages.map(d =&gt; Vectors.dense(d.map(p =&gt; (p &amp; 0xFF).toDouble )))</span><br><span class="line">val testRDD = sc.makeRDD(testData)</span><br><span class="line">val res = model.predict(testRDD).map(l =&gt; l.toInt).collect()</span><br><span class="line"></span><br><span class="line">val tr = res.zip(testLabe)</span><br><span class="line"></span><br><span class="line">val sum = tr.map( f =&gt;&#123;</span><br><span class="line">  if(f._1 == f._2.toInt) 1 else 0</span><br><span class="line">&#125;).sum</span><br><span class="line"></span><br><span class="line">println(&quot;准确率为：&quot;+ sum.toDouble /tr.length)</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ip8sx2fpj20jj04wweu.jpg" alt=""><br>如图，利用它提供的测试集呢，我这里得到的识别率约为<code>0.8365</code>，看样子识别效率并不怎么样啊，因为据我所知这份数据最高的识别率能高达99%甚至100%的，下一期我将会尝试使用随机森林算法来对这个数据集进行训练，稍微期待一下吧~</p>
+<p>1、首先把标签数据和图片数据处理成 <a href="http://spark.apache.org/docs/latest/mllib-data-types.html" target="_blank" rel="noopener">LabeledPoint</a> 标签向量数据格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val data &#x3D; trainLabe.zip(trainImages).map( d &#x3D;&gt;</span><br><span class="line">  LabeledPoint(d._1.toInt, Vectors.dense(d._2.map(p &#x3D;&gt; (p &amp; 0xFF).toDouble)))</span><br><span class="line">)</span><br><span class="line">val trainRdd &#x3D; sc.makeRDD(data)</span><br></pre></td></tr></table></figure>
+<p>2、调用MLlib的api，输入数据进行训练，得到分类模型：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val model &#x3D; NaiveBayes.train(trainRdd)</span><br></pre></td></tr></table></figure>
+<p>3、利用训练好的模型，对测试数据进行检验，看看识别准确率有多少：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">val testData &#x3D; testImages.map(d &#x3D;&gt; Vectors.dense(d.map(p &#x3D;&gt; (p &amp; 0xFF).toDouble )))</span><br><span class="line">val testRDD &#x3D; sc.makeRDD(testData)</span><br><span class="line">val res &#x3D; model.predict(testRDD).map(l &#x3D;&gt; l.toInt).collect()</span><br><span class="line"></span><br><span class="line">val tr &#x3D; res.zip(testLabe)</span><br><span class="line"></span><br><span class="line">val sum &#x3D; tr.map( f &#x3D;&gt;&#123;</span><br><span class="line">  if(f._1 &#x3D;&#x3D; f._2.toInt) 1 else 0</span><br><span class="line">&#125;).sum</span><br><span class="line"></span><br><span class="line">println(&quot;准确率为：&quot;+ sum.toDouble &#x2F;tr.length)</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0ip8sx2fpj20jj04wweu.jpg" alt><br>如图，利用它提供的测试集呢，我这里得到的识别率约为<code>0.8365</code>，看样子识别效率并不怎么样啊，因为据我所知这份数据最高的识别率能高达99%甚至100%的，下一期我将会尝试使用随机森林算法来对这个数据集进行训练，稍微期待一下吧~</p>
 <p>此处只贴了部分代码，完整代码可前往github查看：<font color="red"> <a href="https://github.com/VoidChen10/MachineLearning/blob/master/src/main/scala/SparkMLlib/Classification/NaiveBayesExample.scala" target="_blank" rel="noopener">完整代码点我</a></font></p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><a href="http://www.cnblogs.com/leoo2sk/archive/2010/09/17/naive-bayesian-classifier.html" target="_blank" rel="noopener">《算法杂货铺——分类算法之朴素贝叶斯分类(Naive Bayesian classification)》</a></li>
@@ -481,7 +492,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/" title="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片">https://voidchen.cn/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/</a>
+    <a href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B03%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E5%9B%BE%E7%89%87/" title="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片">https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B03%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E5%9B%BE%E7%89%87/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -496,11 +507,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
-          
             <a href="/tags/MachineLeaning/" rel="tag"># MachineLeaning</a>
           
-            <a href="/tags/分类/" rel="tag"># 分类</a>
+            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          
+            <a href="/tags/%E5%88%86%E7%B1%BB/" rel="tag"># 分类</a>
           
         </div>
       
@@ -513,7 +524,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Spark-MLlib学习日记2：MNIST手写数字的读取使用/" rel="next" title="Spark-MLlib学习日记2：MNIST手写数字的读取使用">
+              <a href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B02%EF%BC%9AMNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E7%9A%84%E8%AF%BB%E5%8F%96%E4%BD%BF%E7%94%A8/" rel="next" title="Spark-MLlib学习日记2：MNIST手写数字的读取使用">
                 <i class="fa fa-chevron-left"></i> Spark-MLlib学习日记2：MNIST手写数字的读取使用
               </a>
             
@@ -523,7 +534,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/" rel="prev" title="Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式">
+              <a href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B04%EF%BC%9A%E5%B0%86%E8%87%AA%E5%B7%B1%E6%89%8B%E5%86%99%E7%9A%84%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%88%90MNIST%E6%A0%BC%E5%BC%8F/" rel="prev" title="Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式">
                 Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -594,9 +605,11 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg" alt="VoidChen10">
+              <img class="site-author-image" itemprop="image"
+                src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg"
+                alt="VoidChen10" />
             
               <p class="site-author-name" itemprop="name">VoidChen10</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -607,9 +620,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -620,7 +633,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -631,7 +644,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -685,7 +698,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯算法原理"><span class="nav-number">2.</span> <span class="nav-text">朴素贝叶斯算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于分类问题"><span class="nav-number">2.1.</span> <span class="nav-text">关于分类问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯分类的数学原理与流程"><span class="nav-number">2.2.</span> <span class="nav-text">朴素贝叶斯分类的数学原理与流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯的应用场景和局限"><span class="nav-number">3.</span> <span class="nav-text">朴素贝叶斯的应用场景和局限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯在Spark-MLlib中的使用"><span class="nav-number">4.</span> <span class="nav-text">朴素贝叶斯在Spark MLlib中的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯算法原理"><span class="nav-text">朴素贝叶斯算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于分类问题"><span class="nav-text">关于分类问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯分类的数学原理与流程"><span class="nav-text">朴素贝叶斯分类的数学原理与流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯的应用场景和局限"><span class="nav-text">朴素贝叶斯的应用场景和局限</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯在Spark-MLlib中的使用"><span class="nav-text">朴素贝叶斯在Spark MLlib中的使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
@@ -705,7 +718,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -21,12 +21,12 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
-  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw">
+  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw" />
 
 
 
@@ -45,7 +45,7 @@
 
 
 
-  <meta name="baidu-site-verification" content="ImJKZq1eMD">
+  <meta name="baidu-site-verification" content="ImJKZq1eMD" />
 
 
 
@@ -55,7 +55,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="手写图片,手写数字,MNIST,spark,mllib">
+  <meta name="keywords" content="手写图片,手写数字,MNIST,spark,mllib" />
 
 
 
@@ -94,19 +94,22 @@
 
 
 
-<meta name="description" content="前言近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。= 重申一遍，我是沿着spark官网中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计">
-<meta name="keywords" content="手写图片,手写数字,MNIST,spark,mllib">
+<meta name="description" content="前言近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新&#x3D;。&#x3D; 重申一遍，我是沿着spark官网中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记2：MNIST手写数字的读取使用">
-<meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记2：MNIST手写数字的读取使用/index.html">
+<meta property="og:url" content="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B02%EF%BC%9AMNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E7%9A%84%E8%AF%BB%E5%8F%96%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="「旅の途中」">
-<meta property="og:description" content="前言近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。= 重申一遍，我是沿着spark官网中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:description" content="前言近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新&#x3D;。&#x3D; 重申一遍，我是沿着spark官网中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0f1ocvq24j20hm082djf.jpg">
-<meta property="og:updated_time" content="2019-03-18T08:42:09.073Z">
+<meta property="article:published_time" content="2019-02-21T14:15:31.000Z">
+<meta property="article:modified_time" content="2019-03-18T00:42:09.000Z">
+<meta property="article:author" content="VoidChen10">
+<meta property="article:tag" content="手写图片">
+<meta property="article:tag" content="手写数字">
+<meta property="article:tag" content="MNIST">
+<meta property="article:tag" content="spark">
+<meta property="article:tag" content="mllib">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spark-MLlib学习日记2：MNIST手写数字的读取使用">
-<meta name="twitter:description" content="前言近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。= 重申一遍，我是沿着spark官网中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0f1ocvq24j20hm082djf.jpg">
 
 
@@ -137,7 +140,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记2：MNIST手写数字的读取使用/">
+  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记2：MNIST手写数字的读取使用/"/>
 
 
 
@@ -146,7 +149,7 @@
 
 
 
-  <title>Spark-MLlib学习日记2：MNIST手写数字的读取使用 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Spark-MLlib学习日记2：MNIST手写数字的读取使用 | 「旅の途中」</title>
   
 
 
@@ -156,9 +159,9 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -168,13 +171,13 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">「旅の途中」</span>
         <span class="logo-line-after"><i></i></span>
@@ -202,9 +205,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -212,9 +215,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -222,9 +225,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -232,9 +235,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -242,9 +245,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -257,7 +260,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -278,7 +281,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -310,20 +315,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib学习日记2：MNIST手写数字的读取使用/">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B02%EF%BC%9AMNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E7%9A%84%E8%AF%BB%E5%8F%96%E4%BD%BF%E7%94%A8/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="「旅の途中」">
     </span>
 
@@ -357,7 +362,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -368,8 +373,8 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spark-MLlib学习日记/" itemprop="url" rel="index">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index">
                     <span itemprop="name">Spark-MLlib学习日记</span>
                   </a>
                 </span>
@@ -390,7 +395,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -413,9 +418,11 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=</p>
 <p>重申一遍，我是沿着<a href="http://spark.apache.org/docs/latest/mllib-guide.html" target="_blank" rel="noopener">spark官网</a>中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计，没了解的可以先去看一下文档，后续会有用到。</p>
-<p>好了，言归正传，今天要讲的是被称为机器学习界的“Hello world”，几乎每个入门系列都会用到的一个知名数据集——MNIST手写数字图像数据集，该系列的后续文章中也经常会用到，所以今天独立出来讲一下好了。<br><a id="more"></a></p>
+<p>好了，言归正传，今天要讲的是被称为机器学习界的“Hello world”，几乎每个入门系列都会用到的一个知名数据集——MNIST手写数字图像数据集，该系列的后续文章中也经常会用到，所以今天独立出来讲一下好了。</p>
+<a id="more"></a>
+
 <h1 id="MNIST手写数字数据集"><a href="#MNIST手写数字数据集" class="headerlink" title="MNIST手写数字数据集"></a>MNIST手写数字数据集</h1><p>首先给出官网：<a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">THE MNIST DATABASE of handwritten digits</a></p>
-<p>MNIST是一个经典的手写数字数据集，来自<strong>美国国家标准与技术研究所</strong>，由不同人手写的0至9的数字构成，由60000个训练样本集和10000个测试样本集构成，每个样本的尺寸为28x28，以二进制格式存储，如下图所示：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0f1ocvq24j20hm082djf.jpg" alt=""><br>这里有个比较坑的细节，就是数据采集都是外国人，他们的手写数字风格跟我们亚洲人的略有不同，这也导致识别我们自己手写的数字时候准确率下降了不少=。=</p>
+<p>MNIST是一个经典的手写数字数据集，来自<strong>美国国家标准与技术研究所</strong>，由不同人手写的0至9的数字构成，由60000个训练样本集和10000个测试样本集构成，每个样本的尺寸为28x28，以二进制格式存储，如下图所示：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0f1ocvq24j20hm082djf.jpg" alt><br>这里有个比较坑的细节，就是数据采集都是外国人，他们的手写数字风格跟我们亚洲人的略有不同，这也导致识别我们自己手写的数字时候准确率下降了不少=。=</p>
 <p>下载下来之后是4个gz压缩包：</p>
 <ul>
 <li><a href="http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz" target="_blank" rel="noopener">train-images-idx3-ubyte.gz</a>:  training set images (9912422 bytes) </li>
@@ -435,8 +442,7 @@
 <th>[description]</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0000</td>
 <td>32 bit integer</td>
 <td>0x00000801(2049)</td>
@@ -466,8 +472,7 @@
 <td>??</td>
 <td>label</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <h2 id="The-labels-values-are-0-to-9"><a href="#The-labels-values-are-0-to-9" class="headerlink" title="The labels values are 0 to 9."></a><strong>The labels values are 0 to 9.</strong></h2><p>TEST SET IMAGE FILE (train-images-idx3-ubyte):</p>
 <table>
 <thead>
@@ -478,8 +483,7 @@
 <th>[description]</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>0000</td>
 <td>32 bit integer</td>
 <td>0x00000803(2051)</td>
@@ -521,8 +525,7 @@
 <td>??</td>
 <td>pixel</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>Pixels are organized row-wise. Pixel values are 0 to 255. 0 means background (white), 255 means foreground (black).</strong></p>
 </blockquote>
 <p>训练集和测试集的结构都是一样的，这里我就只贴出训练集的结构，标签是0到9的数字，图像则是0到255的像素值。</p>
@@ -534,13 +537,15 @@
 </ul>
 <p>这里的行和列，其实就是一张图片的像素矩阵，也就是每个图片都有<code>28×28=784</code>个像素。所以说，<strong>从第16个字节开始，就是图片的每一个像素点的值</strong>了。</p>
 <p>说到这里可能会有些朋友担心，会不会每一张图片都是这么排下来呢？为此我去算了下这个二进制文件的长度，刚好就是<code>16+28*28*60000</code>,所以文件描述信息呢就之在文件开头出现了，后面的就是每张图片的像素连在一起了，图片的规格统一被处理成28*28的图片了。</p>
-<p>因此，读取图片信息有了如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line">  * 读取图像文件</span><br><span class="line">  * @param imagesPath</span><br><span class="line">  * @return</span><br><span class="line">  */</span><br><span class="line">def loadImages(imagesPath: String):  Array[Array[Byte]] =&#123;</span><br><span class="line"></span><br><span class="line">  val file = new File(imagesPath)</span><br><span class="line">  val in = new FileInputStream(file)</span><br><span class="line">  var trainingDS = new Array[Byte](file.length.toInt)</span><br><span class="line">  using(new FileInputStream(file)) &#123; source =&gt;</span><br><span class="line">    &#123;</span><br><span class="line">      in.read(trainingDS)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //32 bit integer  0x00000803(2051) magic number</span><br><span class="line">  val magicNum = ByteBuffer.wrap(trainingDS.take(4)).getInt</span><br><span class="line">  println(s&quot;magicNum=$magicNum&quot;)</span><br><span class="line">  //32 bit integer  60000            number of items</span><br><span class="line">  val numOfItems = ByteBuffer.wrap(trainingDS.slice(4, 8)).getInt</span><br><span class="line">  println(s&quot;numOfItems=$numOfItems&quot;)</span><br><span class="line">  //32 bit integer  28               number of rows</span><br><span class="line">  val numOfRows = ByteBuffer.wrap(trainingDS.slice(8, 12)).getInt</span><br><span class="line">  println(s&quot;numOfRows=$numOfRows&quot;)</span><br><span class="line">  //32 bit integer  28               number of columns</span><br><span class="line">  val numOfCols = ByteBuffer.wrap(trainingDS.slice(12, 16)).getInt</span><br><span class="line">  println(s&quot;numOfCols=$numOfCols&quot;)</span><br><span class="line"></span><br><span class="line">  trainingDS = trainingDS.drop(16)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  val itemsBuffer = new ArrayBuffer[Array[Byte]]</span><br><span class="line">  for(i &lt;- 0 until numOfItems)&#123;</span><br><span class="line">    itemsBuffer += trainingDS.slice( i * numOfCols * numOfRows , (i+1) * numOfCols * numOfRows)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  itemsBuffer.toArray</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因此，读取图片信息有了如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line">  * 读取图像文件</span><br><span class="line">  * @param imagesPath</span><br><span class="line">  * @return</span><br><span class="line">  *&#x2F;</span><br><span class="line">def loadImages(imagesPath: String):  Array[Array[Byte]] &#x3D;&#123;</span><br><span class="line"></span><br><span class="line">  val file &#x3D; new File(imagesPath)</span><br><span class="line">  val in &#x3D; new FileInputStream(file)</span><br><span class="line">  var trainingDS &#x3D; new Array[Byte](file.length.toInt)</span><br><span class="line">  using(new FileInputStream(file)) &#123; source &#x3D;&gt;</span><br><span class="line">    &#123;</span><br><span class="line">      in.read(trainingDS)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F;32 bit integer  0x00000803(2051) magic number</span><br><span class="line">  val magicNum &#x3D; ByteBuffer.wrap(trainingDS.take(4)).getInt</span><br><span class="line">  println(s&quot;magicNum&#x3D;$magicNum&quot;)</span><br><span class="line">  &#x2F;&#x2F;32 bit integer  60000            number of items</span><br><span class="line">  val numOfItems &#x3D; ByteBuffer.wrap(trainingDS.slice(4, 8)).getInt</span><br><span class="line">  println(s&quot;numOfItems&#x3D;$numOfItems&quot;)</span><br><span class="line">  &#x2F;&#x2F;32 bit integer  28               number of rows</span><br><span class="line">  val numOfRows &#x3D; ByteBuffer.wrap(trainingDS.slice(8, 12)).getInt</span><br><span class="line">  println(s&quot;numOfRows&#x3D;$numOfRows&quot;)</span><br><span class="line">  &#x2F;&#x2F;32 bit integer  28               number of columns</span><br><span class="line">  val numOfCols &#x3D; ByteBuffer.wrap(trainingDS.slice(12, 16)).getInt</span><br><span class="line">  println(s&quot;numOfCols&#x3D;$numOfCols&quot;)</span><br><span class="line"></span><br><span class="line">  trainingDS &#x3D; trainingDS.drop(16)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  val itemsBuffer &#x3D; new ArrayBuffer[Array[Byte]]</span><br><span class="line">  for(i &lt;- 0 until numOfItems)&#123;</span><br><span class="line">    itemsBuffer +&#x3D; trainingDS.slice( i * numOfCols * numOfRows , (i+1) * numOfCols * numOfRows)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  itemsBuffer.toArray</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>代码里面提取了文件描述信息，并返回有每一张图片像素数据组成的数组。完整代码我放在github上了： <a href="https://github.com/VoidChen10/MachineLearning/blob/master/src/main/scala/SparkMLlib/Classification/NaiveBayesExample.scala" target="_blank" rel="noopener">完整代码</a></p>
 <p>读取标签数据也是同理，在下一篇文章中，我将会详细讲述如何用标签和图片数据去做训练，敬请期待=。=</p>
 <p>其实数据集到这里已经是完成读取了，后续只要转换成spark MLlib的数据格式就能用了，<strong>但是！我在把像素值由二进制byte类型转换成double类型的时候，居然出现了负数</strong>。这是怎么回事呢，看官网说的，值应该是在0到255之间才对啊。再仔细看了一遍文件架构，发现标明的像素类型为<code>unsigned byte</code>，即无符号byte类型，在我学习java的时候，隐约记得有学过说java类型都是有符号的，第一位即是正负号。<br>于是去搜索了一下，找到了这篇文章：<a href="https://www.jianshu.com/p/db85f033e75c" target="_blank" rel="noopener">《Java中对于unsigned byte类型的转换处理》</a></p>
 <h1 id="把二进制像素值转换为Double类型数字"><a href="#把二进制像素值转换为Double类型数字" class="headerlink" title="把二进制像素值转换为Double类型数字"></a>把二进制像素值转换为Double类型数字</h1><p>由于Java中没有unsigned byte类型，所以一个字节只能表示（-128，127），而想要表示（0，255），也很简单，只要跟<code>0xFF</code>取<code>&amp;</code>操作即可。</p>
 <p>原理其实就是正数的反码和补码都是其本身，负数的反码是对原码除了符号位之外作取反运算，补码则为反码+1。</p>
-<p>更多细节可以参考：<a href="http://www.cnblogs.com/think-in-java/p/5527389.html" target="_blank" rel="noopener">《byte为什么要与上0xff？》</a>、<a href="https://www.jianshu.com/p/db85f033e75c" target="_blank" rel="noopener">《Java中对于unsigned byte类型的转换处理》</a><br>下面贴出我处理逻辑的部分代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val data = trainLabe.zip(trainImages).map( d =&gt;</span><br><span class="line">     LabeledPoint(d._1.toInt, Vectors.dense(d._2.map(p =&gt; (p &amp; 0xFF).toDouble)))</span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>更多细节可以参考：<a href="http://www.cnblogs.com/think-in-java/p/5527389.html" target="_blank" rel="noopener">《byte为什么要与上0xff？》</a>、<a href="https://www.jianshu.com/p/db85f033e75c" target="_blank" rel="noopener">《Java中对于unsigned byte类型的转换处理》</a><br>下面贴出我处理逻辑的部分代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">val data &#x3D; trainLabe.zip(trainImages).map( d &#x3D;&gt;</span><br><span class="line">     LabeledPoint(d._1.toInt, Vectors.dense(d._2.map(p &#x3D;&gt; (p &amp; 0xFF).toDouble)))</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <h1 id="下期预告"><a href="#下期预告" class="headerlink" title="下期预告"></a>下期预告</h1><p>下一期我将会记录我用spark MLlib中提供的<strong>朴树贝叶斯</strong>算法，对该数据集进行训练，并用测试集测试。关于该数据集呢，其实还有一点要补充的，比如把自己的手写图片转换成MNIST标准格式，还有替代MNIST手写数字集的图像数据集<strong>Fashion MNIST</strong>，这些后续都会补充进该文章。持续更新ing…</p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><ul>
 <li><a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">《THE MNIST DATABASE of handwritten digits》</a></li>
@@ -568,7 +573,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/Spark-MLlib学习日记2：MNIST手写数字的读取使用/" title="Spark-MLlib学习日记2：MNIST手写数字的读取使用">https://voidchen.cn/Spark-MLlib学习日记2：MNIST手写数字的读取使用/</a>
+    <a href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B02%EF%BC%9AMNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E7%9A%84%E8%AF%BB%E5%8F%96%E4%BD%BF%E7%94%A8/" title="Spark-MLlib学习日记2：MNIST手写数字的读取使用">https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B02%EF%BC%9AMNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E7%9A%84%E8%AF%BB%E5%8F%96%E4%BD%BF%E7%94%A8/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -585,7 +590,7 @@
           
             <a href="/tags/MachineLeaning/" rel="tag"># MachineLeaning</a>
           
-            <a href="/tags/数据集/" rel="tag"># 数据集</a>
+            <a href="/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag"># 数据集</a>
           
         </div>
       
@@ -598,7 +603,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/小技巧！从网易云音乐缓存中获取版权失效的音乐/" rel="next" title="小技巧！从网易云音乐缓存中获取版权失效的音乐">
+              <a href="/%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%81%E4%BB%8E%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E7%BC%93%E5%AD%98%E4%B8%AD%E8%8E%B7%E5%8F%96%E7%89%88%E6%9D%83%E5%A4%B1%E6%95%88%E7%9A%84%E9%9F%B3%E4%B9%90/" rel="next" title="小技巧！从网易云音乐缓存中获取版权失效的音乐">
                 <i class="fa fa-chevron-left"></i> 小技巧！从网易云音乐缓存中获取版权失效的音乐
               </a>
             
@@ -608,7 +613,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Spark-MLlib学习日记3：使用朴素贝叶斯识别手写图片/" rel="prev" title="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片">
+              <a href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B03%EF%BC%9A%E4%BD%BF%E7%94%A8%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E5%9B%BE%E7%89%87/" rel="prev" title="Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片">
                 Spark-MLlib学习日记3：使用朴素贝叶斯识别手写数字图片 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -679,9 +684,11 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg" alt="VoidChen10">
+              <img class="site-author-image" itemprop="image"
+                src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg"
+                alt="VoidChen10" />
             
               <p class="site-author-name" itemprop="name">VoidChen10</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -692,9 +699,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -705,7 +712,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -716,7 +723,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -770,7 +777,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MNIST手写数字数据集"><span class="nav-number">2.</span> <span class="nav-text">MNIST手写数字数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-labels-values-are-0-to-9"><span class="nav-number">2.1.</span> <span class="nav-text">The labels values are 0 to 9.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#把二进制像素值转换为Double类型数字"><span class="nav-number">3.</span> <span class="nav-text">把二进制像素值转换为Double类型数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下期预告"><span class="nav-number">4.</span> <span class="nav-text">下期预告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-number">5.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MNIST手写数字数据集"><span class="nav-text">MNIST手写数字数据集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-labels-values-are-0-to-9"><span class="nav-text">The labels values are 0 to 9.</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#把二进制像素值转换为Double类型数字"><span class="nav-text">把二进制像素值转换为Double类型数字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#下期预告"><span class="nav-text">下期预告</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考链接"><span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
@@ -790,7 +797,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

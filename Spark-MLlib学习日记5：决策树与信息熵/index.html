@@ -6,10 +6,10 @@
 
 
 <html class="theme-next pisces use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
 
 
@@ -21,12 +21,12 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
-  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw">
+  <meta name="google-site-verification" content="pPA22JND_J2bsNmYLMOtbgTRrDDdJPW8FW54QN_tZjw" />
 
 
 
@@ -45,7 +45,7 @@
 
 
 
-  <meta name="baidu-site-verification" content="ImJKZq1eMD">
+  <meta name="baidu-site-verification" content="ImJKZq1eMD" />
 
 
 
@@ -55,7 +55,7 @@
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="决策树,信息熵,信息增益,spark,mllib">
+  <meta name="keywords" content="决策树,信息熵,信息增益,spark,mllib" />
 
 
 
@@ -95,19 +95,22 @@
 
 
 <meta name="description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于信息熵的。概率是某件事情（宏观态）某个可能情况（微观态）的确定性，而熵是某件事情（宏观态）到底是哪个情况（微观态）的不确定性。两者正好相反，决策树通过不断消减分">
-<meta name="keywords" content="决策树,信息熵,信息增益,spark,mllib">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记5：决策树与信息熵">
-<meta property="og:url" content="https://voidchen.cn/Spark-MLlib学习日记5：决策树与信息熵/index.html">
+<meta property="og:url" content="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/index.html">
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于信息熵的。概率是某件事情（宏观态）某个可能情况（微观态）的确定性，而熵是某件事情（宏观态）到底是哪个情况（微观态）的不确定性。两者正好相反，决策树通过不断消减分">
-<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v8prnt4xj20js0czgn4.jpg">
-<meta property="og:updated_time" content="2019-03-18T08:41:43.987Z">
+<meta property="article:published_time" content="2019-03-06T08:08:15.000Z">
+<meta property="article:modified_time" content="2019-03-18T00:41:43.000Z">
+<meta property="article:author" content="VoidChen10">
+<meta property="article:tag" content="决策树">
+<meta property="article:tag" content="信息熵">
+<meta property="article:tag" content="信息增益">
+<meta property="article:tag" content="spark">
+<meta property="article:tag" content="mllib">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spark-MLlib学习日记5：决策树与信息熵">
-<meta name="twitter:description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于信息熵的。概率是某件事情（宏观态）某个可能情况（微观态）的确定性，而熵是某件事情（宏观态）到底是哪个情况（微观态）的不确定性。两者正好相反，决策树通过不断消减分">
 <meta name="twitter:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg">
 
 
@@ -138,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记5：决策树与信息熵/">
+  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记5：决策树与信息熵/"/>
 
 
 
@@ -147,7 +150,7 @@
 
 
 
-  <title>Spark-MLlib学习日记5：决策树与信息熵 | 「旅の途中」</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Spark-MLlib学习日记5：决策树与信息熵 | 「旅の途中」</title>
   
 
 
@@ -157,9 +160,9 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.1"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -169,13 +172,13 @@
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
+      <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">「旅の途中」</span>
         <span class="logo-line-after"><i></i></span>
@@ -203,9 +206,9 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
+          <a href="/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -213,9 +216,9 @@
       
         
         <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
+          <a href="/about/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
             关于
           </a>
@@ -223,9 +226,9 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
+          <a href="/tags/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -233,9 +236,9 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
+          <a href="/categories/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
             分类
           </a>
@@ -243,9 +246,9 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
+          <a href="/archives/%20" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -258,7 +261,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
             搜索
           </a>
@@ -279,7 +282,9 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -311,20 +316,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib学习日记5：决策树与信息熵/">
+    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg">
     </span>
 
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="「旅の途中」">
     </span>
 
@@ -358,7 +363,7 @@
           </span>
 
           
-            <span class="post-category">
+            <span class="post-category" >
             
               <span class="post-meta-divider">|</span>
             
@@ -369,8 +374,8 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spark-MLlib学习日记/" itemprop="url" rel="index">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index">
                     <span itemprop="name">Spark-MLlib学习日记</span>
                   </a>
                 </span>
@@ -391,7 +396,7 @@
           
             <span class="post-meta-divider">|</span>
             <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
             </span>
           
 
@@ -414,6 +419,7 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——<strong>决策树</strong>。有点意思的是，朴素贝叶斯的基础理论是<strong>概率</strong>论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于<strong>信息熵</strong>的。概率是某件事情（宏观态）某个可能情况（微观态）的<strong>确定性</strong>，而熵是某件事情（宏观态）到底是哪个情况（微观态）的<strong>不确定性</strong>。两者正好相反，决策树通过不断消减分类（或选项）的不确定性，从而给出正确的分类。</p>
 <a id="more"></a>
+
 <h1 id="什么是决策树"><a href="#什么是决策树" class="headerlink" title="什么是决策树"></a>什么是决策树</h1><p>其实按照字面的理解，就是一棵帮助你做决策的树，二叉树又或者是非二叉树，树的节点就是if … else … 的判断，期望每一次的判断都是最好的决定，一直到最后获得预期最好的结果。这种策略也被称为<strong>贪心算法</strong>。</p>
 <p>当然，这只是我的个人看法，处于一个初学者的见解而已，下面给出决策树的定义：</p>
 <blockquote>
@@ -438,8 +444,7 @@
 <th>出去玩</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>1</td>
 <td>0</td>
 <td>0</td>
@@ -481,10 +486,9 @@
 <td>0</td>
 <td>1</td>
 </tr>
-</tbody>
-</table>
-<p>根据这个表格，我们来尝试构造一颗决策树，例如将是否起风作为根节点，能得出以下半成品树：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg" alt=""></p>
-<p>根据表格的数据，在得知是否会起风的情况下，再根据剩余的属性来判断小明是否会出去玩，比如说起风了之后，得到左子树的数据表格，明显可以看到，高温的时候就会出去玩，而低温这不会出去玩。像这样，确定了一个属性之后不断往下构造决策树，最终得到完整决策树如下：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v8prnt4xj20js0czgn4.jpg" alt=""></p>
+</tbody></table>
+<p>根据这个表格，我们来尝试构造一颗决策树，例如将是否起风作为根节点，能得出以下半成品树：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg" alt></p>
+<p>根据表格的数据，在得知是否会起风的情况下，再根据剩余的属性来判断小明是否会出去玩，比如说起风了之后，得到左子树的数据表格，明显可以看到，高温的时候就会出去玩，而低温这不会出去玩。像这样，确定了一个属性之后不断往下构造决策树，最终得到完整决策树如下：<br><img src="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v8prnt4xj20js0czgn4.jpg" alt></p>
 <p>就这样，我们一步一步就构建了一个决策树出来了，从图上看起来，就是不断地if … else …作出决定嘛，好像也没什么嘛。事实上真的是这样的吗？为什么要吧 <code>起风</code> 放在根节点呢？为什么不能放 <code>温度</code> 呢？ 我们如何去判断把哪个属性作为根节点往下分裂呢？</p>
 <p>举例的这棵决策树的构建过程，其实就是广为应用的<strong>ID3算法</strong>的算法流程。基本的ID3算法是通过<strong>自顶向下</strong>构造决策树进行学习的。首先考虑的问题是哪一个属性将在树的根节点测试。为解决这一问题，使用统计测试来确定每一个实例属性单独分类训练样本的能力。<strong>将分类能力最好的属性作为树的跟节点</strong>，之后根节点属性的每一个可能值会产生一个分支，然后把训练样例排列到适当的分支下，重复整个过程，用每个分支结点关联的训练样本来选择最佳属性。这是对合格决策树的贪婪搜索，也就是说算法从不回溯重新考虑以前的选择。</p>
 <p>至于怎么去判断哪个<strong>属性</strong>的分类能力最好，这就要提到了决策树的基础理论——<strong>信息熵</strong></p>
@@ -492,7 +496,7 @@
 <h2 id="信息熵的含义"><a href="#信息熵的含义" class="headerlink" title="信息熵的含义"></a>信息熵的含义</h2><p><strong>定义：</strong> 当一件事情有多种可能情况时，这件事情对某人而言具体是哪种情况的<strong>不确定性</strong>叫做<strong>熵</strong>，而能够消除该人对这件事情不确定性的事物叫做<strong>信息</strong></p>
 <p>为了区分开热力学上的熵，所以才会有<strong>信息熵</strong>这个概念，准确来说应该叫做信息的熵，是一个衡量一个事件的状态的<strong>单位</strong>，跟千克，米类似的，他是一个实实在在的客观物理量，而不是虚无缥缈的抽象概念。<strong>获取信息等于消除熵</strong>，这是什么意思呢，就拿上面的例子来说，得知外面的天气是“起风了”，那对于判断小明会不会出去玩就更有“把握”了，这里获知的“起风了”，就是获取了“信息“，更有”把握“则表明进一步确定小明会不会出去玩，就是消除了对”小明会不会出去玩“这件事的”不确定性“，也就是消除了熵。 </p>
 <p>是不是稍微有一点能理解了呢。一个事件或者属性中，其信息熵越大，所包含的不确定信息越大，对数据分析的计算就越有价值，因为得到了其中包含的信息，就消除了事件的不确定性，因此决策树总是优先选择拥有最高信息熵的属性作为待测属性，并以此分裂子树。</p>
-<h2 id="信息熵的计算公式"><a href="#信息熵的计算公式" class="headerlink" title="信息熵的计算公式"></a>信息熵的计算公式</h2><p>假设事件一共有n种属性，其各自对应的概率为：$P_1,P_2,…,P_n$ ，且各属性之间出现时彼此互相独立无相关性。此时可以将信息熵定义为单个属性的对数的平均值。即：<br>$$E(P) = E(-log P_i)  = -\sum_{i=1}^{n} P_i logP_i$$<br>更详细的推导过程可以看下我下面推荐的第二个视频，包括那个负号是哪来的。。。这里我们结合上面表格的数据举一个例子，来套套公式，看下信息熵的计算流程。</p>
+<h2 id="信息熵的计算公式"><a href="#信息熵的计算公式" class="headerlink" title="信息熵的计算公式"></a>信息熵的计算公式</h2><p>假设事件一共有n种属性，其各自对应的概率为：$P_1,P_2,…,P_n$ ，且各属性之间出现时彼此互相独立无相关性。此时可以将信息熵定义为单个属性的对数的平均值。即：<br>$$E(P) = E(-log\ P_i) \ = -\sum_{i=1}^{n} P_i logP_i$$<br>更详细的推导过程可以看下我下面推荐的第二个视频，包括那个负号是哪来的。。。这里我们结合上面表格的数据举一个例子，来套套公式，看下信息熵的计算流程。</p>
 <p>以 <code>出去玩</code> 为例，首先根据公式计算出去玩的概率，从表格可知，一共6个样本数据，0出现了2次，1出现了4次，分别求两者的概率：<br>$P_1 = \frac{4}{2 + 4} = \frac{4}{6}$<br>$P_2 = \frac{2}{2 + 4} = \frac{2}{6}$<br>$E(o)  = -\sum_{i=1}^{n} P_i logP_i = -(\frac{4}{6} log_2 \frac{4}{6}) -(\frac{2}{6} log_2 \frac{2}{6}) ≈ 0.918$<br>即出去玩（out）的信息熵为0.918。同样用公式套进去，可得：<br>温度的信息熵为：$E(t) ≈ 0.809 $<br>起风的信息熵为：$E(w) ≈ 0.459 $<br>下雨的信息熵为：$E(r) ≈ 0.602 $<br>湿度的信息熵为：$E(h) ≈ 0.874 $</p>
 <h2 id="利用信息熵构造决策树"><a href="#利用信息熵构造决策树" class="headerlink" title="利用信息熵构造决策树"></a>利用信息熵构造决策树</h2><p>通过上面的公式，我们求出了各个属性的信息熵，那决策树是怎么去利用这些熵的呢？这里我就简单介绍其中的一种经典决策树构造算法——<strong>ID3算法</strong>。</p>
 <p>ID3算法是一种贪心算法，以信息熵的下降速度作为选取测试属性的标准，即在每个节点选取还尚未被用来划分的，具有最高信息增益的属性作为划分标准，然后递归这个过程，直到生成的决策树能完美分类训练样例。可以说，<strong>ID3算法的核心其实就是信息增益的计算</strong>。</p>
@@ -503,7 +507,9 @@
 <p>噪音是干扰某人获得信息的事物。</p>
 <p>而数据是噪音与信息的混合，需要用<strong>知识</strong>将其分离。</p>
 <p>这里给出两个视频，up主讲得非常清楚，对于像我这种从未接触过信息论的人来说，简直是醍醐灌顶，所以在这里也分享给大家。<br><strong>什么是信息，什么是信息熵？：</strong></p>
-<iframe height="480" width="620" src="//player.bilibili.com/player.html?aid=41463132&cid=72821652&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe><br><strong>如何计算信息熵</strong><br><iframe height="480" width="620" src="//player.bilibili.com/player.html?aid=41539594&cid=72965146&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe height="480" width="620" src="//player.bilibili.com/player.html?aid=41463132&cid=72821652&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+**如何计算信息熵**
+<iframe height="480" width="620" src="//player.bilibili.com/player.html?aid=41539594&cid=72965146&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 
 
@@ -550,7 +556,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/Spark-MLlib学习日记5：决策树与信息熵/" title="Spark-MLlib学习日记5：决策树与信息熵">https://voidchen.cn/Spark-MLlib学习日记5：决策树与信息熵/</a>
+    <a href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/" title="Spark-MLlib学习日记5：决策树与信息熵">https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -565,11 +571,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
-          
             <a href="/tags/MachineLeaning/" rel="tag"># MachineLeaning</a>
           
-            <a href="/tags/分类/" rel="tag"># 分类</a>
+            <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+          
+            <a href="/tags/%E5%88%86%E7%B1%BB/" rel="tag"># 分类</a>
           
         </div>
       
@@ -582,7 +588,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式/" rel="next" title="Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式">
+              <a href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B04%EF%BC%9A%E5%B0%86%E8%87%AA%E5%B7%B1%E6%89%8B%E5%86%99%E7%9A%84%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86%E6%88%90MNIST%E6%A0%BC%E5%BC%8F/" rel="next" title="Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式">
                 <i class="fa fa-chevron-left"></i> Spark-MLlib学习日记4：将自己手写的图片处理成MNIST格式
               </a>
             
@@ -592,7 +598,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/Spark-MLlib学习日记6：使用随机森林算法识别手写数字/" rel="prev" title="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">
+              <a href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B06%EF%BC%9A%E4%BD%BF%E7%94%A8%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97%E7%AE%97%E6%B3%95%E8%AF%86%E5%88%AB%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97/" rel="prev" title="Spark-MLlib学习日记6：使用随机森林算法识别手写数字">
                 Spark-MLlib学习日记6：使用随机森林算法识别手写数字 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -663,9 +669,11 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg" alt="VoidChen10">
+              <img class="site-author-image" itemprop="image"
+                src="http://ww1.sinaimg.cn/large/76e60a7bgy1fzk07rbixlj20hs0hs3yr.jpg"
+                alt="VoidChen10" />
             
               <p class="site-author-name" itemprop="name">VoidChen10</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -676,9 +684,9 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -689,7 +697,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -700,7 +708,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -754,7 +762,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是决策树"><span class="nav-number">2.</span> <span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信息熵与决策树的构造"><span class="nav-number">3.</span> <span class="nav-text">信息熵与决策树的构造</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息熵的含义"><span class="nav-number">3.1.</span> <span class="nav-text">信息熵的含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息熵的计算公式"><span class="nav-number">3.2.</span> <span class="nav-text">信息熵的计算公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用信息熵构造决策树"><span class="nav-number">3.3.</span> <span class="nav-text">利用信息熵构造决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于信息论需要进一步了解的东西"><span class="nav-number">3.4.</span> <span class="nav-text">关于信息论需要进一步了解的东西</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关术语与名词"><span class="nav-number">4.</span> <span class="nav-text">相关术语与名词</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点杂质（node-impurity）"><span class="nav-number">4.1.</span> <span class="nav-text">节点杂质（node impurity）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基尼不纯度（Gini-Impurity）"><span class="nav-number">4.2.</span> <span class="nav-text">基尼不纯度（Gini Impurity）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过拟合（Over-fitting）"><span class="nav-number">4.3.</span> <span class="nav-text">过拟合（Over-fitting）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-number">5.</span> <span class="nav-text">后记</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是决策树"><span class="nav-text">什么是决策树</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#信息熵与决策树的构造"><span class="nav-text">信息熵与决策树的构造</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息熵的含义"><span class="nav-text">信息熵的含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#信息熵的计算公式"><span class="nav-text">信息熵的计算公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用信息熵构造决策树"><span class="nav-text">利用信息熵构造决策树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于信息论需要进一步了解的东西"><span class="nav-text">关于信息论需要进一步了解的东西</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关术语与名词"><span class="nav-text">相关术语与名词</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点杂质（node-impurity）"><span class="nav-text">节点杂质（node impurity）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基尼不纯度（Gini-Impurity）"><span class="nav-text">基尼不纯度（Gini Impurity）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过拟合（Over-fitting）"><span class="nav-text">过拟合（Over-fitting）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-text">后记</span></a></li></ol></div>
             
 
           </div>
@@ -774,7 +782,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
