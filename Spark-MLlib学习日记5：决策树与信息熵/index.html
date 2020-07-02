@@ -97,7 +97,7 @@
 <meta name="description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于信息熵的。概率是某件事情（宏观态）某个可能情况（微观态）的确定性，而熵是某件事情（宏观态）到底是哪个情况（微观态）的不确定性。两者正好相反，决策树通过不断消减分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记5：决策树与信息熵">
-<meta property="og:url" content="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/index.html">
+<meta property="og:url" content="http://www.voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/index.html">
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="前言前面提到了朴素贝叶斯，一种通过对比概率来进行分类的分类算法，今天我们来讲讲另外一种基于信息熵的分类算法——决策树。有点意思的是，朴素贝叶斯的基础理论是概率论，帮助我们作出分类判断的是哪个分类（或选项）的概率最高，而决策树恰恰相反，是基于信息熵的。概率是某件事情（宏观态）某个可能情况（微观态）的确定性，而熵是某件事情（宏观态）到底是哪个情况（微观态）的不确定性。两者正好相反，决策树通过不断消减分">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g0v86nuxqpj211y0hedhr.jpg">
@@ -141,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记5：决策树与信息熵/"/>
+  <link rel="canonical" href="http://www.voidchen.cn/Spark-MLlib学习日记5：决策树与信息熵/"/>
 
 
 
@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/">
+    <link itemprop="mainEntityOfPage" href="http://www.voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
@@ -556,7 +556,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/" title="Spark-MLlib学习日记5：决策树与信息熵">https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/</a>
+    <a href="http://www.voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/" title="Spark-MLlib学习日记5：决策树与信息熵">http://www.voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B05%EF%BC%9A%E5%86%B3%E7%AD%96%E6%A0%91%E4%B8%8E%E4%BF%A1%E6%81%AF%E7%86%B5/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>

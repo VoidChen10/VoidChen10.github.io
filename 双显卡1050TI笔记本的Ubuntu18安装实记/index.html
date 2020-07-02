@@ -97,43 +97,43 @@
 <meta name="description" content="1、前言其实在这次安装前，我已经用了一个多星期的ubuntu-18.04.2了，在经历了数次重装和各种安装的坑之后，总算是对ubuntu有了一些理解。然后早上不知道做了个什么操作又把驱动给弄坏了，正好因为之前的安装也是一路磕磕碰碰搞错了不少东西，索性就直接再重装一次好了。吸取了之前各种驱动和软件安装的经验，想着这次应该能完美装好，所以有了这篇安装实记。一来是给自己留个记录方便以后查看（说不定又会重">
 <meta property="og:type" content="article">
 <meta property="og:title" content="双显卡1050TI笔记本的Ubuntu18安装实记">
-<meta property="og:url" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/index.html">
+<meta property="og:url" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/index.html">
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="1、前言其实在这次安装前，我已经用了一个多星期的ubuntu-18.04.2了，在经历了数次重装和各种安装的坑之后，总算是对ubuntu有了一些理解。然后早上不知道做了个什么操作又把驱动给弄坏了，正好因为之前的安装也是一路磕磕碰碰搞错了不少东西，索性就直接再重装一次好了。吸取了之前各种驱动和软件安装的经验，想着这次应该能完美装好，所以有了这篇安装实记。一来是给自己留个记录方便以后查看（说不定又会重">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/1.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/2.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/3.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/4.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/5.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/6.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/7.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/8.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/9.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/10.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/11.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/12.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/13.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/14.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/15.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/16.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/17.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/18.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/19.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/20.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/21.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/22.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/23.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/24.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/25.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/26.png">
-<meta property="og:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/27.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/1.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/2.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/3.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/4.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/5.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/6.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/7.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/8.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/9.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/10.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/11.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/12.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/13.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/14.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/15.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/16.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/17.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/18.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/19.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/20.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/21.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/22.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/23.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/24.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/25.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/26.png">
+<meta property="og:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/27.png">
 <meta property="article:published_time" content="2019-06-29T03:07:54.000Z">
 <meta property="article:modified_time" content="2020-06-30T16:40:35.000Z">
 <meta property="article:author" content="VoidChen10">
 <meta property="article:tag" content="ubuntu">
 <meta property="article:tag" content="双显卡">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/1.png">
+<meta name="twitter:image" content="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/1.png">
 
 
 
@@ -163,7 +163,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/双显卡1050TI笔记本的Ubuntu18安装实记/"/>
+  <link rel="canonical" href="http://www.voidchen.cn/双显卡1050TI笔记本的Ubuntu18安装实记/"/>
 
 
 
@@ -343,7 +343,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
@@ -648,7 +648,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/" title="双显卡1050TI笔记本的Ubuntu18安装实记">https://voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/</a>
+    <a href="http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/" title="双显卡1050TI笔记本的Ubuntu18安装实记">http://www.voidchen.cn/%E5%8F%8C%E6%98%BE%E5%8D%A11050TI%E7%AC%94%E8%AE%B0%E6%9C%AC%E7%9A%84Ubuntu18%E5%AE%89%E8%A3%85%E5%AE%9E%E8%AE%B0/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>

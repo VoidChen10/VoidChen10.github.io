@@ -97,7 +97,7 @@
 <meta name="description" content="前言嗯。。怎么说呢，本来见识到随机森林的强大之后，觉得分类算法里面，另一个集成算法——梯度提升决策树(GBDT)看不看都那样了，看各类书和spark官网对他的介绍也是一笔带过，所以抱着轻视的态度，顺手训练了下模型，结果识别率居然高达99.763593%！！！用的还是官方给的默认参数。。。而且训练速度贼快。我随机森林要跑15分钟，这个几分钟就好了。所以决定单独写一篇日记，来深入地去学习一下这个算法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spark-MLlib学习日记7：初探梯度提升决策树">
-<meta property="og:url" content="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/index.html">
+<meta property="og:url" content="http://www.voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/index.html">
 <meta property="og:site_name" content="「旅の途中」">
 <meta property="og:description" content="前言嗯。。怎么说呢，本来见识到随机森林的强大之后，觉得分类算法里面，另一个集成算法——梯度提升决策树(GBDT)看不看都那样了，看各类书和spark官网对他的介绍也是一笔带过，所以抱着轻视的态度，顺手训练了下模型，结果识别率居然高达99.763593%！！！用的还是官方给的默认参数。。。而且训练速度贼快。我随机森林要跑15分钟，这个几分钟就好了。所以决定单独写一篇日记，来深入地去学习一下这个算法。">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/76e60a7bgy1g1719jze6aj20i90ei761.jpg">
@@ -141,7 +141,7 @@
 
 
 
-  <link rel="canonical" href="https://voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/"/>
+  <link rel="canonical" href="http://www.voidchen.cn/Spark-MLlib学习日记7：初探梯度提升决策树/"/>
 
 
 
@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/">
+    <link itemprop="mainEntityOfPage" href="http://www.voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="VoidChen10">
@@ -545,7 +545,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/" title="Spark-MLlib学习日记7：初探梯度提升决策树">https://voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/</a>
+    <a href="http://www.voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/" title="Spark-MLlib学习日记7：初探梯度提升决策树">http://www.voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B07%EF%BC%9A%E5%88%9D%E6%8E%A2%E6%A2%AF%E5%BA%A6%E6%8F%90%E5%8D%87%E5%86%B3%E7%AD%96%E6%A0%91/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
