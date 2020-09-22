@@ -312,6 +312,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.voidchen.cn/%C2%96%E6%B5%85%E8%B0%88%E6%B5%81%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%BB%B6%E6%97%B6%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="VoidChen10">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="「旅の途中」">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/%C2%96%E6%B5%85%E8%B0%88%E6%B5%81%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%BB%B6%E6%97%B6%E5%A4%84%E7%90%86/" itemprop="url">浅谈流计算中的延时处理</a></h2>
+        
+
+        <div class="post-meta">
+		  
+            <i class="fa fa-thumb-tack"></i>
+            <font color=FF4500>置顶</font>
+            <span class="post-meta-divider">|</span>
+          
+
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-15T15:40:55+08:00">
+                2020-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Flink/" itemprop="url" rel="index">
+                    <span itemprop="name">Flink</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1、前言"><a href="#1、前言" class="headerlink" title="1、前言"></a>1、前言</h2><p>最近刚开始用Flink做流计算，踩了个坑，根据以往做实时流计算的经验，捋了一下Flink与Storm、Spark Streaming 的区别之后最终成功定位到问题并解决了。先不说坑在哪里，先说bug的表现：</p>
+<ol>
+<li>数据处理出结果的时间与数据自带的<strong>EventTime</strong>相差了十几秒；</li>
+<li>数据进入时候的延时为0~1秒；</li>
+<li>数据处理时间据log打印为50~200毫秒；</li>
+<li>数据入库花费时间约为300~700毫秒；</li>
+<li>设置了窗口间隔为1秒；</li>
+<li>设置了水印为流过数据的<strong>EventTime</strong>中最大的时间，允许乱序时间为1秒；</li>
+</ol>
+<p>是不是很奇怪？明明数据延时加上数据处理和入库的时间，也不过2~3秒，为什么最终结果数据却和数据本身的<strong>EventTime</strong>相差10多秒？</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/%C2%96%E6%B5%85%E8%B0%88%E6%B5%81%E8%AE%A1%E7%AE%97%E4%B8%AD%E7%9A%84%E5%BB%B6%E6%97%B6%E5%A4%84%E7%90%86/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://www.voidchen.cn/%E4%B8%80%E6%AC%A1es%E5%86%85%E5%AD%98%E4%BD%BF%E7%94%A8%E5%BC%82%E5%B8%B8%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1638,156 +1799,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.voidchen.cn/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B02%EF%BC%9AMNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E7%9A%84%E8%AF%BB%E5%8F%96%E4%BD%BF%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="VoidChen10">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="「旅の途中」">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B02%EF%BC%9AMNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E7%9A%84%E8%AF%BB%E5%8F%96%E4%BD%BF%E7%94%A8/" itemprop="url">Spark-MLlib学习日记2：MNIST手写数字的读取使用</a></h2>
-        
-
-        <div class="post-meta">
-		  
-
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-21T22:15:31+08:00">
-                2019-02-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index">
-                    <span itemprop="name">Spark-MLlib学习日记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>近来广州阴雨连绵，实在是让人提不起精神来，文档什么的也看不进去，脑袋昏昏沉沉的，所以拖拖拉拉到今天才出更新=。=</p>
-<p>重申一遍，我是沿着<a href="http://spark.apache.org/docs/latest/mllib-guide.html" target="_blank" rel="noopener">spark官网</a>中MLlib的api往下去学习的，提到的相关算法都会去学习下。文档上有的东西呢，我就不赘述了，只是把自己学习过程中一些重要的，别的博客没有提到的，记录一下，以后自己复习也方便。在这篇东西之前，我已经自己看完了spark MLlib的数据类型和基本统计，没了解的可以先去看一下文档，后续会有用到。</p>
-<p>好了，言归正传，今天要讲的是被称为机器学习界的“Hello world”，几乎每个入门系列都会用到的一个知名数据集——MNIST手写数字图像数据集，该系列的后续文章中也经常会用到，所以今天独立出来讲一下好了。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/Spark-MLlib%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B02%EF%BC%9AMNIST%E6%89%8B%E5%86%99%E6%95%B0%E5%AD%97%E7%9A%84%E8%AF%BB%E5%8F%96%E4%BD%BF%E7%94%A8/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1842,7 +1853,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1853,7 +1864,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1864,7 +1875,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
